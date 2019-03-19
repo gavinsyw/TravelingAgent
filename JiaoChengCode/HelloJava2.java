@@ -6,11 +6,14 @@ import javax.swing.*;
 
 import HelloWorld.Clock;
 
+import HelloWorld.FloatingWords;
+
 public class HelloJava2 {
 	public static void main(String[] args)
 	{
 		JFrame frame = new JFrame("Hello Java2");
-		frame.add(new HelloComponent("Hello Java!"));
+//		frame.add(new HelloComponent("Hello Java!"));
+		frame.add(new FloatingWords("Hello!", 0.1, 300, 300));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(300, 300);
 		frame.setVisible(true);
