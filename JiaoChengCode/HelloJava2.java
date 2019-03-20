@@ -24,6 +24,7 @@ class HelloComponent extends JComponent implements MouseMotionListener, ActionLi
 	int messageX = 125, messageY = 95;
 	JButton theButton;
 	Clock c;
+//	FloatingWords w;
 	
 	int colorIndex;
 	static Color[] someColors = {
@@ -37,6 +38,7 @@ class HelloComponent extends JComponent implements MouseMotionListener, ActionLi
 		theMessage = message;
 		theButton = new JButton("Change Color");
 		c = new Clock();
+//		w = new FloatingWords("Hello!", 300, 150);
 		setLayout(new FlowLayout());
 		add(theButton);
 		theButton.addActionListener(this);
@@ -51,6 +53,7 @@ class HelloComponent extends JComponent implements MouseMotionListener, ActionLi
 		Font font = new Font("Serif", Font.PLAIN, 64);
 		g.setFont(font);
 		c.paint(g);
+//		w.paintWords(g);
 		g.drawString(theMessage, messageX, messageY);
 		System.out.println("Repaint!");	
 	}
@@ -72,6 +75,9 @@ class HelloComponent extends JComponent implements MouseMotionListener, ActionLi
 			changeColor();
 	}
 	
+	/**
+	 * 
+	 */
 	synchronized private void changeColor()
 	{
 		if (++colorIndex == someColors.length)
@@ -101,5 +107,5 @@ class HelloComponent extends JComponent implements MouseMotionListener, ActionLi
 			ie.printStackTrace(System.err);
 		}
 	}
-
 }
+

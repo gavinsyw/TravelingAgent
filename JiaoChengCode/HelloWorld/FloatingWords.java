@@ -7,7 +7,7 @@ import java.awt.*;
 public class FloatingWords extends JComponent implements Runnable{
 	String words;
 	int wordX, wordY;
-	static int refreshTime = 20;
+	static int refreshTime = 50;
 	
 	public FloatingWords(String words, int wordX, int wordY)
 	{
@@ -17,7 +17,7 @@ public class FloatingWords extends JComponent implements Runnable{
 		t.start();
 	}
 	
-	public void paintWords(Graphics g)
+	public void paint(Graphics g)
 	{
 		g.setColor(Color.blue);
 		g.setFont(new Font("Serif", Font.PLAIN, 32));
@@ -29,11 +29,11 @@ public class FloatingWords extends JComponent implements Runnable{
 	{
 		try
 		{
-			while (wordX >= 0)
+			while (wordX >= -100)
 			{
 				wordX = wordX - 1;
 				repaint();
-				Thread.sleep(20);
+				Thread.sleep(refreshTime);
 			}
 		}
 		catch (InterruptedException e) {e.printStackTrace(System.err);}
