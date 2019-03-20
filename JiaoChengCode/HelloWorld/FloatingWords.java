@@ -5,42 +5,35 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FloatingWords extends JComponent implements Runnable{
-	static String words;
-	boolean running;
-	double floatSpeed;
-	static int boxWidth, boxLength;
-	double wordX, wordY;
+	String words;
+	int wordX, wordY;
 	static int refreshTime = 20;
-	Thread t;
 	
-	public FloatingWords(String words, double floatSpeed, int boxWidth, int boxLength)
+	public FloatingWords(String words, int wordX, int wordY)
 	{
-		FloatingWords.words = words;
-		this.floatSpeed = floatSpeed;
-		FloatingWords.boxLength = boxLength;
-		FloatingWords.boxWidth = boxWidth;
-		this.wordX = boxLength; this.wordY = boxWidth / 2;
-		t = new Thread(this);
+		this.words = words;
+		this.wordX = wordX; this.wordY = wordY;
+		Thread t = new Thread(this);
 		t.start();
 	}
 	
 	public void paintWords(Graphics g)
 	{
-		g.setColor(Color.black);
-		g.setFont(new Font("Serif", Font.PLAIN, 64));
-		g.drawString(words, (int)wordX, (int)wordY);
+		g.setColor(Color.blue);
+		g.setFont(new Font("Serif", Font.PLAIN, 32));
+		g.drawString(this.words, wordX, wordY);
+		System.out.println("Repaint! " + wordX + " " + wordY);
 	}
 
 	public void run() 
 	{
 		try
 		{
-			while (running)
+			while (wordX >= 0)
 			{
-				wordX = wordX - floatSpeed * refreshTime;
+				wordX = wordX - 1;
 				repaint();
-				System.out.println(wordX);
-				Thread.sleep(refreshTime);
+				Thread.sleep(20);
 			}
 		}
 		catch (InterruptedException e) {e.printStackTrace(System.err);}

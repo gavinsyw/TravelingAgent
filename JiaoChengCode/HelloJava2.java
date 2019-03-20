@@ -4,16 +4,14 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-import HelloWorld.Clock;
-
-import HelloWorld.FloatingWords;
+import HelloWorld.*;
 
 public class HelloJava2 {
 	public static void main(String[] args)
 	{
 		JFrame frame = new JFrame("Hello Java2");
 //		frame.add(new HelloComponent("Hello Java!"));
-		frame.add(new FloatingWords("Hello!", 0.1, 300, 300));
+		frame.add(new FloatingWords("Hello!", 180, 150));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(300, 300);
 		frame.setVisible(true);
@@ -54,6 +52,7 @@ class HelloComponent extends JComponent implements MouseMotionListener, ActionLi
 		g.setFont(font);
 		c.paint(g);
 		g.drawString(theMessage, messageX, messageY);
+		System.out.println("Repaint!");	
 	}
 	
 	public void mouseDragged(MouseEvent e)
