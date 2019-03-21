@@ -7,13 +7,15 @@ import javax.swing.*;
 import HelloWorld.*;
 
 public class HelloJava2 {
+	static JFrame frame = new JFrame("Hello Java2");
 	public static void main(String[] args)
 	{
-		JFrame frame = new JFrame("Hello Java2");
-//		frame.add(new HelloComponent("Hello Java!"));
-		frame.add(new FloatingWords("Hello!", 180, 150));
+		HelloComponent hc = new HelloComponent("Hello Java!");
+		FloatingWords fw = new FloatingWords("Hello!", 500, 150, Color.green);
+//		frame.add(hc);
+		frame.add(fw);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(300, 300);
+		frame.setSize(1000, 1000);
 		frame.setVisible(true);
 	}
 }
@@ -43,8 +45,10 @@ class HelloComponent extends JComponent implements MouseMotionListener, ActionLi
 		add(theButton);
 		theButton.addActionListener(this);
 		addMouseMotionListener(this);
-		Thread t = new Thread(this);
-		t.start();
+		Thread t1 = new Thread(this);
+		t1.start();
+		Thread t2 = new Thread(c);
+		t2.start();
 	}
 
 	public void paintComponent(Graphics g)
