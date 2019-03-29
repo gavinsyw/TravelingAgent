@@ -10,8 +10,10 @@ public class displayUI {
 	static JFrame frame = new JFrame("Login");
 	public static void main(String[] args)
 	{
+		LoginInterface li = new LoginInterface();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(1000, 1000);
+		frame.add(li);
+		frame.setSize(300, 200);
 		frame.setVisible(true);
 	}
 }
