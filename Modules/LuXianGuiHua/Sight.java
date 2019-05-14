@@ -2,23 +2,24 @@ import java.lang.*;
 
 
 public class Sight {
-	float longitude, latitude;
-	public int popularity;
-	public int feeling;
-	public int menPiao;
-	Integer timeCost;
+	double longitude, latitude;
+	int popularity;
+	int score, environment, service;
+	int menPiao;
+	String name;
 	
-	Sight(float longitude, float latitude, int popularity, int feeling, int menPiao, int timeCost) {
+	Sight(String name, double longitude, double latitude, int popularity, int score, int environment, int service, int menPiao) {
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.popularity = popularity;
-		this.feeling = feeling;
+		this.score = score;
+		this.environment = environment;
+		this.service = service;
 		this.menPiao = menPiao;
-		this.timeCost = new Integer(timeCost);
 		return;
 	}
 	
-	private float abs(float a) {
+	private double abs(double a) {
 		if (a > 0) {
 			return a;
 		}
@@ -27,7 +28,24 @@ public class Sight {
 		}
 	}
 	
-	public float distance(Sight s) {
+	private double distance(Sight s) {
 		return (abs(this.longitude - s.longitude) + abs(this.latitude - s.latitude));
+	}
+	
+	public double reward(Sight s) {
+		return this.distance(s);
+	}
+	
+	public void print()	{
+		System.out.println(name);
+	}
+	
+	public boolean equals(Sight s) {
+		if (this.popularity == s.popularity) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }
