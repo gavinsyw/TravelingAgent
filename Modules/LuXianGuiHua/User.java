@@ -13,7 +13,7 @@ public class User {
     private static int totalNumber = 0;
     private static SortedSet<String> names = new TreeSet<String>();
 
-    public User(int ID, String name, String password, String mail, String phoneNumber) {
+    User(int ID, String name, String password, String mail, String phoneNumber) {
         this.ID = ID;
         this.name = name;
         this.password = password;
@@ -22,6 +22,10 @@ public class User {
 
         totalNumber++;
         names.add(name);
+    }
+
+    public int getID() {
+        return this.ID;
     }
 
     public boolean setName(String newName) {
@@ -33,6 +37,10 @@ public class User {
         return true;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public boolean setPassword(String newPassword) {
         if (!checkPasswordValid(newPassword)) {
             return false;
@@ -40,6 +48,10 @@ public class User {
 
         this.password = newPassword;
         return true;
+    }
+
+    public String  getPassword() {
+        return this.password;
     }
 
     public boolean setMail(String newMail) {
@@ -51,6 +63,10 @@ public class User {
         return true;
     }
 
+    public String  getMail() {
+        return this.mail;
+    }
+
     public boolean setPhoneNumber(String newPhoneNumber) {
         if (!checkPhoneNumberValid(newPhoneNumber)) {
             return false;
@@ -58,6 +74,10 @@ public class User {
 
         this.phoneNumber = newPhoneNumber;
         return true;
+    }
+
+    public String  getPhoneNumber() {
+        return this.phoneNumber;
     }
 
     /**

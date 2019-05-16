@@ -1,7 +1,9 @@
+package com.example.lbstest.myclass;
+
 import java.lang.*;
 
 
-public class Sight {
+public class Sight extends Spot{
 	double longitude, latitude;
 	int popularity;
 	int score, environment, service;
@@ -16,7 +18,6 @@ public class Sight {
 		this.environment = environment;
 		this.service = service;
 		this.menPiao = menPiao;
-		return;
 	}
 	
 	private double abs(double a) {
