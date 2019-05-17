@@ -33,7 +33,9 @@ public class Sight {
 	}
 	
 	public double reward(Sight s) {
-		return this.distance(s);
+		double reward = 0;
+		reward -= this.distance(s);
+		return reward;
 	}
 	
 	public void print()	{
