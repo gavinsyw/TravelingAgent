@@ -12,7 +12,7 @@ public class Graph {
 		this.hotel = hotel;
 	}
 	
-	private Sight greedyNext(Sight currentSight, Vector<Sight> currentSequence) {
+	private Sight greedyNext(Sight currentSight, Vector<Sight> currentSequence, double distanceLoss, double popularityLoss, double scoreLoss, double environmentLoss, double serviceLoss, double costLoss) {
 		double maxReward = -10000;
 		Sight maxSight = sights.get(0);
 		for (int i = 0; i < sights.size(); ++i) {
@@ -26,16 +26,16 @@ public class Graph {
 			if (existFlag) {
 				continue;
 			}
-			if (currentSight.reward(trySight) > maxReward) {
+			if (currentSight.reward(trySight, distanceLoss, popularityLoss, scoreLoss, environmentLoss, serviceLoss, costLoss) > maxReward) {
 				maxSight = trySight;
-				maxReward = currentSight.reward(trySight);
+				maxReward = currentSight.reward(trySight, distanceLoss, popularityLoss, scoreLoss, environmentLoss, serviceLoss, costLoss);
 			}
 		}
 		maxSight.print();
 		return maxSight;
 	}
 	
-	private Vector<Sight> greedy(int numberOfSightPerDay) {
+	private Vector<Sight> greedy(int numberOfSightPerDay, double distanceLoss, double popularityLoss, double scoreLoss, double environmentLoss, double serviceLoss, double costLoss) {
 		Vector<Sight> travelSequence = new Vector<Sight>(sightNum);
 		// initialize the travelSquence
 		Integer currentIndex = 0;
@@ -43,7 +43,7 @@ public class Graph {
 			Sight currentSight = hotel;
 			for (int i = 0; i < numberOfSightPerDay; ++i) {
 				currentIndex += 1;
-				currentSight = greedyNext(currentSight, travelSequence);
+				currentSight = greedyNext(currentSight, travelSequence, distanceLoss, popularityLoss, scoreLoss, environmentLoss, serviceLoss, costLoss);
 				travelSequence.add(currentSight);
 			}
 			travelSequence.add(hotel);
@@ -51,7 +51,7 @@ public class Graph {
 		return travelSequence;
 	}
 	
-	public Vector<Sight> journeySequence(int numberOfSightPerDay) {
-		return greedy(numberOfSightPerDay);
+	public Vector<Sight> journeySequence(int numberOfSightPerDay, double distanceLoss, double popularityLoss, double scoreLoss, double environmentLoss, double serviceLoss, double costLoss) {
+		return greedy(numberOfSightPerDay, distanceLoss, popularityLoss, scoreLoss, environmentLoss, serviceLoss, costLoss);
 	}
 }

@@ -25,7 +25,8 @@ public class Demo {
 		}
 		Sight hotel = new Sight("xxhotel", 31.05485, 121.5033, 0, 0, 0, 0, 0);
 		Graph g = new Graph(60, s, hotel);
-		Vector<Sight> v = g.journeySequence(4);
+		double distanceLoss = 1, popularityLoss = 1, scoreLoss = 1, environmentLoss = 1, serviceLoss = 1, costLoss = 1;
+		Vector<Sight> v = g.journeySequence(4, distanceLoss, popularityLoss, scoreLoss, environmentLoss, serviceLoss, costLoss);
 		for (int i = 0; i < v.size(); ++i) {
 			System.out.println(s.indexOf(v.get(i)));
 		}

@@ -32,9 +32,14 @@ public class Sight {
 		return (abs(this.longitude - s.longitude) + abs(this.latitude - s.latitude));
 	}
 	
-	public double reward(Sight s) {
+	public double reward(Sight s, double distanceLoss, double popularityLoss, double scoreLoss, double environmentLoss, double serviceLoss, double costLoss) {
 		double reward = 0;
-		reward -= this.distance(s);
+		reward -= distanceLoss * this.distance(s);
+		reward += popularityLoss * s.popularity;
+		reward += scoreLoss * s.score;
+		reward += environmentLoss * s.environment;
+		reward += serviceLoss * s.service;
+		reward += costLoss * s.menPiao;
 		return reward;
 	}
 	
