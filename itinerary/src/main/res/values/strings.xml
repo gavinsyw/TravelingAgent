@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">checkBox</string>
+    <string name="popular_attraction">知名景点</string>
+    <string name="service">服务热情</string>
+    <string name="cheap">要少花钱</string>
+    <string name="leisure">悠闲旅游</string>
+    <string name="search_button">搜一下！</string>
+
+</resources>
