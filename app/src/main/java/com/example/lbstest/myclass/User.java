@@ -1,5 +1,8 @@
 package com.example.lbstest.myclass;
 
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 public class User {
     private int ID;
     private String name;
@@ -7,19 +10,18 @@ public class User {
     private String mail;
     private String phoneNumber;
 
-//    private static int totalNumber = 0;
-//    private static SortedSet<String> names = new TreeSet<>();
+    private static int totalNumber = 0;
+    private static SortedSet<String> names = new TreeSet<String>();
 
     User(int ID, String name, String password, String mail, String phoneNumber) {
         this.ID = ID;
-
         this.name = name;
         this.password = password;
         this.mail = mail;
         this.phoneNumber = phoneNumber;
 
-//        totalNumber++;
-//        names.add(name);
+        totalNumber++;
+        names.add(name);
     }
 
     public int getID() {
@@ -27,9 +29,9 @@ public class User {
     }
 
     public boolean setName(String newName) {
-//        if (names.contains(newName)) {
-//            return false;
-//        }
+        if (names.contains(newName)) {
+            return false;
+        }
 
         this.name = newName;
         return true;
