@@ -1,3 +1,5 @@
+package com.example.lbstest.myclass;
+
 import java.io.*;
 import java.util.Scanner;
 import java.util.Vector;
@@ -21,15 +23,16 @@ public class Demo {
 			service = sc.nextInt();
 			longitude = sc.nextDouble();
 			latitude = sc.nextDouble();
-			s.add(new Sight(sightName, longitude, latitude, popularity, totalScore, environment, service, ticket));
+			s.add(new Sight(sightName, 1, 1, "balabalabala", longitude, latitude, popularity, totalScore, environment, service, ticket));
 		}
-		Sight hotel = new Sight("xxhotel", 31.05485, 121.5033, 0, 0, 0, 0, 0);
+		Hotel hotel = new Hotel("xxhotel", 1, 0,"balabalabala", 31.05485, 121.5033);
 		Graph g = new Graph(60, s, hotel);
 		double distanceLoss = 1, popularityLoss = 1, scoreLoss = 1, environmentLoss = 1, serviceLoss = 1, costLoss = 1;
-		Vector<Sight> v = g.journeySequence(4, distanceLoss, popularityLoss, scoreLoss, environmentLoss, serviceLoss, costLoss);
+		Vector<Spot> v = g.journeySequence(4, distanceLoss, popularityLoss, scoreLoss, environmentLoss, serviceLoss, costLoss);
 		for (int i = 0; i < v.size(); ++i) {
 			System.out.println(s.indexOf(v.get(i)));
 		}
 	}
 
 }
+

@@ -18,7 +18,27 @@ public class Spot {
         this.latitude = latitude;
     }
 
-    public double reward(Spot anoSpot, double distanceLoss, double popularityLoss, double scoreLoss, double environmentLoss, double serviceLoss, double costLoss) {
-        return 0;
+    public double reward(Sight anoSpot, double distanceLoss, double popularityLoss, double scoreLoss, double environmentLoss, double serviceLoss, double costLoss) {
+        double reward = distanceLoss * this.distance(anoSpot);
+        reward += popularityLoss * anoSpot.popularity;
+		reward += scoreLoss * anoSpot.score;
+		reward += environmentLoss * anoSpot.environment;
+		reward += serviceLoss * anoSpot.service;
+		reward += costLoss * anoSpot.menPiao;
+		return reward;
     }
+
+    protected double distance(Sight s) {
+		return (abs(this.longitude - s.longitude) + abs(this.latitude - s.latitude));
+    }
+
+    private double abs(double a) {
+        if (a > 0) {
+            return a;
+        }
+        else {
+            return -a;
+        }
+    }
+
 }

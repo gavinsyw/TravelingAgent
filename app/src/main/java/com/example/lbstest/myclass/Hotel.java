@@ -6,6 +6,4 @@ public class Hotel extends Spot {
         super(name, ID, spotType, description, longitude, latitude);
         // TODO Auto-generated constructor stub
     }
-
-    double 
 }
