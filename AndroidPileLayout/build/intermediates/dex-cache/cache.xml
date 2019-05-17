@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.3.1_261e88493a0b91afcbe1abd48aeaadfebc33f461.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.3.1_e128ef156325f976d50636f0a0a12f80e449951c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.3.1_b537d311cb3e88beb98ebf61fb607eabcb67fa83.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.3.1_3ac5d65fef90954bf2cddb951e7268c3bb7d1258.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.3.1_839bba9e6df4e1b07c4137d50482367da9409d32.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.3.1_bece4b427d70ea18ccd620d2c051099fad7703ef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.3.1_80fb3f59c40c17f12fc643ed5bbcf6108e63e509.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.3.1_9fe515752efdd2fe8a0c670d70d4e2be274fe4b5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.3.1_7422c01530eefa5648e7e9d3b56813f7cba29ec7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\SDK\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_acce577ed05cb9a1604adcd54830a77057b34aad.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\exploded-aar\com.makeramen\roundedimageview\2.3.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fbaffbfc2a42fce3718dc9f52182810ad332b0ec">
+        <dex dex="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\pre-dexed\debug\com.makeramen-roundedimageview-2.3.0_3eb552871948fdef130b3ee5576296d1a944d8e7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\apple_chen\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.8.0\9bada650e1afe9c6174ddc0d113c1fce4dc26fe0\glide-3.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9bada650e1afe9c6174ddc0d113c1fce4dc26fe0">
+        <dex dex="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\pre-dexed\debug\glide-3.8.0_762b6eb1d3e98b154ece6ae7e4bcfd595051b112.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\exploded-aar\AndroidPileLayout\library\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b913f5bc4d8019585cd15134e57ad1762f455c5d">
+        <dex dex="C:\Users\apple_chen\AndroidStudioProjects\AndroidPileLayout\app\build\intermediates\pre-dexed\debug\AndroidPileLayout-library-unspecified_3a7a430b071c6d4b7440fea5dcd28a382f3e077e.jar" />
+    </item>
+
+</items>
