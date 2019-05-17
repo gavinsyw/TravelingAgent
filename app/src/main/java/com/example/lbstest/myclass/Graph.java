@@ -3,16 +3,16 @@ import java.lang.*;
 
 public class Graph {
 	int sightNum;
-	Sight hotel;
+	Hotel hotel;
 	Vector<Sight> sights;
 	
-	public Graph(int sightNum, Vector<Sight> sights, Sight hotel) {
+	public Graph(int sightNum, Vector<Sight> sights, Hotel hotel) {
 		this.sightNum = sightNum;
 		this.sights = sights;
 		this.hotel = hotel;
 	}
 	
-	private Sight greedyNext(Sight currentSight, Vector<Sight> currentSequence, double distanceLoss, double popularityLoss, double scoreLoss, double environmentLoss, double serviceLoss, double costLoss) {
+	private Sight greedyNext(Spot currentSight, Vector<Sight> currentSequence, double distanceLoss, double popularityLoss, double scoreLoss, double environmentLoss, double serviceLoss, double costLoss) {
 		double maxReward = -10000;
 		Sight maxSight = sights.get(0);
 		for (int i = 0; i < sights.size(); ++i) {
@@ -35,12 +35,12 @@ public class Graph {
 		return maxSight;
 	}
 	
-	private Vector<Sight> greedy(int numberOfSightPerDay, double distanceLoss, double popularityLoss, double scoreLoss, double environmentLoss, double serviceLoss, double costLoss) {
+	private Vector<Spot> greedy(int numberOfSightPerDay, double distanceLoss, double popularityLoss, double scoreLoss, double environmentLoss, double serviceLoss, double costLoss) {
 		Vector<Sight> travelSequence = new Vector<Sight>(sightNum);
 		// initialize the travelSquence
 		Integer currentIndex = 0;
 		for (int day = 0; day < 10; ++day) {
-			Sight currentSight = hotel;
+			Spot currentSight = hotel;
 			for (int i = 0; i < numberOfSightPerDay; ++i) {
 				currentIndex += 1;
 				currentSight = greedyNext(currentSight, travelSequence, distanceLoss, popularityLoss, scoreLoss, environmentLoss, serviceLoss, costLoss);

@@ -4,15 +4,12 @@ import java.lang.*;
 
 
 public class Sight extends Spot{
-	double longitude, latitude;
-	int popularity;
-	int score, environment, service;
-	int menPiao;
-	String name;
+	private int popularity;
+	private int score, environment, service;
+	private int menPiao;
 	
-	Sight(String name, double longitude, double latitude, int popularity, int score, int environment, int service, int menPiao) {
-		this.longitude = longitude;
-		this.latitude = latitude;
+	Sight(String name, int ID, int spotType, String description, double longitude, double latitude, int popularity, int score, int environment, int service, int menPiao) {
+		super(name, ID, spotType, description, longitude, latitude);
 		this.popularity = popularity;
 		this.score = score;
 		this.environment = environment;
@@ -45,7 +42,7 @@ public class Sight extends Spot{
 	}
 	
 	public void print()	{
-		System.out.println(name);
+		System.out.println(this.name);
 	}
 	
 	public boolean equals(Sight s) {
