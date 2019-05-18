@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LBSTest</string>
+    <string name="app_name">TravelingAgent</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -25,4 +25,29 @@
     <string name="grid_holder">Grid Holder</string>
     <string name="show_header">Show header</string>
     <string name="show_footer">Show footer</string>
+
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="button_login">Login</string>
+    <string name="password_prompt">Please Enter Your Password</string>
+    <string name="user_name">Please Enter Your User Name</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <string name="popular_attraction">知名景点</string>
+    <string name="service">服务热情</string>
+    <string name="cheap">要少花钱</string>
+    <string name="leisure">悠闲旅游</string>
+    <string name="search_button">搜一下！</string>
+
 </resources>

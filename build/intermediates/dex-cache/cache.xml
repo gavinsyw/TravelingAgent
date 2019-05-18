@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\xzh87\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\26.0.0-alpha1\support-annotations-26.0.0-alpha1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\pre-dexed\debug\support-annotations-26.0.0-alpha1_49d85099253a97cccc4a5a524417e1c852802e34.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-26.0.0-alpha1_4ef54345d17a686912eccd8e015a4fbfdfad5227.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-26.0.0-alpha1_334d45909ed5866d118cee86328ca48564d17bec.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-26.0.0-alpha1_3a41c5d98b9ae0684bbc2e53eb2fd9bcc05fd46c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\exploded-aar\com.android.support\support-v4\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-26.0.0-alpha1_f27d7b039a03ba6b13426226ad4d1e5abff21140.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\exploded-aar\com.android.support\support-compat\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-26.0.0-alpha1_8ebc5013fa48d84bff6f3b0eb968c474584dd66f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-26.0.0-alpha1_5b00db3db3f2d00cec20812a041f22813d576912.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\exploded-aar\com.android.support\support-fragment\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-26.0.0-alpha1_425b1460da0343c495b982d21ac247407b5be1a9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-26.0.0-alpha1_033ca4927d077a2cdad9b1196bbcb5d289153cbc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\26.0.0-alpha1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-26.0.0-alpha1_748bd4ca09d867875bf1da278d6778aae5d3c69f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\libs\BaiduLBS_Android.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="aaf407008ab12bbd069d5bf9f46165910f0a9a4d">
+        <dex dex="C:\Users\xzh87\AndroidStudioProjects\LBSTest\app\build\intermediates\pre-dexed\debug\BaiduLBS_Android_f849ee8445d8af153af305f6d3f2597f9c0bcd28.jar" />
+    </item>
+
+</items>
