@@ -1,18 +1,15 @@
-package com.example.travelingagent.myclass;
+package com.example.lbstest.myclass;
 
 import java.lang.*;
 
 
 public class Sight extends Spot{
-	double longitude, latitude;
-	int popularity;
-	int score, environment, service;
-	int menPiao;
-	String name;
+	protected int popularity;
+	protected int score, environment, service;
+	protected int menPiao;
 	
-	Sight(String name, double longitude, double latitude, int popularity, int score, int environment, int service, int menPiao) {
-		this.longitude = longitude;
-		this.latitude = latitude;
+	Sight(String name, int ID, int spotType, String description, double longitude, double latitude, int popularity, int score, int environment, int service, int menPiao) {
+		super(name, ID, spotType, description, longitude, latitude);
 		this.popularity = popularity;
 		this.score = score;
 		this.environment = environment;
@@ -20,25 +17,8 @@ public class Sight extends Spot{
 		this.menPiao = menPiao;
 	}
 	
-	private double abs(double a) {
-		if (a > 0) {
-			return a;
-		}
-		else {
-			return (-a);
-		}
-	}
-	
-	private double distance(Sight s) {
-		return (abs(this.longitude - s.longitude) + abs(this.latitude - s.latitude));
-	}
-	
-	public double reward(Sight s) {
-		return this.distance(s);
-	}
-	
 	public void print()	{
-		System.out.println(name);
+		System.out.println(this.name);
 	}
 	
 	public boolean equals(Sight s) {
