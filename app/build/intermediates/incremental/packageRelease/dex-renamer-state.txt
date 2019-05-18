@@ -1,4 +1,0 @@
-#Mon May 06 09:35:22 CST 2019
-base.0=C\:\\Users\\xzh87\\AndroidStudioProjects\\LBSTest\\app\\build\\intermediates\\transforms\\dex\\release\\folders\\1000\\1f\\main
-renamed.0=classes.dex
-file.0=C\:\\Users\\xzh87\\AndroidStudioProjects\\LBSTest\\app\\build\\intermediates\\transforms\\dex\\release\\folders\\1000\\1f\\main\\classes.dex
