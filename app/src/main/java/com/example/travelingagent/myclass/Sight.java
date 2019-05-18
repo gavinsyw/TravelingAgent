@@ -1,0 +1,52 @@
+package com.example.travelingagent.myclass;
+
+import java.lang.*;
+
+
+public class Sight extends Spot{
+	double longitude, latitude;
+	int popularity;
+	int score, environment, service;
+	int menPiao;
+	String name;
+	
+	Sight(String name, double longitude, double latitude, int popularity, int score, int environment, int service, int menPiao) {
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.popularity = popularity;
+		this.score = score;
+		this.environment = environment;
+		this.service = service;
+		this.menPiao = menPiao;
+	}
+	
+	private double abs(double a) {
+		if (a > 0) {
+			return a;
+		}
+		else {
+			return (-a);
+		}
+	}
+	
+	private double distance(Sight s) {
+		return (abs(this.longitude - s.longitude) + abs(this.latitude - s.latitude));
+	}
+	
+	public double reward(Sight s) {
+		return this.distance(s);
+	}
+	
+	public void print()	{
+		System.out.println(name);
+	}
+	
+	public boolean equals(Sight s) {
+		if (this.popularity == s.popularity) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+}
