@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v28\\values-v28.xml",
+            "outputFile": "E:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v28\\values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\xzh87\\.gradle\\caches\\transforms-2\\files-2.1\\4c0d97a6eed8efacc66e18fb6dd92c6f\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\apple_chen\\.gradle\\caches\\transforms-2\\files-2.1\\2975b0ff6ece3e348692518ff03bed3d\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

@@ -1,4 +1,4 @@
-#Sat May 18 15:44:40 CST 2019
+#Sun May 19 00:01:26 CST 2019
 path.1=classes.dex
 path.0=classes.dex
 renamed.10=classes11.dex
@@ -10,19 +10,19 @@ renamed.5=classes6.dex
 renamed.4=classes5.dex
 renamed.3=classes4.dex
 renamed.2=classes3.dex
-base.9=C\:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\20
+base.9=E\:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\20
 renamed.1=classes2.dex
-base.8=C\:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\19
+base.8=E\:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\19
 renamed.0=classes.dex
-base.7=C\:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\18
-base.6=C\:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\17
-base.5=C\:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\16
-base.4=C\:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\15
-base.3=C\:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\14
-base.2=C\:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
-base.1=C\:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
-base.0=C\:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\11
-base.10=C\:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\21
+base.7=E\:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\18
+base.6=E\:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\17
+base.5=E\:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\16
+base.4=E\:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\15
+base.3=E\:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\14
+base.2=E\:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
+base.1=E\:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
+base.0=E\:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\11
+base.10=E\:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\21
 path.10=classes.dex
 path.9=classes.dex
 path.8=classes.dex

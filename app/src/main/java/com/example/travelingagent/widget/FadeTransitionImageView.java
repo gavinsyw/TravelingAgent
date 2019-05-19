@@ -2,12 +2,17 @@ package com.example.travelingagent.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.travelingagent.R;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 /**
  * Created by xmuSistone on 2017/5/12.
@@ -19,6 +24,16 @@ public class FadeTransitionImageView extends BaseTransitionLayout {
 
     protected int currentPosition = -1;
     protected int nextPosition = -1;
+
+    public static Bitmap getLoacalBitmap(String url) {
+        try {
+            FileInputStream fis = new FileInputStream(url);
+            return BitmapFactory.decodeStream(fis);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public FadeTransitionImageView(Context context) {
         this(context, null);
@@ -51,7 +66,9 @@ public class FadeTransitionImageView extends BaseTransitionLayout {
     @Override
     public void firstInit(String url) {
         Glide.with(getContext()).load(url).into(imageView1);
-        currentPosition = 0;
+//        Bitmap bitmap = getLoacalBitmap(url);
+//        imageView1 .setImageBitmap(bitmap);
+//        currentPosition = 0;
     }
 
     @Override

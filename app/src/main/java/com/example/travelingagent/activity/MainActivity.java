@@ -3,6 +3,9 @@ package com.example.travelingagent.activity;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -35,6 +38,9 @@ import com.stone.pile.libs.PileLayout;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +66,15 @@ public class MainActivity extends AppCompatActivity
     private Animator.AnimatorListener animatorListener;
     private TextView descriptionView;
 
+    public static Bitmap getLoacalBitmap(String url) {
+        try {
+            FileInputStream fis = new FileInputStream(url);
+            return BitmapFactory.decodeStream(fis);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -177,7 +192,19 @@ public class MainActivity extends AppCompatActivity
                     view.setTag(viewHolder);
                 }
 
-                Glide.with(MainActivity.this).load(dataList.get(position).getCoverImageUrl()).into(viewHolder.imageView);
+                //Glide.with(MainActivity.this).load(dataList.get(position).getCoverImageUrl()).into(viewHolder.imageView);
+                try {
+                    // get input stream
+                    InputStream ims = getAssets().open(dataList.get(position).getCoverImageUrl());
+                    // load image as Drawable
+                    Drawable d = Drawable.createFromStream(ims, null);
+                    // set image to ImageView
+                    viewHolder.imageView.setImageDrawable(d);
+                }
+                catch(IOException ex) {
+                    return;
+                }
+
             }
 
             @Override

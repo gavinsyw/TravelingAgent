@@ -1,4 +1,4 @@
-#Sat May 18 15:44:34 CST 2019
-base.0=C\:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\5
+#Sat May 18 21:46:34 CST 2019
+base.0=E\:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\5
 path.0=classes.dex
 renamed.0=classes.dex
