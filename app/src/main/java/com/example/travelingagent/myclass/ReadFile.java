@@ -11,8 +11,8 @@ public class ReadFile {
         this.city = city;
     }
 
-    public Vector<Sight> sightVec() {
-        File f = new File("./sight_infomation.txt");
+    public Vector<Sight> sightVec() throws FileNotFoundException {
+        File f = new File("../resources/sight_information.txt");
         String sightName;
 		int index, popularity, ticket, totalScore, environment, service;
 		double longitude, latitude;
