@@ -1,4 +1,4 @@
-package com.example.lbstest.myclass;
+package com.example.travelingagent.myclass;
 
 import java.io.*;
 import java.util.Scanner;

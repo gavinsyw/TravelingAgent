@@ -1,4 +1,4 @@
-package com.example.lbstest.myclass;
+package com.example.travelingagent.myclass;
 
 import java.lang.*;
 import java.util.*;
@@ -30,5 +30,6 @@ public class ReadFile {
 			latitude = sc.nextDouble();
 			s.add(new Sight(sightName, 1, 1, "balabalabala", longitude, latitude, popularity, totalScore, environment, service, ticket));
 		}
+		return s;
     }
 }

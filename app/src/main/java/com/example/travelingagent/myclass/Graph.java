@@ -1,4 +1,4 @@
-package com.example.lbstest.myclass;
+package com.example.travelingagent.myclass;
 
 import java.util.*;
 import java.lang.*;
