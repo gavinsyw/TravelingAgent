@@ -15,7 +15,9 @@ public class Recommend {
         this.numberOfSightsPerDay = numberOfSightsPerDay;
     }
 
-    public List<Spot> recommend(Vector<Sight> sightVec, Hotel hotel) {
+    public List<Spot> recommend(String city, Hotel hotel) {
+        Vector<Sight> sightVec = new Vector<Sight>(60);
+        ReadFile f = new ReadFile("Shanghai");
         double distanceLoss = 1 + choice1;
         double popularityLoss = 1 + choice2;
         double scoreLoss = 1 + choice3;
