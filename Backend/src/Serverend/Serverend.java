@@ -4,7 +4,7 @@ import java.net.*;
 
 public class Serverend {
 	public static void main(String[] args) throws Exception {
-		File file = new File("testFile.txt");
+		File file = new File("src/resources/testFile1.txt");
 		FileInputStream fos = new FileInputStream(file);
 		
 		ServerSocket ss = new ServerSocket(3108);

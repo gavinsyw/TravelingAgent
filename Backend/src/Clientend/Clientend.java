@@ -6,7 +6,7 @@ import java.net.*;
 public class Clientend {
 
 	public static void main(String[] args) throws Exception {
-		File file = new File("testFile.txt");
+		File file = new File("src/resources/testFile2.txt");
 		file.createNewFile();
 		RandomAccessFile raf = new RandomAccessFile(file, "rw");
 		
