@@ -61,7 +61,7 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
     List<Spot> itinerary = null;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) throws FileNotFoundException {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_simulation);
@@ -69,7 +69,6 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
         currentLocation = new LatLng(31.23, 121.47 );   // 上海的中心经纬
-
         final BitmapDescriptor defaultBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_blue);
         final BitmapDescriptor selectedBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_yellow);
 
@@ -83,8 +82,12 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 
         Recommend recommend = new Recommend(4, choice1, choice2, choice3, choice4, choice5, choice6);
 
-
-        itinerary = recommend.recommend("Shanghai", hotel);
+        try {
+            itinerary = recommend.recommend("Shanghai", hotel);
+        } catch (FileNotFoundException e) {
+            System.out.println(e.toString());
+            Log.d("Recommendation", e.toString());
+        }
 
 //        mLocationClient = new LocationClient(getApplicationContext());
 //        mLocationClient.registerLocationListener(new BDLocationListener() {
@@ -169,6 +172,9 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 
         baiduMap.setOnMarkerClickListener(markerClickListener);
 
+        drawItinerary(itinerary);
+
+
 //        baiduMap
 
 
@@ -180,8 +186,8 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 //                .trafficPolicy(DrivingRoutePlanOption.DrivingTrafficPolicy.ROUTE_PATH_AND_TRAFFIC));
 
 //        addMarker(37.963175, 116.400244);
-        addMarker(new LatLng(39.963175, 116.400244), defaultBitmap);
-        addMarker(new LatLng(39.963175, 118.400244), defaultBitmap);
+//        addMarker(new LatLng(39.963175, 116.400244), defaultBitmap);
+//        addMarker(new LatLng(39.963175, 118.400244), defaultBitmap);
 
     }
 
@@ -229,13 +235,21 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         baiduMap.animateMapStatus(update);
     }
 
-//    private void drawItinerary(List<Spot> spotList) {
-//        for (Spot spot :spotList) {
-//            if (spot.getType() == 0) {
-//
-//            }
-//        }
-//    }
+    private void drawItinerary(List<Spot> spotList) {
+        BitmapDescriptor hotelBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_pink);
+        BitmapDescriptor sightBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_green);
+
+        for (Spot spot :spotList) {
+            if (spot.getType() == 0) {
+                addMarker(spot.getLatLng(), sightBitmap);
+            }
+            else {
+                if (spot.getType() == 1) {
+                    addMarker(spot.getLatLng(), hotelBitmap);
+                }
+            }
+        }
+    }
 
     private void addMarker(LatLng ll, BitmapDescriptor bitmap) {
 //        //定义Maker坐标点

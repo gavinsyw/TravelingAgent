@@ -1,5 +1,7 @@
 package com.example.travelingagent.myclass;
 
+import com.baidu.mapapi.model.LatLng;
+
 import java.util.Date;
 
 public class Spot {
@@ -47,6 +49,10 @@ public class Spot {
 
     public int getType() {
         return this.spotType;
+    }
+
+    public LatLng getLatLng() {
+        return new LatLng(this.latitude, this.longitude);
     }
 
 }

@@ -41,6 +41,8 @@ dependencies {
     implementation project(path: ':library')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.jakewharton:butterknife:6.1.0'
+    implementation 'com.github.channguyen:rsv:1.0.1'
+    implementation 'com.github.navasmdc:MaterialDesign:1.5@aar'
 }
 repositories {
     mavenCentral()

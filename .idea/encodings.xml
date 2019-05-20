@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" addBOMForNewFiles="with NO BOM" />
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/city/sight_information.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/travelingagent/myclass/sight_information.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/travelingagent/resources/hotel_information.json" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/travelingagent/resources/sight_information.json" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/travelingagent/resources/sight_information.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/raw/sight_information.txt" charset="GBK" />
+  </component>
 </project>

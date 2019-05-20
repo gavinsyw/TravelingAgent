@@ -13,10 +13,4 @@
         android:scaleType="centerCrop"
         app:riv_corner_radius="5dp" />
 
-    <ImageView
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_gravity="center"
-        android:src="@drawable/play" />
-
 </FrameLayout>
