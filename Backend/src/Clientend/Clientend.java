@@ -10,7 +10,7 @@ public class Clientend {
 		file.createNewFile();
 		RandomAccessFile raf = new RandomAccessFile(file, "rw");
 		
-		Socket server = new Socket(InetAddress.getLocalHost(), 3108);
+		Socket server = new Socket("10.162.5.84", 8080);
 		
 		InputStream netln = server.getInputStream();
 		InputStream in = new DataInputStream(new BufferedInputStream(netln));
