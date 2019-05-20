@@ -68,8 +68,8 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         baiduMap.setMyLocationEnabled(true);
         currentLocation = new LatLng(31.23, 121.47 );   // 上海的中心经纬
 
-        final BitmapDescriptor defaultBitmap = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
-        final BitmapDescriptor selectedBitmap = BitmapDescriptorFactory.fromResource(R.drawable.icon_selected);
+        final BitmapDescriptor defaultBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_blue);
+        final BitmapDescriptor selectedBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_yellow);
 
 //        mLocationClient = new LocationClient(getApplicationContext());
 //        mLocationClient.registerLocationListener(new BDLocationListener() {
@@ -97,7 +97,7 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
             ActivityCompat.requestPermissions(RecommendationDisplayActivity.this, permissions, 1);
         } else {
 //            requestLocation();
-            navigateTo(currentLocation, 8,"城市名");
+            navigateTo(currentLocation, 12,"城市名");
         }
 
         BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
@@ -212,6 +212,14 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         baiduMap.animateMapStatus(update);
         update = MapStatusUpdateFactory.zoomTo(zoom);
         baiduMap.animateMapStatus(update);
+    }
+
+    private void drawItinerary(List<Spot> spotList) {
+        for (Spot spot :spotList) {
+            if (spot.getType() == 0) {
+
+            }
+        }
     }
 
     private void addMarker(LatLng ll, BitmapDescriptor bitmap) {

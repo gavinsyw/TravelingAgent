@@ -66,8 +66,8 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         baiduMap.setMyLocationEnabled(true);
         currentLocation = new LatLng(37.963175, 116.400244);
 
-        final BitmapDescriptor defaultBitmap = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
-        final BitmapDescriptor selectedBitmap = BitmapDescriptorFactory.fromResource(R.drawable.icon_selected);
+        final BitmapDescriptor defaultBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_blue);
+        final BitmapDescriptor selectedBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_yellow);
 
 //        mLocationClient = new LocationClient(getApplicationContext());
 //        mLocationClient.registerLocationListener(new BDLocationListener() {

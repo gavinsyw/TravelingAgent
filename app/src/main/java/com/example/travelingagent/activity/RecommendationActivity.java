@@ -1,5 +1,6 @@
 package com.example.travelingagent.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -38,6 +39,8 @@ public class RecommendationActivity extends AppCompatActivity {
                 sb.append("被选中了！");
                 Toast.makeText(RecommendationActivity.this, sb.toString(), Toast.LENGTH_SHORT).show();//显示那些被选中的条件
 
+                Intent intent = new Intent(RecommendationActivity.this, RecommendationDisplayActivity.class);
+                startActivity(intent);
             }
         });
 
