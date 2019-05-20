@@ -40,5 +40,16 @@ public class Spot {
             return -a;
         }
     }
+    
+    public int getType() {
+    	return this.spotType;
+    }
+    
+    public double[] getCoordinate() {
+    	double[] coor = new double[2];
+    	coor[0] = this.longitude;
+    	coor[1] = this.latitude;
+    	return coor;
+    }
 
 }
