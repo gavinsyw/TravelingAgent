@@ -212,7 +212,6 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         baiduMap.animateMapStatus(update);
         update = MapStatusUpdateFactory.zoomTo(zoom);
         baiduMap.animateMapStatus(update);
-        isFirstLocate = false;
     }
 
     private void addMarker(LatLng ll, BitmapDescriptor bitmap) {
