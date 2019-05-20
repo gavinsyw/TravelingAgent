@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void displaying(int position) {
-                descriptionView.setText(dataList.get(position).getDescription() + " Since the world is so beautiful, You have to believe me, and this index is " + position);
+                descriptionView.setText(dataList.get(position).getDescription());
                 if (lastDisplay < 0) {
                     initSecene(position);
                     lastDisplay = 0;

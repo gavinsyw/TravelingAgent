@@ -1,5 +1,6 @@
 package com.example.travelingagent.myclass;
 
+import java.io.FileNotFoundException;
 import java.lang.*;
 import java.util.*;
 
@@ -7,7 +8,7 @@ public class Recommend {
     int numberOfSightsPerDay;
     int choice1, choice2, choice3, choice4, choice5, choice6;
 
-    Recommend(int numberOfSightsPerDay, int choice1, int choice2, int choice3, int choice4, int choice5, int choice6) {
+    public Recommend(int numberOfSightsPerDay, int choice1, int choice2, int choice3, int choice4, int choice5, int choice6) {
         this.choice1 = choice1;
         this.choice2 = choice2;
         this.choice3 = choice3;
@@ -17,9 +18,9 @@ public class Recommend {
         this.numberOfSightsPerDay = numberOfSightsPerDay;
     }
 
-    public List<Spot> recommend(String city, Hotel hotel) {
-        Vector<Sight> sightVec = new Vector<Sight>(60);
+    public List<Spot> recommend(String city, Hotel hotel) throws FileNotFoundException {
         ReadFile f = new ReadFile("Shanghai");
+        Vector<Sight> sightVec = f.sightVec();
         double distanceLoss = 1 + choice1;
         double popularityLoss = 1 + choice2;
         double scoreLoss = 1 + choice3;

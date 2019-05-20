@@ -9,7 +9,7 @@ public class Spot {
     protected String description;
     protected double longitude, latitude;
 
-    Spot(String name, int ID, int spotType, String description, double longitude, double latitude) {
+    protected Spot(String name, int ID, int spotType, String description, double longitude, double latitude) {
         this.name = name;
         this.ID = ID;
         this.spotType = spotType;
@@ -43,6 +43,10 @@ public class Spot {
 
     public String getName() {
         return this.name;
+    }
+
+    public int getType() {
+        return this.spotType;
     }
 
 }

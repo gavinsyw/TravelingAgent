@@ -28,7 +28,7 @@ public class ReadFile {
 			service = sc.nextInt();
 			longitude = sc.nextDouble();
 			latitude = sc.nextDouble();
-			s.add(new Sight(sightName, 1, 1, "balabalabala", longitude, latitude, popularity, totalScore, environment, service, ticket));
+			s.add(new Sight(sightName, index, 0, "balabalabala", longitude, latitude, popularity, totalScore, environment, service, ticket));
 		}
 		return s;
     }

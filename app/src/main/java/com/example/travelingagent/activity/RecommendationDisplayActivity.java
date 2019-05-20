@@ -38,6 +38,7 @@ import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.example.travelingagent.R;
 import com.example.travelingagent.myclass.Hotel;
+import com.example.travelingagent.myclass.Recommend;
 import com.example.travelingagent.myclass.Spot;
 import com.example.travelingagent.overlayutil.DrivingRouteOverlay;
 import com.google.gson.Gson;
@@ -45,6 +46,7 @@ import com.google.gson.reflect.TypeToken;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +61,7 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
     List<Spot> itinerary = null;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) throws FileNotFoundException {
         super.onCreate(savedInstanceState);
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_simulation);
@@ -70,6 +72,19 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 
         final BitmapDescriptor defaultBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_blue);
         final BitmapDescriptor selectedBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_yellow);
+
+        int choice1 = 1;
+        int choice2 = 1;
+        int choice3 = 1;
+        int choice4 = 1;
+        int choice5 = 1;
+        int choice6 = 1;
+        Hotel hotel = new Hotel("FakeHotel", 1, 0, "Fake", 121.72, 31.55);
+
+        Recommend recommend = new Recommend(4, choice1, choice2, choice3, choice4, choice5, choice6);
+
+
+        itinerary = recommend.recommend("Shanghai", hotel);
 
 //        mLocationClient = new LocationClient(getApplicationContext());
 //        mLocationClient.registerLocationListener(new BDLocationListener() {
