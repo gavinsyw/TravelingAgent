@@ -1,4 +1,0 @@
-#Mon May 20 16:57:46 CST 2019
-base.0=D\:\\Software Engineering\\TravelingAgent\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
-path.0=classes.dex
-renamed.0=classes.dex
