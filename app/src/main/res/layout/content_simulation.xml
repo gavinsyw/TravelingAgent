@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/word_cloud_image"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_gravity="center"
             android:scaleType="fitCenter"
             android:src="@drawable/hotel_1" />

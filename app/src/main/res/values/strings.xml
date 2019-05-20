@@ -6,8 +6,10 @@
     <string name="dialog_title">Dialog setup:</string>
     <string name="footer">Footer</string>
     <string name="header">Header</string>
-    <string name="header_title">Your title</string>
-    <string name="header_sample">SAMPLE HEADER</string>
+    <string name="simulation_header_title">这里是...</string>
+    <string name="mode_header_title">模式选择</string>
+    <string name="simulation_header_sample">地名</string>
+    <string name="mode_header_sample">试一下！</string>
     <string name="footer_button_close">CLOSE</string>
     <string name="footer_button_confirm">CONFIRM</string>
     <string name="footer_sample">SAMPLE FOOTER</string>
@@ -17,9 +19,9 @@
     <string name="google_plus_title">Google Plus</string>
     <string name="google_maps_title">Maps</string>
     <string name="google_messenger_title">Messenger</string>
-    <string name="question">Add this spot into your itinerary?</string>
-    <string name="button_like">I like it</string>
-    <string name="button_not">Maybe not</string>
+    <string name="add_to_itinerary_question">下一站，（地名）？</string>
+    <string name="button_like">好呀！</string>
+    <string name="button_not">不...不了</string>
     <string name="view_holder">View Holder</string>
     <string name="list_holder">List Holder</string>
     <string name="grid_holder">Grid Holder</string>

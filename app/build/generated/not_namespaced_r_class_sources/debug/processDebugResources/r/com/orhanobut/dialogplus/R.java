@@ -48,9 +48,9 @@ public final class R {
     public static final class layout {
         private layout() {}
 
-        public static final int base_container = 0x7f0b0021;
-        public static final int dialog_grid = 0x7f0b0032;
-        public static final int dialog_list = 0x7f0b0033;
-        public static final int dialog_view = 0x7f0b0034;
+        public static final int base_container = 0x7f0b0022;
+        public static final int dialog_grid = 0x7f0b0033;
+        public static final int dialog_list = 0x7f0b0034;
+        public static final int dialog_view = 0x7f0b0035;
     }
 }

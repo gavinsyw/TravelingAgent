@@ -217,9 +217,10 @@ public class MainActivity extends AppCompatActivity
                                         break;
                                 }
                                 startActivity(intent);
+                                dialog.dismiss();
                             }
                         })
-                        .setHeader(R.layout.header)
+                        .setHeader(R.layout.mode_header)
                         .setGravity(Gravity.CENTER)
                         .setContentHolder(new GridHolder(2))
                         .setExpanded(false)  // This will enable the expand feature, (similar to android L share dialog)

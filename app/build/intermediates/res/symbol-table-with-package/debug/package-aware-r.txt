@@ -1431,10 +1431,11 @@ layout activity_login
 layout activity_main2
 layout activity_main_page
 layout activity_recommendation
+layout activity_recommendation_display
 layout activity_simulation
 layout base_container
-layout content
 layout content_main_page
+layout content_simulation
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -1452,9 +1453,10 @@ layout design_text_input_password_icon
 layout dialog_grid
 layout dialog_list
 layout dialog_view
-layout header
+layout header_simulation
 layout item_layout
 layout login_activity
+layout mode_header
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout nav_header_main_page
@@ -1517,6 +1519,7 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string action_settings
+string add_to_itinerary_question
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
@@ -1542,8 +1545,6 @@ string google_messenger_title
 string google_plus_title
 string grid_holder
 string header
-string header_sample
-string header_title
 string hello_world
 string hide_bottom_view_on_scroll_behavior
 string leisure
@@ -1563,6 +1564,8 @@ string menu_send
 string menu_share
 string menu_slideshow
 string menu_tools
+string mode_header_sample
+string mode_header_title
 string mtrl_chip_close_icon_content_description
 string nav_header_desc
 string nav_header_subtitle
@@ -1576,12 +1579,13 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string popular_attraction
-string question
 string search_button
 string search_menu_title
 string service
 string show_footer
 string show_header
+string simulation_header_sample
+string simulation_header_title
 string status_bar_notification_info_overflow
 string title_activity_main2
 string user_name

@@ -6,7 +6,7 @@ Project of Software Engineering
 * 添加了模块(Modules)文件夹，开始写一些模块
 * 添加了小组作业文档(Documents)文件夹
 * 路线规划功能(LuXianGuiHua)已经可以接入，但是损失函数还在调试中
-* 目前的项目结构大概为：主模块(app)， PileLayout模块(library)， dialogplus模块(dialogplus)，其中dialogplus尚未完全整合到整个项目中(简直心累orz)。
+* 目前的项目结构大概为：主模块(app)， PileLayout模块(library)。
 
 ## Developer Guide
 ### 路线规划功能的开发者帮助

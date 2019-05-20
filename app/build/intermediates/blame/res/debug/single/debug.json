@@ -548,6 +548,10 @@
         "source": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\src\\main\\res\\drawable-xhdpi\\ic_google_plus_icon.png"
     },
     {
+        "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_mode_header.xml.flat",
+        "source": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\src\\main\\res\\layout\\mode_header.xml"
+    },
+    {
         "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_list.xml.flat",
         "source": "C:\\Users\\xzh87\\.gradle\\caches\\transforms-2\\files-2.1\\e2c2653e321f6c7f539b0f08753ef86a\\res\\layout\\dialog_list.xml"
     },
@@ -634,6 +638,10 @@
     {
         "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_screen_toolbar.xml.flat",
         "source": "C:\\Users\\xzh87\\.gradle\\caches\\transforms-2\\files-2.1\\4c0d97a6eed8efacc66e18fb6dd92c6f\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_header_simulation.xml.flat",
+        "source": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\src\\main\\res\\layout\\header_simulation.xml"
     },
     {
         "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
@@ -1732,6 +1740,10 @@
         "source": "C:\\Users\\xzh87\\.gradle\\caches\\transforms-2\\files-2.1\\9a51691eee657f97742b99560cc650e9\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
+        "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_content_simulation.xml.flat",
+        "source": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\src\\main\\res\\layout\\content_simulation.xml"
+    },
+    {
         "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_action_bar_item_background_material.xml.flat",
         "source": "C:\\Users\\xzh87\\.gradle\\caches\\transforms-2\\files-2.1\\4c0d97a6eed8efacc66e18fb6dd92c6f\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
@@ -2010,10 +2022,6 @@
     {
         "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\xzh87\\.gradle\\caches\\transforms-2\\files-2.1\\4c0d97a6eed8efacc66e18fb6dd92c6f\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_content.xml.flat",
-        "source": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\src\\main\\res\\layout\\content.xml"
     },
     {
         "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_longpressed_holo.9.png.flat",
@@ -2380,10 +2388,6 @@
         "source": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_menu_slideshow.png"
     },
     {
-        "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_header.xml.flat",
-        "source": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\src\\main\\res\\layout\\header.xml"
-    },
-    {
         "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_navigation_item.xml.flat",
         "source": "C:\\Users\\xzh87\\.gradle\\caches\\transforms-2\\files-2.1\\a0ac039b5aec846a1f56f51da93e3ecf\\res\\layout\\design_navigation_item.xml"
     },
@@ -2522,6 +2526,10 @@
     {
         "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\anim_slide_out_bottom.xml.flat",
         "source": "C:\\Users\\xzh87\\.gradle\\caches\\transforms-2\\files-2.1\\e2c2653e321f6c7f539b0f08753ef86a\\res\\anim\\slide_out_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_recommendation_display.xml.flat",
+        "source": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\src\\main\\res\\layout\\activity_recommendation_display.xml"
     },
     {
         "merged": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",

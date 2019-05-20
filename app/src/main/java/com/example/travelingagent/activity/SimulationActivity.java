@@ -103,10 +103,10 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
             @Override
             public boolean onMarkerClick(final Marker marker) {
                 final DialogPlus dialog = DialogPlus.newDialog(SimulationActivity.this)
-                        .setContentHolder(new ViewHolder(R.layout.content))
+                        .setContentHolder(new ViewHolder(R.layout.content_simulation))
 //                        .setAdapter(adapter)
                         .setCancelable(true)
-                        .setHeader(R.layout.header)
+                        .setHeader(R.layout.header_simulation)
                         .setExpanded(true, 2000)  // This will enable the expand feature, (similar to android L share dialog)
                         .create();
                 dialog.show();
@@ -142,7 +142,7 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                     public void onClick(View v) {
                         Toast.makeText(SimulationActivity.this, "The spot is deleted.", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
-                        marker.remove();
+//                        marker.remove();
                     }
                 });
 //                Intent intent = new Intent(SimulationActivity.this, PoiSearchActivity.class);
@@ -179,13 +179,13 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         mapView.onPause();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mLocationClient.stop();
-        mapView.onDestroy();
-        baiduMap.setMyLocationEnabled(false);
-    }
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        mLocationClient.stop();
+//        mapView.onDestroy();
+//        baiduMap.setMyLocationEnabled(false);
+//    }
 
     private void navigateTo(LatLng ll, float zoom, String description) {
 //        if (isFirstLocate) {
