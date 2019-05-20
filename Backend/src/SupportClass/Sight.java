@@ -29,4 +29,8 @@ public class Sight extends Spot{
 			return false;
 		}
 	}
+	
+	public String info() {
+		return this.name + '\t' + this.ID + '\t' + this.spotType + '\t' + this.description + '\t' + this.longitude + '\t' + this.latitude + '\t' + this.popularity + '\t'+ this.score + '\t' + this.environment + '\t' + this.service + '\t' + this.menPiao;
+	}
 }
