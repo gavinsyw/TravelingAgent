@@ -1,0 +1,55 @@
+package Serverend;
+
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.util.*;
+import SupportClass.*;
+
+public class SightInfo {
+	int sightNum;
+	String cityName;
+	
+	public SightInfo(String cityName, int sightNum) {
+		this.sightNum = sightNum;
+	}
+	
+	public void writeToFile(Vector<Sight> sightVec) throws IOException {
+		File file = new File("src/resources/testFile2.txt");
+		file.createNewFile();
+		RandomAccessFile raf = new RandomAccessFile(file, "rw");
+		
+		Socket server = new Socket(InetAddress.getLocalHost(), 3108);
+		
+		InputStream netln = server.getInputStream();
+		InputStream in = new DataInputStream(new BufferedInputStream(netln));
+		
+		byte[] buf = new byte[2048];
+		int num = in.read(buf);
+		while (num != -1) {
+			raf.write(buf, 0, num);
+			raf.skipBytes(num);
+			num = in.read(buf);
+		}
+		
+		String allData = "";
+		
+		for (int i = 0; i < sightNum; i++) {
+			Sight s = sightVec.get(i);
+			allData += s.info() + '\n';
+		}
+		
+		raf.writeChars(allData);
+		
+		in.close();
+		raf.close();
+		
+		
+		
+	}
+}

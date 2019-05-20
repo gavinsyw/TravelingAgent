@@ -1,0 +1,28 @@
+package Serverend;
+import java.io.*;
+import java.net.*;
+
+public class Serverend {
+	public static void main(String[] args) throws Exception {
+		File file = new File("testFile.txt");
+		FileInputStream fos = new FileInputStream(file);
+		
+		ServerSocket ss = new ServerSocket(3108);
+		Socket client = ss.accept();
+		
+		OutputStream netOut = client.getOutputStream();
+		OutputStream doc = new DataOutputStream(new BufferedOutputStream(netOut));
+		
+		byte[] buf = new byte[2048];
+		int num = fos.read(buf);
+		
+		while (num != -1) {
+			doc.write(buf, 0, num);
+			doc.flush();
+			num = fos.read(buf);
+		}
+		
+		fos.close();
+		doc.close();
+	}
+}
