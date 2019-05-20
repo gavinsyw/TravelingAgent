@@ -22,8 +22,8 @@ public final class R {
     public static final class color {
         private color() {}
 
-        public static final int dialogplus_black_overlay = 0x7f05003a;
-        public static final int dialogplus_card_shadow = 0x7f05003b;
+        public static final int dialogplus_black_overlay = 0x7f05003e;
+        public static final int dialogplus_card_shadow = 0x7f05003f;
     }
     public static final class dimen {
         private dimen() {}
@@ -33,12 +33,12 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int dialogplus_content_container = 0x7f080044;
-        public static final int dialogplus_footer_container = 0x7f080045;
-        public static final int dialogplus_header_container = 0x7f080046;
-        public static final int dialogplus_list = 0x7f080047;
-        public static final int dialogplus_outmost_container = 0x7f080048;
-        public static final int dialogplus_view_container = 0x7f080049;
+        public static final int dialogplus_content_container = 0x7f080045;
+        public static final int dialogplus_footer_container = 0x7f080046;
+        public static final int dialogplus_header_container = 0x7f080047;
+        public static final int dialogplus_list = 0x7f080048;
+        public static final int dialogplus_outmost_container = 0x7f080049;
+        public static final int dialogplus_view_container = 0x7f08004a;
     }
     public static final class integer {
         private integer() {}

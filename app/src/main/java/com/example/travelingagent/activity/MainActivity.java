@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void displaying(int position) {
-                descriptionView.setText(dataList.get(position).getDescription() + " Since the world is so beautiful, You have to believe me, and this index is " + position);
+                descriptionView.setText(dataList.get(position).getDescription());
                 if (lastDisplay < 0) {
                     initSecene(position);
                     lastDisplay = 0;
@@ -276,7 +276,7 @@ public class MainActivity extends AppCompatActivity
             transitionAnimator.cancel();
         }
 
-        countryView.saveNextPosition(position, dataList.get(position).getCountry() + "-" + position);
+        countryView.saveNextPosition(position, dataList.get(position).getCountry());
         temperatureView.saveNextPosition(position, dataList.get(position).getTemperature());
         addressView.saveNextPosition(position, dataList.get(position).getAddress());
         bottomView.saveNextPosition(position, dataList.get(position).getMapImageUrl());

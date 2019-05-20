@@ -615,12 +615,16 @@ color abc_tint_edittext
 color abc_tint_seek_thumb
 color abc_tint_spinner
 color abc_tint_switch_track
+color accent
 color accent_material_dark
 color accent_material_light
+color aluminum
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color base
+color black
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -661,6 +665,9 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color iron
+color jet
+color jumbo
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -673,6 +680,7 @@ color material_grey_600
 color material_grey_800
 color material_grey_850
 color material_grey_900
+color monsoon
 color mtrl_bottom_nav_colored_item_tint
 color mtrl_bottom_nav_item_tint
 color mtrl_btn_bg_color_disabled
@@ -701,10 +709,13 @@ color mtrl_textinput_filled_box_default_background_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color oil
 color overlay_light
 color primary
+color primary_dark
 color primary_dark_material_dark
 color primary_dark_material_light
+color primary_darker
 color primary_material_dark
 color primary_material_light
 color primary_text_default_material_dark
@@ -726,6 +737,7 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
+color white
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -1092,6 +1104,7 @@ drawable icon_selected
 drawable icon_st
 drawable img1
 drawable john
+drawable logo
 drawable mechanic
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
@@ -1172,6 +1185,7 @@ id blocking
 id bmapView
 id bottom
 id bottomImageView
+id btn_login
 id button
 id buttonPanel
 id center
@@ -1238,6 +1252,8 @@ id imageView
 id imageView6
 id image_view
 id info
+id input_email
+id input_password
 id invisible
 id italic
 id item_touch_helper_previous_elevation
@@ -1249,6 +1265,7 @@ id like_it_button
 id line1
 id line3
 id linear
+id link_signup
 id listMode
 id list_item
 id masked
@@ -1458,6 +1475,7 @@ layout login_activity
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout nav_header_main_page
+layout new_login_activity
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -1593,6 +1611,8 @@ style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
 style Animation_Design_BottomSheetDialog
 style AppTheme
+style AppTheme_Dark
+style AppTheme_Dark_Dialog
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog

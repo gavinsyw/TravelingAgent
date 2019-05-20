@@ -2096,6 +2096,10 @@
         "source": "E:\\AndroidStudioProjects\\TravelingAgent\\app\\src\\main\\res\\drawable-mdpi\\ic_google_messenger_icon.png"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo.png.flat",
+        "source": "E:\\AndroidStudioProjects\\TravelingAgent\\app\\src\\main\\res\\drawable\\logo.png"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
         "source": "C:\\Users\\apple_chen\\.gradle\\caches\\transforms-2\\files-2.1\\2975b0ff6ece3e348692518ff03bed3d\\res\\drawable-mdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
     },
@@ -2174,6 +2178,10 @@
     {
         "merged": "E:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
         "source": "C:\\Users\\apple_chen\\.gradle\\caches\\transforms-2\\files-2.1\\5dbc34035833cc90db91ecfb38cbcba4\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_new_login_activity.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\TravelingAgent\\app\\src\\main\\res\\layout\\new_login_activity.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",

@@ -30,7 +30,8 @@
 
         </activity>
 
-        <activity android:name="com.example.travelingagent.activity.LoginActivity">
+        <activity android:name="com.example.travelingagent.activity.LoginActivity"
+            android:theme="@style/AppTheme.Dark">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
