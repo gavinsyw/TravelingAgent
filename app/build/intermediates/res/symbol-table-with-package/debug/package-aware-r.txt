@@ -1092,6 +1092,7 @@ drawable icon_selected
 drawable icon_st
 drawable img1
 drawable john
+drawable map_icon
 drawable mechanic
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
@@ -1119,6 +1120,7 @@ drawable popup_right
 drawable popup_side
 drawable pre_
 drawable pre_down_
+drawable recommendation_icon
 drawable right
 drawable ruth
 drawable selector_bg_button

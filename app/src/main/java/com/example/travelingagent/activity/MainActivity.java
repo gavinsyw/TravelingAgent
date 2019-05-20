@@ -267,9 +267,9 @@ public class MainActivity extends AppCompatActivity
      * 加载模式选择列表
      */
     private void initModes() {
-        ModeEntity recommendation = new ModeEntity("Recommendation", R.drawable.ic_google_maps_icon);
+        ModeEntity recommendation = new ModeEntity("路线推荐", R.drawable.recommendation_icon);
         modeList.add(recommendation);
-        ModeEntity simulation = new ModeEntity("Simulation", R.drawable.ic_google_plus_icon);
+        ModeEntity simulation = new ModeEntity("模拟旅行", R.drawable.map_icon);
         modeList.add(simulation);
     }
 
