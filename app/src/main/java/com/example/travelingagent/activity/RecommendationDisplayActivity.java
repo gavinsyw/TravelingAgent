@@ -214,13 +214,13 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         baiduMap.animateMapStatus(update);
     }
 
-    private void drawItinerary(List<Spot> spotList) {
-        for (Spot spot :spotList) {
-            if (spot.getType() == 0) {
-
-            }
-        }
-    }
+//    private void drawItinerary(List<Spot> spotList) {
+//        for (Spot spot :spotList) {
+//            if (spot.getType() == 0) {
+//
+//            }
+//        }
+//    }
 
     private void addMarker(LatLng ll, BitmapDescriptor bitmap) {
 //        //定义Maker坐标点

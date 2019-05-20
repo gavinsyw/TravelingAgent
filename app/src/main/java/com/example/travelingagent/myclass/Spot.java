@@ -41,4 +41,8 @@ public class Spot {
         }
     }
 
+    public String getName() {
+        return this.name;
+    }
+
 }

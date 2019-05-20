@@ -1093,6 +1093,10 @@ drawable icon_st
 drawable img1
 drawable john
 drawable map_icon
+drawable marker_blue
+drawable marker_pink
+drawable marker_red
+drawable marker_yellow
 drawable mechanic
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator

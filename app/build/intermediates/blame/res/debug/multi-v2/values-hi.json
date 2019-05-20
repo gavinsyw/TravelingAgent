@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\xzh87\\AndroidStudioProjects\\TravelingAgent\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hi\\values-hi.xml",
+            "outputFile": "D:\\Software Engineering\\TravelingAgent\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hi\\values-hi.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\xzh87\\.gradle\\caches\\transforms-2\\files-2.1\\4c0d97a6eed8efacc66e18fb6dd92c6f\\res\\values-hi\\values-hi.xml",
+                    "source": "C:\\Users\\gavin\\.gradle\\caches\\transforms-2\\files-2.1\\0c81d135c67249890032a9fe0cdbb432\\res\\values-hi\\values-hi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\xzh87\\.gradle\\caches\\transforms-2\\files-2.1\\9a51691eee657f97742b99560cc650e9\\res\\values-hi\\values-hi.xml",
+                    "source": "C:\\Users\\gavin\\.gradle\\caches\\transforms-2\\files-2.1\\f7cb0644aa41b78e6297d0edc0e4aa60\\res\\values-hi\\values-hi.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
