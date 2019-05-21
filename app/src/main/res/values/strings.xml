@@ -8,7 +8,7 @@
     <string name="header">Header</string>
     <string name="simulation_header_title">这里是...</string>
     <string name="mode_header_title">模式选择</string>
-    <string name="simulation_header_sample">地名</string>
+    <string name="simulation_header_sample">一些地点信息</string>
     <string name="mode_header_sample">试一下！</string>
     <string name="footer_button_close">CLOSE</string>
     <string name="footer_button_confirm">CONFIRM</string>

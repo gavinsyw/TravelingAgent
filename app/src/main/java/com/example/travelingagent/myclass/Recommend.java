@@ -25,7 +25,7 @@ public class Recommend {
     public List<Spot> recommend(Vector<Sight> sightVec, Hotel hotel) throws FileNotFoundException {
         ReadFile f = new ReadFile("Shanghai");
 //        Vector<Sight> sightVec = f.sightVec();
-        double distanceLoss = 1 + choice1;
+        double distanceLoss = 1 + choice1 * 10;
         double popularityLoss = 1 + choice2;
         double scoreLoss = 1 + choice3;
         double environmentLoss = 1 + choice4;
@@ -34,7 +34,7 @@ public class Recommend {
         List<Spot> l = new Vector<Spot>(60);
         Graph g = new Graph(60, sightVec, hotel);
         Vector<Spot> s = g.journeySequence(this.numberOfSightsPerDay, distanceLoss, popularityLoss, scoreLoss, environmentLoss, serviceLoss, costLoss);
-        for (int i = 0; i < s.size(); ++i) {
+        for (int i = 0; i < 20; ++i) {
             l.add(s.get(i));
         }
         return l;

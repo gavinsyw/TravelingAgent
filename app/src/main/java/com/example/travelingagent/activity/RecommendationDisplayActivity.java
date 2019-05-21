@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
+import com.bumptech.glide.Glide;
 import com.example.travelingagent.R;
 import com.example.travelingagent.entity.ItemEntity;
 import com.example.travelingagent.myclass.Hotel;
@@ -67,6 +69,8 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
     RoutePlanSearch mSearch = null;
     LatLng currentLocation = null;
     List<Spot> itinerary = null;
+    List<Hotel> hotelVec = new Vector<>();
+    Vector<Sight> sightVec = new Vector<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,8 +81,6 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
         currentLocation = new LatLng(31.23, 121.47 );   // 上海的中心经纬
-        final BitmapDescriptor defaultBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_blue);
-        final BitmapDescriptor selectedBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_yellow);
 
         Intent intent = getIntent();
         int[] choice_data = intent.getIntArrayExtra("choiceData");
@@ -93,8 +95,6 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         int choice6 = choice_data[5];
 //        Hotel hotel = new Hotel("FakeHotel", 1, 0, "Fake", 121.72, 31.55);
 
-        List<Hotel> hotelVec = new Vector<>();
-        Vector<Sight> sightVec = new Vector<>();
         List<Spot> recommend = null;
 
         try {
@@ -163,63 +163,46 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
             navigateTo(currentLocation, 10,"上海");
         }
 
-//        BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
-//            @Override
-//            public boolean onMarkerClick(final Marker marker) {
-//                final DialogPlus dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
-//                        .setContentHolder(new ViewHolder(R.layout.content_simulation))
-////                        .setAdapter(adapter)
-//                        .setCancelable(true)
-//                        .setHeader(R.layout.header_simulation)
-//                        .setExpanded(true, 2000)  // This will enable the expand feature, (similar to android L share dialog)
-//                        .create();
-//                dialog.show();
+        BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(final Marker marker) {
+                String spotName = marker.getTitle();
+                String spotID = marker.getId();
+
+                setContentView(R.layout.content_recommendation);
+
+                ImageView imageView = (ImageView) findViewById(R.id.word_cloud_image);
+                imageView.setImageResource(R.drawable.hotel_3);
+
+                setContentView(R.layout.activity_simulation);
+
+//                setContentView(R.layout.header_recommendation);
 //
-//                Button button_yes = (Button) findViewById(R.id.like_it_button);
-//                Button button_no = (Button) findViewById(R.id.maybe_not_button);
-//
-//                button_yes.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Toast.makeText(RecommendationDisplayActivity.this, "The spot is saved.", Toast.LENGTH_SHORT).show();
-//                        dialog.dismiss();
-//                        mSearch = RoutePlanSearch.newInstance();
-//                        mSearch.setOnGetRoutePlanResultListener(RecommendationDisplayActivity.this);
-//
-//                        PlanNode stNode = PlanNode.withLocation(currentLocation);
-//                        PlanNode enNode = PlanNode.withLocation(marker.getPosition());
-//
-//                        mSearch.drivingSearch((new DrivingRoutePlanOption())
-//                                .from(stNode)
-//                                .to(enNode));
-//
-//                        currentLocation = marker.getPosition();
-//                        navigateTo(currentLocation, 8, null);
-//
-//                        marker.remove();
-//                        addMarker(currentLocation, selectedBitmap);
-//                    }
-//                });
-//
-//                button_no.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Toast.makeText(RecommendationDisplayActivity.this, "The spot is deleted.", Toast.LENGTH_SHORT).show();
-//                        dialog.dismiss();
-//                        marker.remove();
-//                    }
-//                });
-////                Intent intent = new Intent(RecommendationDisplayActivity.this, PoiSearchActivity.class);
-////                startActivity(intent);
-//                return true;
-//            }
-//        };
-//
-//        baiduMap.setOnMarkerClickListener(markerClickListener);
+//                TextView textView = (TextView) findViewById(R.id.spotNameView);
+//                textView.setText(spotName);
+
+
+
+                final DialogPlus dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                        .setContentHolder(new ViewHolder(R.layout.content_recommendation))
+//                        .setAdapter(adapter)
+                        .setCancelable(true)
+                        .setHeader(R.layout.header_recommendation)
+                        .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                        .create();
+                dialog.show();
+
+//                Intent intent = new Intent(RecommendationDisplayActivity.this, PoiSearchActivity.class);
+//                startActivity(intent);
+                return true;
+            }
+        };
+
+        baiduMap.setOnMarkerClickListener(markerClickListener);
 
         Recommend r = new Recommend(3, choice1, choice2, choice3, choice4, choice5, choice6);
         try {
-            recommend = r.recommend(sightVec, hotelVec.get(0));
+            recommend = r.recommend(sightVec, hotelVec.get(1));
         } catch (FileNotFoundException e) {
 
         }
@@ -281,7 +264,7 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 //        baiduMap.setMyLocationData(locationData);
 
         if (description != null) {
-            Toast.makeText(this, "nav to " + description, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, description, Toast.LENGTH_SHORT).show();
         }
         MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(ll);
         baiduMap.animateMapStatus(update);
@@ -290,20 +273,20 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
     }
 
     private void drawItinerary(List<Spot> spotList) {
-        BitmapDescriptor hotelBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_pink);
-        BitmapDescriptor sightBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_green);
         Spot currentSpot = spotList.get(0);
         currentLocation = currentSpot.getLatLng();
 
         for( int i = 1 ; i < spotList.size() ; i++) {//内部不锁定，效率最高，但在多线程要考虑并发操作的问题。
             Spot spot = spotList.get(i);
+            mSearch = RoutePlanSearch.newInstance();
+            mSearch.setOnGetRoutePlanResultListener(RecommendationDisplayActivity.this);
 
             if (spot.getType() == 0) {
-                addMarker(spot.getLatLng(), sightBitmap);
+                addMarker(spot.getLatLng(), 0, spot.getID());
             }
             else {
                 if (spot.getType() == 1) {
-                    addMarker(spot.getLatLng(), hotelBitmap);
+                    addMarker(spot.getLatLng(), 1, spot.getID());
                 }
             }
 
@@ -313,7 +296,12 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
             mSearch.drivingSearch((new DrivingRoutePlanOption())
                     .from(stNode)
                     .to(enNode));
+
+            currentLocation = spot.getLatLng();
+
         }
+
+
 
 //        for (Spot spot :spotList) {
 //            if (spot.getType() == 0) {
@@ -334,14 +322,48 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 //        }
     }
 
-    private void addMarker(LatLng ll, BitmapDescriptor bitmap) {
+//    private void addMarker(LatLng ll, BitmapDescriptor bitmap) {
+////        //定义Maker坐标点
+////        LatLng point = new LatLng(lat, lng);
+//        //构建Marker图标
+//        //构建MarkerOption，用于在地图上添加Marker
+//        OverlayOptions option = new MarkerOptions()
+//                .position(ll)
+//                .icon(bitmap);
+//        //在地图上添加Marker，并显示
+//        baiduMap.addOverlay(option);
+//
+////        BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
+////            @Override
+////            public boolean onMarkerClick(Marker marker) {
+////                Toast.makeText(RecommendationDisplayActivity.this, "blabla", Toast.LENGTH_SHORT).show();
+////                return true;
+////            }
+////        };
+//    }
+
+    private void addMarker(LatLng ll, int type, int id) {
+        BitmapDescriptor hotelBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_pink);
+        BitmapDescriptor sightBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_green);
 //        //定义Maker坐标点
 //        LatLng point = new LatLng(lat, lng);
         //构建Marker图标
         //构建MarkerOption，用于在地图上添加Marker
-        OverlayOptions option = new MarkerOptions()
-                .position(ll)
-                .icon(bitmap);
+        OverlayOptions option = null;
+        if (type == 0) {
+            option = new MarkerOptions()
+                    .position(ll)
+                    .icon(sightBitmap)
+                    .title(sightVec.get(id).getName());
+        }
+        else {
+            option = new MarkerOptions()
+                    .position(ll)
+                    .icon(hotelBitmap)
+                    .title(hotelVec.get(id).getName());
+        }
+
+
         //在地图上添加Marker，并显示
         baiduMap.addOverlay(option);
 

@@ -13,12 +13,16 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="Comfort Level" />
+            android:text="距离最短" />
 
         <com.github.channguyen.rsv.RangeSliderView
             android:id="@+id/rsv_smal1"
@@ -33,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Popularity" />
+            android:text="人气最高" />
 
         <com.github.channguyen.rsv.RangeSliderView
             android:id="@+id/rsv_smal2"
@@ -48,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Service Condition" />
+            android:text="评价最好" />
 
         <com.github.channguyen.rsv.RangeSliderView
             android:id="@+id/rsv_smal3"
@@ -63,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Cost Perfomance" />
+            android:text="环境最佳" />
 
         <com.github.channguyen.rsv.RangeSliderView
             android:id="@+id/rsv_smal4"
@@ -78,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Cost Perfomance" />
+            android:text="服务最棒" />
 
         <com.github.channguyen.rsv.RangeSliderView
             android:id="@+id/rsv_smal5"
@@ -93,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Cost Perfomance" />
+            android:text="费用最少" />
 
         <com.github.channguyen.rsv.RangeSliderView
             android:id="@+id/rsv_smal6"
@@ -106,8 +110,8 @@
 
         <com.gc.materialdesign.views.ButtonFlat
             android:id="@+id/buttonflat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="145dp"
+            android:layout_height="67dp"
             android:layout_gravity="center"
             android:background="#1E88E5"
             android:text="获取推荐" />

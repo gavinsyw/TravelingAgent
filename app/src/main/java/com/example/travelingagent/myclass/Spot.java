@@ -55,4 +55,8 @@ public class Spot {
         return new LatLng(this.latitude, this.longitude);
     }
 
+    public int getID() {
+        return this.ID;
+    }
+
 }

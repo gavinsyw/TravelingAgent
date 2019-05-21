@@ -38,14 +38,21 @@ import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.example.travelingagent.R;
 import com.example.travelingagent.myclass.Hotel;
+import com.example.travelingagent.myclass.Sight;
+import com.example.travelingagent.myclass.Spot;
 import com.example.travelingagent.overlayutil.DrivingRouteOverlay;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class SimulationActivity extends AppCompatActivity implements OnGetRoutePlanResultListener {
     public LocationClient mLocationClient;
@@ -55,6 +62,8 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
     private boolean isFirstLocate = true;
     RoutePlanSearch mSearch = null;
     LatLng currentLocation = null;
+    List<Hotel> hotelVec = new Vector<>();
+    Vector<Sight> sightVec = new Vector<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +73,7 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         mapView = (MapView) findViewById(R.id.bmapView);
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
-        currentLocation = new LatLng(37.963175, 116.400244);
+        currentLocation = new LatLng(31.209519, 121.457545);
 
         final BitmapDescriptor defaultBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_blue);
         final BitmapDescriptor selectedBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_yellow);
@@ -95,8 +104,7 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
             ActivityCompat.requestPermissions(SimulationActivity.this, permissions, 1);
         } else {
 //            requestLocation();
-            addMarker(currentLocation, selectedBitmap);
-            navigateTo(currentLocation, 8,"Starting Point");
+            navigateTo(currentLocation, 10,"上海建业里嘉佩乐酒店欢迎您~");
         }
 
         BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
@@ -130,7 +138,7 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                                 .to(enNode));
 
                         currentLocation = marker.getPosition();
-                        navigateTo(currentLocation, 8, null);
+                        navigateTo(currentLocation, 10, null);
 
                         marker.remove();
                         addMarker(currentLocation, selectedBitmap);
@@ -153,6 +161,62 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
 
         baiduMap.setOnMarkerClickListener(markerClickListener);
 
+        try {
+            InputStream in = getAssets().open("hotel_information.json");
+            int size = in.available();
+            byte[] buffer = new byte[size];
+            in.read(buffer);
+            String jsonStr = new String(buffer, "GBK");
+            JSONArray jsonArray = new JSONArray(jsonStr);
+            // {"id": "1", "name": "上海也山花园酒店(崇明森林公园店)", "popularity": 190.0, "money": 559.0, "total": 49.0, "latitude": 31.666015, "longitude": 121.471442},
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                int id = jsonObject.getInt("id");
+                String name = jsonObject.getString("name");
+                double popularity = jsonObject.getDouble("popularity");
+                double money = jsonObject.getDouble("money");
+                double total = jsonObject.getDouble("total");
+                double latitude = jsonObject.getDouble("latitude");
+                double longitude = jsonObject.getDouble("longitude");
+                hotelVec.add(new Hotel(name, id, 1, popularity, money, total, longitude, latitude));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            InputStream in = getAssets().open("sight_information.json");
+            int size = in.available();
+            byte[] buffer = new byte[size];
+            in.read(buffer);
+            String jsonStr = new String(buffer, "GBK");
+            JSONArray jsonArray = new JSONArray(jsonStr);
+            // {"id": "1", "name": "上海迪士尼度假区", "popularity": 32903.0, "money": 587.0, "total": 92.0, "environment": 84.0, "service": 85.0, "latitude": 31.141201, "longitude": 121.666345}
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                int id = jsonObject.getInt("id");
+                String name = jsonObject.getString("name");
+                double popularity = jsonObject.getDouble("popularity");
+                double money = jsonObject.getDouble("money");
+                double total = jsonObject.getDouble("money");
+                double environment = jsonObject.getDouble("environment");
+                double service = jsonObject.getDouble("service");
+                double latitude = jsonObject.getDouble("latitude");
+                double longitude = jsonObject.getDouble("longitude");
+                sightVec.add(new Sight(name, id, 0, "blabla", longitude, latitude, popularity, total, environment, service, money));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        for (int i = 0; i < sightVec.size(); i++) {
+            addMarker(sightVec.get(i).getLatLng(), 0, sightVec.get(i).getID());
+        }
+
+        for (int j = 0; j < hotelVec.size(); j++) {
+            addMarker(hotelVec.get(j).getLatLng(), 1, hotelVec.get(j).getID());
+        }
+
 
 //        PlanNode stNode = PlanNode.withLocation(new LatLng(37.963175, 116.400244));
 //        PlanNode enNode = PlanNode.withLocation(new LatLng(38.963175, 116.400244));
@@ -162,8 +226,8 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
 //                .trafficPolicy(DrivingRoutePlanOption.DrivingTrafficPolicy.ROUTE_PATH_AND_TRAFFIC));
 
 //        addMarker(37.963175, 116.400244);
-        addMarker(new LatLng(39.963175, 116.400244), defaultBitmap);
-        addMarker(new LatLng(39.963175, 118.400244), defaultBitmap);
+//        addMarker(new LatLng(39.963175, 116.400244), defaultBitmap);
+//        addMarker(new LatLng(39.963175, 118.400244), defaultBitmap);
 
     }
 
@@ -227,6 +291,40 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
 //            @Override
 //            public boolean onMarkerClick(Marker marker) {
 //                Toast.makeText(SimulationActivity.this, "blabla", Toast.LENGTH_SHORT).show();
+//                return true;
+//            }
+//        };
+    }
+
+    private void addMarker(LatLng ll, int type, int id) {
+        BitmapDescriptor hotelBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_pink);
+        BitmapDescriptor sightBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_green);
+//        //定义Maker坐标点
+//        LatLng point = new LatLng(lat, lng);
+        //构建Marker图标
+        //构建MarkerOption，用于在地图上添加Marker
+        OverlayOptions option = null;
+        if (type == 0) {
+            option = new MarkerOptions()
+                    .position(ll)
+                    .icon(sightBitmap)
+                    .title(sightVec.get(id - 1).getName());
+        }
+        else {
+            option = new MarkerOptions()
+                    .position(ll)
+                    .icon(hotelBitmap)
+                    .title(hotelVec.get(id - 1).getName());
+        }
+
+
+        //在地图上添加Marker，并显示
+        baiduMap.addOverlay(option);
+
+//        BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
+//            @Override
+//            public boolean onMarkerClick(Marker marker) {
+//                Toast.makeText(RecommendationDisplayActivity.this, "blabla", Toast.LENGTH_SHORT).show();
 //                return true;
 //            }
 //        };
