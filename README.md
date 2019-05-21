@@ -13,6 +13,9 @@ Project of Software Engineering
   * 继续设计后续页面，包括路线生成、报告、用户管理（蒋黄扉、陈浩平）
   * 优化算法（宋大佬）
   * 减少git分支，version1还行
+* 为保持UI同一，可参考MaterialDesign
+  * 模板库 <https://github.com/navasmdc/MaterialDesignLibrary>
+  * 设计参考 <https://material.io/?tdsourcetag=s_pctim_aiomsg>
 
 ## Developer Guide
 ### 路线规划功能的开发者帮助
