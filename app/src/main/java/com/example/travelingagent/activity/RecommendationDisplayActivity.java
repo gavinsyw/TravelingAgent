@@ -8,10 +8,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.location.LocationClient;
@@ -38,9 +34,7 @@ import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
-import com.bumptech.glide.Glide;
 import com.example.travelingagent.R;
-import com.example.travelingagent.entity.ItemEntity;
 import com.example.travelingagent.myclass.Hotel;
 import com.example.travelingagent.myclass.Recommend;
 import com.example.travelingagent.myclass.Sight;
@@ -169,12 +163,22 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
                 String spotName = marker.getTitle();
                 String spotID = marker.getId();
 
-                setContentView(R.layout.content_recommendation);
+//                setContentView(R.layout.content_recommendation_1);
+                Toast.makeText(RecommendationDisplayActivity.this, spotName + "欢迎您~", Toast.LENGTH_SHORT).show();
 
-                ImageView imageView = (ImageView) findViewById(R.id.word_cloud_image);
-                imageView.setImageResource(R.drawable.hotel_3);
+                DialogPlus dialog = null;
+//                DialogPlus dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+//                        .setContentHolder(new ViewHolder(R.layout.content_recommendation_1))
+////                        .setAdapter(adapter)
+//                        .setCancelable(true)
+//                        .setHeader(R.layout.header_recommendation)
+//                        .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+//                        .create();
+//                dialog.show();
+//                ImageView imageView = (ImageView) RecommendationDisplayActivity.this.findViewById(R.id.word_cloud_image);
+//                imageView.setImageResource(R.drawable.hotel_3);
 
-                setContentView(R.layout.activity_simulation);
+//                setContentView(R.layout.activity_simulation);
 
 //                setContentView(R.layout.header_recommendation);
 //
@@ -183,17 +187,322 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 
 
 
-                final DialogPlus dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
-                        .setContentHolder(new ViewHolder(R.layout.content_recommendation))
+                switch (spotID) {
+                    case "0":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation1))
 //                        .setAdapter(adapter)
-                        .setCancelable(true)
-                        .setHeader(R.layout.header_recommendation)
-                        .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
-                        .create();
-                dialog.show();
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "1":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation2))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "2":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation3))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "3":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation4))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "4":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation5))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "5":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation6))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "6":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation7))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "7":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation8))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "8":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation9))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "9":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation10))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "10":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation11))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        break;
+                    case "11":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation11))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "12":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation12))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "13":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation13))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "14":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation14))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "15":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation15))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "16":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation16))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "17":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation17))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "18":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation18))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "19":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation19))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "20":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation20))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "21":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation21))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "22":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation22))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "23":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation23))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "24":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation24))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "25":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation25))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "26":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation26))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "27":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation27))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "28":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation28))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+                    case "29":
+                        dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+                                .setContentHolder(new ViewHolder(R.layout.content_recommendation29))
+//                        .setAdapter(adapter)
+                                .setCancelable(true)
+                                .setHeader(R.layout.header_recommendation)
+                                .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+                                .create();
+                        dialog.show();
+                        break;
+
+                }
+
+//                final DialogPlus dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+//                        .setContentHolder(new ViewHolder(R.layout.content_recommendation_1))
+////                        .setAdapter(adapter)
+//                        .setCancelable(true)
+//                        .setHeader(R.layout.header_recommendation)
+//                        .setExpanded(true, 1200)  // This will enable the expand feature, (similar to android L share dialog)
+//                        .create();
+//                dialog.show();
 
 //                Intent intent = new Intent(RecommendationDisplayActivity.this, PoiSearchActivity.class);
 //                startActivity(intent);
+
+                dialog.show();
                 return true;
             }
         };

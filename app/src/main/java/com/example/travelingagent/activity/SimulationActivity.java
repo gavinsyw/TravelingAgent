@@ -104,7 +104,8 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
             ActivityCompat.requestPermissions(SimulationActivity.this, permissions, 1);
         } else {
 //            requestLocation();
-            navigateTo(currentLocation, 10,"上海建业里嘉佩乐酒店欢迎您~");
+            navigateTo(currentLocation, 14,"上海建业里嘉佩乐酒店欢迎您~");
+            addMarker(currentLocation, selectedBitmap);
         }
 
         BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
@@ -125,7 +126,6 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                 button_yes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(SimulationActivity.this, "The spot is saved.", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                         mSearch = RoutePlanSearch.newInstance();
                         mSearch.setOnGetRoutePlanResultListener(SimulationActivity.this);
@@ -138,7 +138,7 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                                 .to(enNode));
 
                         currentLocation = marker.getPosition();
-                        navigateTo(currentLocation, 10, null);
+                        navigateTo(currentLocation, 14, null);
 
                         marker.remove();
                         addMarker(currentLocation, selectedBitmap);
@@ -148,7 +148,6 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                 button_no.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(SimulationActivity.this, "The spot is deleted.", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
 //                        marker.remove();
                     }
@@ -267,7 +266,7 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
 //        baiduMap.setMyLocationData(locationData);
 
         if (description != null) {
-            Toast.makeText(this, "nav to " + description, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, description, Toast.LENGTH_SHORT).show();
         }
         MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(ll);
         baiduMap.animateMapStatus(update);
@@ -422,7 +421,7 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         }
         if (drivingRouteResult.error == SearchResult.ERRORNO.NO_ERROR) {
             if (drivingRouteResult.getRouteLines().size() > 0) {
-                Toast.makeText(this, "有结果", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "有结果", Toast.LENGTH_SHORT).show();
                 //获取路径规划数据,(以返回的第一条路线为例）
                 //为DrivingRouteOverlay实例设置数据
                 overlay.setData(drivingRouteResult.getRouteLines().get(0));
