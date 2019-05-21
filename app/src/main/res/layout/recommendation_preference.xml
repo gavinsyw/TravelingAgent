@@ -4,120 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:theme="@style/AppTheme">
-
-    <!--<TextView-->
-        <!--android:id="@+id/itineary"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="推荐路线"/>-->
-
-    <!--<LinearLayout-->
-        <!--android:id="@+id/linear"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="250dp"-->
-        <!--android:orientation="vertical"-->
-        <!--android:gravity="center">-->
-        <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
-            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:layout_height="wrap_content">&ndash;&gt;-->
-        <!--<CheckBox-->
-            <!--android:id="@+id/leisure"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:padding="20dp"-->
-            <!--android:text="@string/leisure" />-->
-
-        <!--<CheckBox-->
-            <!--android:id="@+id/cheap"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:padding="20dp"-->
-            <!--android:text="@string/cheap" />-->
-    <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
-
-
-
-        <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
-            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:layout_height="wrap_content">&ndash;&gt;-->
-        <!--<CheckBox-->
-            <!--android:id="@+id/popular_attraction"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:padding="20dp"-->
-            <!--android:text="@string/popular_attraction"/>-->
-
-        <!--<CheckBox-->
-            <!--android:id="@+id/service"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:padding="20dp"-->
-            <!--android:text="@string/service"/>-->
-        <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
-
-    <!--</LinearLayout>-->
-
-
-    <!--<RelativeLayout-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="48dp" >-->
-
-        <!--<com.gc.materialdesign.views.Slider-->
-            <!--android:id="@+id/sliderNumber"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerInParent="true"-->
-            <!--android:background="#1E88E5"-->
-            <!--materialdesign:max="50"-->
-            <!--materialdesign:min="0"-->
-            <!--materialdesign:showNumberIndicator="true"-->
-            <!--/>-->
-    <!--</RelativeLayout>-->
-
-
-    <!--<LinearLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content">-->
-
-        <!--<Button-->
-            <!--android:id="@+id/search_button"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp"-->
-            <!--android:gravity="center"-->
-            <!--android:text="@string/search_button" />-->
-    <!--</LinearLayout>-->
-
-
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text = "迪士尼乐园 + 水族馆 + 上海交通大学"/>-->
-
-    <!--<Button-->
-        <!--android:id="@+id/confirm_path_button"-->
-        <!--android:layout_width="161dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/confirm_path_button" />-->
-
-
-    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--xmlns:materialdesign="http://schemas.android.com/apk/res-auto"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--&gt;-->
-
-
-    <!--<com.gc.materialdesign.views.Slider-->
-        <!--android:id="@+id/slider"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:background="#1E88E5"-->
-        <!--materialdesign:max="50"-->
-        <!--materialdesign:min="0"-->
-        <!--/>-->
-
+    android:theme="@style/AppTheme"
+    android:background="@color/white">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:rsv="http://schemas.android.com/apk/res-auto"
@@ -131,13 +19,14 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:text="Comfort Level" />
+
         <com.github.channguyen.rsv.RangeSliderView
-            android:id="@+id/rsv_small1"
+            android:id="@+id/rsv_smal1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginBottom="40dp"
             android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
             rsv:filledColor="@color/holo_blue_bright" />
 
         <TextView
@@ -145,13 +34,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Popularity" />
+
         <com.github.channguyen.rsv.RangeSliderView
             android:id="@+id/rsv_smal2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginBottom="50dp"
             android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
             rsv:filledColor="@color/holo_red_light" />
 
         <TextView
@@ -159,13 +49,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Service Condition" />
+
         <com.github.channguyen.rsv.RangeSliderView
             android:id="@+id/rsv_smal3"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginBottom="50dp"
             android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
             rsv:filledColor="@color/holo_green_light" />
 
         <TextView
@@ -173,21 +64,52 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Cost Perfomance" />
+
         <com.github.channguyen.rsv.RangeSliderView
             android:id="@+id/rsv_smal4"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginBottom="50dp"
             android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
             rsv:filledColor="@color/mb_purple" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Cost Perfomance" />
+
+        <com.github.channguyen.rsv.RangeSliderView
+            android:id="@+id/rsv_smal5"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            rsv:filledColor="@color/holo_orange_light" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Cost Perfomance" />
+
+        <com.github.channguyen.rsv.RangeSliderView
+            android:id="@+id/rsv_smal6"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            rsv:filledColor="@color/monsoon" />
 
         <com.gc.materialdesign.views.ButtonFlat
             android:id="@+id/buttonflat"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/holo_red_light"
+            android:layout_gravity="center"
+            android:background="#1E88E5"
             android:text="获取推荐" />
 
 

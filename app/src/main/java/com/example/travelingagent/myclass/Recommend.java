@@ -1,6 +1,10 @@
 package com.example.travelingagent.myclass;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.lang.*;
 import java.util.*;
 
@@ -18,9 +22,9 @@ public class Recommend {
         this.numberOfSightsPerDay = numberOfSightsPerDay;
     }
 
-    public List<Spot> recommend(String city, Hotel hotel) throws FileNotFoundException {
+    public List<Spot> recommend(Vector<Sight> sightVec, Hotel hotel) throws FileNotFoundException {
         ReadFile f = new ReadFile("Shanghai");
-        Vector<Sight> sightVec = f.sightVec();
+//        Vector<Sight> sightVec = f.sightVec();
         double distanceLoss = 1 + choice1;
         double popularityLoss = 1 + choice2;
         double scoreLoss = 1 + choice3;

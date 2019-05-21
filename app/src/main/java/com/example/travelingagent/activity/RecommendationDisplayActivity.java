@@ -1,6 +1,7 @@
 package com.example.travelingagent.activity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -37,8 +38,10 @@ import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.example.travelingagent.R;
+import com.example.travelingagent.entity.ItemEntity;
 import com.example.travelingagent.myclass.Hotel;
 import com.example.travelingagent.myclass.Recommend;
+import com.example.travelingagent.myclass.Sight;
 import com.example.travelingagent.myclass.Spot;
 import com.example.travelingagent.overlayutil.DrivingRouteOverlay;
 import com.google.gson.Gson;
@@ -46,9 +49,14 @@ import com.google.gson.reflect.TypeToken;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class RecommendationDisplayActivity extends AppCompatActivity implements OnGetRoutePlanResultListener {
     public LocationClient mLocationClient;
@@ -72,33 +80,70 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         final BitmapDescriptor defaultBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_blue);
         final BitmapDescriptor selectedBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_yellow);
 
-        int choice1 = 1;
-        int choice2 = 1;
-        int choice3 = 1;
-        int choice4 = 1;
-        int choice5 = 1;
-        int choice6 = 1;
-        Hotel hotel = new Hotel("FakeHotel", 1, 0, "Fake", 121.72, 31.55);
+        Intent intent = getIntent();
+        int[] choice_data = intent.getIntArrayExtra("choiceData");
 
-        Recommend recommend = new Recommend(4, choice1, choice2, choice3, choice4, choice5, choice6);
+        Toast.makeText(RecommendationDisplayActivity.this, String.valueOf(choice_data[1]), Toast.LENGTH_SHORT).show();
+
+        int choice1 = choice_data[0];
+        int choice2 = choice_data[1];
+        int choice3 = choice_data[2];
+        int choice4 = choice_data[3];
+        int choice5 = choice_data[4];
+        int choice6 = choice_data[5];
+//        Hotel hotel = new Hotel("FakeHotel", 1, 0, "Fake", 121.72, 31.55);
+
+        List<Hotel> hotelVec = new Vector<>();
+        Vector<Sight> sightVec = new Vector<>();
+        List<Spot> recommend = null;
 
         try {
-            itinerary = recommend.recommend("Shanghai", hotel);
-        } catch (FileNotFoundException e) {
-            System.out.println(e.toString());
-            Log.d("Recommendation", e.toString());
+            InputStream in = getAssets().open("hotel_information.json");
+            int size = in.available();
+            byte[] buffer = new byte[size];
+            in.read(buffer);
+            String jsonStr = new String(buffer, "GBK");
+            JSONArray jsonArray = new JSONArray(jsonStr);
+            // {"id": "1", "name": "上海也山花园酒店(崇明森林公园店)", "popularity": 190.0, "money": 559.0, "total": 49.0, "latitude": 31.666015, "longitude": 121.471442},
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                int id = jsonObject.getInt("id");
+                String name = jsonObject.getString("name");
+                double popularity = jsonObject.getDouble("popularity");
+                double money = jsonObject.getDouble("money");
+                double total = jsonObject.getDouble("total");
+                double latitude = jsonObject.getDouble("latitude");
+                double longitude = jsonObject.getDouble("longitude");
+                hotelVec.add(new Hotel(name, id, 1, popularity, money, total, longitude, latitude));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-//        mLocationClient = new LocationClient(getApplicationContext());
-//        mLocationClient.registerLocationListener(new BDLocationListener() {
-//            @Override
-//            public void onReceiveLocation(BDLocation location) {
-//                if (location.getLocType() == BDLocation.TypeGpsLocation
-//                        || location.getLocType() == BDLocation.TypeNetWorkLocation) {
-//                    navigateTo(location.getLatitude(), location.getLongitude(), 18, location.getAddrStr());
-//                }
-//            }
-//        });
+        try {
+            InputStream in = getAssets().open("sight_information.json");
+            int size = in.available();
+            byte[] buffer = new byte[size];
+            in.read(buffer);
+            String jsonStr = new String(buffer, "GBK");
+            JSONArray jsonArray = new JSONArray(jsonStr);
+            // {"id": "1", "name": "上海迪士尼度假区", "popularity": 32903.0, "money": 587.0, "total": 92.0, "environment": 84.0, "service": 85.0, "latitude": 31.141201, "longitude": 121.666345}
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                int id = jsonObject.getInt("id");
+                String name = jsonObject.getString("name");
+                double popularity = jsonObject.getDouble("popularity");
+                double money = jsonObject.getDouble("money");
+                double total = jsonObject.getDouble("money");
+                double environment = jsonObject.getDouble("environment");
+                double service = jsonObject.getDouble("service");
+                double latitude = jsonObject.getDouble("latitude");
+                double longitude = jsonObject.getDouble("longitude");
+                sightVec.add(new Sight(name, id, 0, "blabla", longitude, latitude, popularity, total, environment, service, money));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         List<String> permissionList = new ArrayList<>();
         if (ContextCompat.checkSelfPermission(RecommendationDisplayActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -115,65 +160,74 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
             ActivityCompat.requestPermissions(RecommendationDisplayActivity.this, permissions, 1);
         } else {
 //            requestLocation();
-            navigateTo(currentLocation, 12,"城市名");
+            navigateTo(currentLocation, 10,"上海");
         }
 
-        BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(final Marker marker) {
-                final DialogPlus dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
-                        .setContentHolder(new ViewHolder(R.layout.content_simulation))
-//                        .setAdapter(adapter)
-                        .setCancelable(true)
-                        .setHeader(R.layout.header_simulation)
-                        .setExpanded(true, 2000)  // This will enable the expand feature, (similar to android L share dialog)
-                        .create();
-                dialog.show();
+//        BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
+//            @Override
+//            public boolean onMarkerClick(final Marker marker) {
+//                final DialogPlus dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+//                        .setContentHolder(new ViewHolder(R.layout.content_simulation))
+////                        .setAdapter(adapter)
+//                        .setCancelable(true)
+//                        .setHeader(R.layout.header_simulation)
+//                        .setExpanded(true, 2000)  // This will enable the expand feature, (similar to android L share dialog)
+//                        .create();
+//                dialog.show();
+//
+//                Button button_yes = (Button) findViewById(R.id.like_it_button);
+//                Button button_no = (Button) findViewById(R.id.maybe_not_button);
+//
+//                button_yes.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Toast.makeText(RecommendationDisplayActivity.this, "The spot is saved.", Toast.LENGTH_SHORT).show();
+//                        dialog.dismiss();
+//                        mSearch = RoutePlanSearch.newInstance();
+//                        mSearch.setOnGetRoutePlanResultListener(RecommendationDisplayActivity.this);
+//
+//                        PlanNode stNode = PlanNode.withLocation(currentLocation);
+//                        PlanNode enNode = PlanNode.withLocation(marker.getPosition());
+//
+//                        mSearch.drivingSearch((new DrivingRoutePlanOption())
+//                                .from(stNode)
+//                                .to(enNode));
+//
+//                        currentLocation = marker.getPosition();
+//                        navigateTo(currentLocation, 8, null);
+//
+//                        marker.remove();
+//                        addMarker(currentLocation, selectedBitmap);
+//                    }
+//                });
+//
+//                button_no.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Toast.makeText(RecommendationDisplayActivity.this, "The spot is deleted.", Toast.LENGTH_SHORT).show();
+//                        dialog.dismiss();
+//                        marker.remove();
+//                    }
+//                });
+////                Intent intent = new Intent(RecommendationDisplayActivity.this, PoiSearchActivity.class);
+////                startActivity(intent);
+//                return true;
+//            }
+//        };
+//
+//        baiduMap.setOnMarkerClickListener(markerClickListener);
 
-                Button button_yes = (Button) findViewById(R.id.like_it_button);
-                Button button_no = (Button) findViewById(R.id.maybe_not_button);
+        Recommend r = new Recommend(3, choice1, choice2, choice3, choice4, choice5, choice6);
+        try {
+            recommend = r.recommend(sightVec, hotelVec.get(0));
+        } catch (FileNotFoundException e) {
 
-                button_yes.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(RecommendationDisplayActivity.this, "The spot is saved.", Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
-                        mSearch = RoutePlanSearch.newInstance();
-                        mSearch.setOnGetRoutePlanResultListener(RecommendationDisplayActivity.this);
+        }
 
-                        PlanNode stNode = PlanNode.withLocation(currentLocation);
-                        PlanNode enNode = PlanNode.withLocation(marker.getPosition());
-
-                        mSearch.drivingSearch((new DrivingRoutePlanOption())
-                                .from(stNode)
-                                .to(enNode));
-
-                        currentLocation = marker.getPosition();
-                        navigateTo(currentLocation, 8, null);
-
-                        marker.remove();
-                        addMarker(currentLocation, selectedBitmap);
-                    }
-                });
-
-                button_no.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(RecommendationDisplayActivity.this, "The spot is deleted.", Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
-                        marker.remove();
-                    }
-                });
-//                Intent intent = new Intent(RecommendationDisplayActivity.this, PoiSearchActivity.class);
-//                startActivity(intent);
-                return true;
-            }
-        };
-
-        baiduMap.setOnMarkerClickListener(markerClickListener);
-
-        drawItinerary(itinerary);
-
+        drawItinerary(recommend);
+//
+//        drawItinerary(hotelVec);
+//        drawItinerary(sightVec);
 
 //        baiduMap
 
@@ -238,8 +292,12 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
     private void drawItinerary(List<Spot> spotList) {
         BitmapDescriptor hotelBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_pink);
         BitmapDescriptor sightBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_green);
+        Spot currentSpot = spotList.get(0);
+        currentLocation = currentSpot.getLatLng();
 
-        for (Spot spot :spotList) {
+        for( int i = 1 ; i < spotList.size() ; i++) {//内部不锁定，效率最高，但在多线程要考虑并发操作的问题。
+            Spot spot = spotList.get(i);
+
             if (spot.getType() == 0) {
                 addMarker(spot.getLatLng(), sightBitmap);
             }
@@ -248,7 +306,32 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
                     addMarker(spot.getLatLng(), hotelBitmap);
                 }
             }
+
+            PlanNode stNode = PlanNode.withLocation(currentLocation);
+            PlanNode enNode = PlanNode.withLocation(spot.getLatLng());
+
+            mSearch.drivingSearch((new DrivingRoutePlanOption())
+                    .from(stNode)
+                    .to(enNode));
         }
+
+//        for (Spot spot :spotList) {
+//            if (spot.getType() == 0) {
+//                addMarker(spot.getLatLng(), sightBitmap);
+//            }
+//            else {
+//                if (spot.getType() == 1) {
+//                    addMarker(spot.getLatLng(), hotelBitmap);
+//                }
+//            }
+//
+//            PlanNode stNode = PlanNode.withLocation(currentLocation);
+//            PlanNode enNode = PlanNode.withLocation(marker.getPosition());
+//
+//            mSearch.drivingSearch((new DrivingRoutePlanOption())
+//                    .from(stNode)
+//                    .to(enNode));
+//        }
     }
 
     private void addMarker(LatLng ll, BitmapDescriptor bitmap) {
