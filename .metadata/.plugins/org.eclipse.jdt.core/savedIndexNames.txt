@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+D:\Software Engineering\TravelingAgent\.metadata\.plugins\org.eclipse.jdt.core
+4211435121.index
+466459861.index
+3130988147.index
