@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 28
     buildToolsVersion "28.0.3"
+    useLibrary'org.apache.http.legacy'
 
     defaultConfig {
         applicationId "com.example.travelingagent"
@@ -43,6 +44,7 @@ dependencies {
     implementation 'com.jakewharton:butterknife:6.1.0'
     implementation 'com.github.channguyen:rsv:1.0.1'
     implementation 'com.github.navasmdc:MaterialDesign:1.5@aar'
+    implementation files('libs/android-async-http-1.4.7.jar')
 }
 repositories {
     mavenCentral()

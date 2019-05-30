@@ -25,27 +25,21 @@
 
         </activity>
 
-        <activity android:name="com.example.travelingagent.activity.NewLoginActivity"
-            android:theme="@style/AppTheme.Dark">
+        <activity android:name="com.example.travelingagent.activity.NewLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.travelingagent.activity.SignupActivity" />
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="PGVpR1FpomjL3coAKdOl7OvLznrgSY5g" />
 
         <activity android:name=".activity.SimulationActivity" />
-        <!--<activity android:name=".activity.LoginActivity">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.Main2Activity" />
         <activity android:name=".activity.RecommendationActivity" />

@@ -52,6 +52,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.travelingagent.R;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.apache.http.Header;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -72,22 +80,21 @@ public class NewLoginActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
         _loginButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 login();
             }
         });
 
-//        _signupLink.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                // Start the Signup activity
-//                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
-//                startActivityForResult(intent, REQUEST_SIGNUP);
-//            }
-//        });
+        _signupLink.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // Start the Signup activity
+                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);//连接SignupActivity
+                startActivityForResult(intent, REQUEST_SIGNUP);
+            }
+        });
     }
 
     public void login() {
@@ -119,9 +126,8 @@ public class NewLoginActivity extends AppCompatActivity {
                         // onLoginFailed();
                         progressDialog.dismiss();
                     }
-                }, 3000);
+                }, 300);
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -157,6 +163,53 @@ public class NewLoginActivity extends AppCompatActivity {
         _loginButton.setEnabled(true);
     }
 
+    private boolean loginByasyncHttpcClientGet(String email,String password  ) {
+
+        AsyncHttpClient client = new AsyncHttpClient();
+        //String url = "http://www.baidu.com";
+        String url = "http://10.162.235.166:8080/jsf-helloworld/login?";
+        System.out.println("111");
+        RequestParams params =  new RequestParams();
+        params.put("mail",email);
+        params.put("userpass",password);
+        System.out.println("222:"+email+" "+password);
+        final boolean[] objs = new boolean[1];
+        client.get(url, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int i, Header[] headers, byte[] bytes  ) {
+//                global array;
+
+                Log.d("请求响应码",i+"");
+                for (int ii = 0; ii < headers.length;ii++){
+                    Header header = headers[ii];
+                    Log.d("values","header name:"+header.getName()+" value:"+header.getValue());
+                    System.out.println(new String(bytes));
+                }
+                String flag = new String(bytes);
+                System.out.println("flag:"+flag);
+//                tv_result.setText(new String(bytes));
+                if(flag.equals("0")){
+                    objs[0] = false;
+                }
+                else{
+                    objs[0]= true;
+                    System.out.println("+++");
+                }
+
+
+                System.out.println("333:"+" ");
+            }
+
+            @Override
+            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+//                objs[0]=false;
+                throwable.printStackTrace();
+
+            }
+        });
+        return objs[0];
+    }
+
     public boolean validate() {
         boolean valid = true;
 
@@ -175,6 +228,14 @@ public class NewLoginActivity extends AppCompatActivity {
             valid = false;
         } else {
             _passwordText.setError(null);
+        }
+        System.out.println("!!!!!!!!!");
+//        List<string> list = new ArrayList<boolean>();
+//        boolean x[] = {valid};
+
+        if (valid == true){
+            valid =  loginByasyncHttpcClientGet(email,password);
+            System.out.println("after:"+valid);
         }
 
         return valid;
