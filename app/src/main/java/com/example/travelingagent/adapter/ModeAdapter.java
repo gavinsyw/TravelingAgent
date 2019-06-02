@@ -23,7 +23,7 @@ public class ModeAdapter extends ArrayAdapter<ModeEntity> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ModeEntity modeEntity = getItem(position); // 获取当前项的Fruit实例
+        ModeEntity modeEntity = getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(resourceID, null);
         ImageView modeImage = (ImageView) view.findViewById(R.id.mode_image);
         TextView modeName = (TextView) view.findViewById(R.id.mode_name);

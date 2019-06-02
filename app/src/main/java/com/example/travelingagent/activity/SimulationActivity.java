@@ -2,6 +2,7 @@ package com.example.travelingagent.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -111,8 +113,29 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(final Marker marker) {
+                String content = marker.getTitle(); // 假装利用title携带信息
+                String spotName = content.split("_")[0];
+                String spotID = content.split("_")[1];
+                String spotType = content.split("_")[2];
+
+                Toast.makeText(SimulationActivity.this, content, Toast.LENGTH_SHORT).show();
+
+                View view = View.inflate(SimulationActivity.this, R.layout.content_simulation, null);
+                TextView textView = (TextView) view.findViewById(R.id.title);
+                textView.setText("下一站，" + spotName + '?');
+
+                ImageView imageView = (ImageView) view.findViewById(R.id.word_cloud_image);
+                if (spotType.equals("0")) {
+                    imageView.setImageResource(getDrawResourceID("sight_" + spotID));
+                }
+                else {
+                    if (spotType.equals("1")) {
+                        imageView.setImageResource(getDrawResourceID("hotel_" + spotID));
+                    }
+                }
+
                 final DialogPlus dialog = DialogPlus.newDialog(SimulationActivity.this)
-                        .setContentHolder(new ViewHolder(R.layout.content_simulation))
+                        .setContentHolder(new ViewHolder(view))
 //                        .setAdapter(adapter)
                         .setCancelable(true)
                         .setHeader(R.layout.header_simulation)
@@ -149,11 +172,8 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
-//                        marker.remove();
                     }
                 });
-//                Intent intent = new Intent(SimulationActivity.this, PoiSearchActivity.class);
-//                startActivity(intent);
                 return true;
             }
         };
@@ -215,19 +235,6 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         for (int j = 0; j < hotelVec.size(); j++) {
             addMarker(hotelVec.get(j).getLatLng(), 1, hotelVec.get(j).getID());
         }
-
-
-//        PlanNode stNode = PlanNode.withLocation(new LatLng(37.963175, 116.400244));
-//        PlanNode enNode = PlanNode.withLocation(new LatLng(38.963175, 116.400244));
-
-//        mSearch.drivingSearch((new DrivingRoutePlanOption())
-//                .from(stNode).to(enNode).policy(DrivingRoutePlanOption.DrivingPolicy.ECAR_DIS_FIRST)
-//                .trafficPolicy(DrivingRoutePlanOption.DrivingTrafficPolicy.ROUTE_PATH_AND_TRAFFIC));
-
-//        addMarker(37.963175, 116.400244);
-//        addMarker(new LatLng(39.963175, 116.400244), defaultBitmap);
-//        addMarker(new LatLng(39.963175, 118.400244), defaultBitmap);
-
     }
 
     @Override
@@ -242,13 +249,11 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         mapView.onPause();
     }
 
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        mLocationClient.stop();
-//        mapView.onDestroy();
-//        baiduMap.setMyLocationEnabled(false);
-//    }
+    public int getDrawResourceID(String resourceName) {
+        Resources res=getResources();
+        int picid = res.getIdentifier(resourceName,"drawable",getPackageName());
+        return picid;
+    }
 
     private void navigateTo(LatLng ll, float zoom, String description) {
 //        if (isFirstLocate) {
@@ -307,26 +312,18 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
             option = new MarkerOptions()
                     .position(ll)
                     .icon(sightBitmap)
-                    .title(sightVec.get(id - 1).getName());
+                    .title(sightVec.get(id - 1).getName() + '_' + String.valueOf(id) + "_0");
         }
         else {
             option = new MarkerOptions()
                     .position(ll)
                     .icon(hotelBitmap)
-                    .title(hotelVec.get(id - 1).getName());
+                    .title(hotelVec.get(id - 1).getName() + '_' + String.valueOf(id) + "_1");
         }
 
 
         //在地图上添加Marker，并显示
         baiduMap.addOverlay(option);
-
-//        BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
-//            @Override
-//            public boolean onMarkerClick(Marker marker) {
-//                Toast.makeText(RecommendationDisplayActivity.this, "blabla", Toast.LENGTH_SHORT).show();
-//                return true;
-//            }
-//        };
     }
 
     private List<Hotel> getHotelFromJSONString(String jsonString) {
