@@ -203,7 +203,7 @@ public class NewLoginActivity extends AppCompatActivity {
                 throwable.printStackTrace();
             }
         });
-        return objs[0];
+        return true;
     }
 
     public boolean validate() {

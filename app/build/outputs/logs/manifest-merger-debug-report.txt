@@ -1,0 +1,296 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\63dad5a75edd2debe46dd170741d5e19\AndroidManifest.xml:2:1-11:12
+MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e37092027d9a05e4ae6cddf6f0e5013f\AndroidManifest.xml:17:1-30:12
+MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\fa691376508ae69ecd97e6f3ab94956c\AndroidManifest.xml:17:1-24:12
+MERGED from [:library] C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\library\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\17039260bcfdcf23e562e5753cd5b03f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.orhanobut:dialogplus:1.11] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\5fab3117925bd777dd262a5437fdb4be\AndroidManifest.xml:2:1-10:12
+MERGED from [com.makeramen:roundedimageview:2.3.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\96623861d6e947a0fdea1f908e247d09\AndroidManifest.xml:2:1-9:12
+MERGED from [com.github.channguyen:rsv:1.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2734cc162cbc357a443b4d45dceeeaf5\AndroidManifest.xml:2:1-15:12
+MERGED from [com.github.navasmdc:MaterialDesign:1.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f9a5e7c647209466c55ae8f2f1c0294b\AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9cf0c7e8687568df6e9dd85d746a3f5d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\802ccc605748b4e385f5e51ead245f53\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d5a8c615364cfad1d7cc6c3d56777eea\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\cde59a468e5490dc0e802a8b3b173e55\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4d3d719042b13cd34d39477903268777\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\b53c53264b47bb3269947e3e6ecd1628\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c836cb725c214ef925d917c44526528c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\0c16d716fe24d2395d196fe16a7e382a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\08477563a827ee723a50f3a1d705b6ed\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\76505c56d1eab010e060d276535c34e6\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c68dc810f05ee55d939745f009a80d0b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\5016e3488a14f106a8239210275c96a2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\75d1804a231476d93aaa4fd959ec4ad5\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c5d352013e8ef40c1ee0f01ed4f44636\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d3953743353f2c954a508bda107968f4\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\cb97c38f4bbd05c302652cdd289fd218\AndroidManifest.xml:17:1-24:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dba38006f70631c5808582abff8987e3\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\773036388657b96e6e8b133435ed28dd\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a402d99356eb3afe6b602991bfde68bf\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\7e5e1d0243b0e1aca7c3d4ace783439e\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\fe8cd3af102b4c4f8d6618cc06d11d06\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a2c6c98e26818f58b6298b6e6fa9e6ff\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a4ad661a0ca345b26721032385fd36c5\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d9fce4eaeb78f0726727613ba99f6ab3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\40f0ed52ff716728b9e546ac76a5aa9d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\bdd6a66dc76815913cbc8c012432053f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\6d9ee8f7b0a5c95c25527aaf909f28ee\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a1994f6bd1a0d67413ce82bfc7c53911\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
+	package
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:3:5-41
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:5:5-79
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:5:22-76
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:6:5-67
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:6:22-64
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:7:5-76
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:7:22-73
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:8:5-76
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:8:22-73
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:9:22-78
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:10:5-73
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:10:22-70
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:11:5-75
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:11:22-72
+uses-permission#android.permission.CALL_PHONE
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:12:5-69
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:12:22-66
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:13:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:14:5-81
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:14:22-78
+uses-permission#android.permission.ACCESS_MOCK_LOCATION
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:15:5-79
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:15:22-76
+uses-permission#android.permission.ACCESS_GPS
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:16:5-69
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:16:22-66
+application
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:18:5-55:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\63dad5a75edd2debe46dd170741d5e19\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\63dad5a75edd2debe46dd170741d5e19\AndroidManifest.xml:9:5-20
+MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e37092027d9a05e4ae6cddf6f0e5013f\AndroidManifest.xml:22:5-28:19
+MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e37092027d9a05e4ae6cddf6f0e5013f\AndroidManifest.xml:22:5-28:19
+MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\fa691376508ae69ecd97e6f3ab94956c\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\fa691376508ae69ecd97e6f3ab94956c\AndroidManifest.xml:22:5-20
+MERGED from [:library] C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\library\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-15:19
+MERGED from [:library] C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\library\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.channguyen:rsv:1.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2734cc162cbc357a443b4d45dceeeaf5\AndroidManifest.xml:11:5-13:44
+MERGED from [com.github.channguyen:rsv:1.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2734cc162cbc357a443b4d45dceeeaf5\AndroidManifest.xml:11:5-13:44
+MERGED from [com.github.navasmdc:MaterialDesign:1.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f9a5e7c647209466c55ae8f2f1c0294b\AndroidManifest.xml:11:5-47
+MERGED from [com.github.navasmdc:MaterialDesign:1.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f9a5e7c647209466c55ae8f2f1c0294b\AndroidManifest.xml:11:5-47
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\cb97c38f4bbd05c302652cdd289fd218\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\cb97c38f4bbd05c302652cdd289fd218\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a2c6c98e26818f58b6298b6e6fa9e6ff\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a2c6c98e26818f58b6298b6e6fa9e6ff\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\cb97c38f4bbd05c302652cdd289fd218\AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:22:9-35
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:21:9-41
+	android:icon
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:20:9-38
+	android:allowBackup
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:19:9-35
+	android:theme
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:23:9-45
+	android:networkSecurityConfig
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:24:9-69
+uses-library#org.apache.http.legacy
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:26:9-87
+	android:required
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:26:61-85
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:26:23-60
+activity#com.example.travelingagent.activity.RecommendationDisplayActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:28:9-30:20
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:28:19-73
+activity#com.example.travelingagent.activity.NewLoginActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:32:9-38:20
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:32:19-86
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:33:13-37:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:34:17-69
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:34:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:36:17-77
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:36:27-74
+activity#com.example.travelingagent.activity.SignupActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:39:9-87
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:39:19-84
+meta-data#com.baidu.lbsapi.API_KEY
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:41:9-43:64
+	android:value
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:43:13-61
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:42:13-52
+activity#com.example.travelingagent.activity.SimulationActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:45:9-65
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:45:19-62
+activity#com.example.travelingagent.activity.MainActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:47:9-59
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:47:19-56
+activity#com.example.travelingagent.activity.Main2Activity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:48:9-60
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:48:19-57
+activity#com.example.travelingagent.activity.RecommendationActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:49:9-69
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:49:19-66
+service#com.baidu.location.f
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:51:9-54:41
+	android:process
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:54:13-38
+	android:enabled
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:53:13-35
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:52:13-48
+uses-sdk
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\63dad5a75edd2debe46dd170741d5e19\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\63dad5a75edd2debe46dd170741d5e19\AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e37092027d9a05e4ae6cddf6f0e5013f\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e37092027d9a05e4ae6cddf6f0e5013f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\fa691376508ae69ecd97e6f3ab94956c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\fa691376508ae69ecd97e6f3ab94956c\AndroidManifest.xml:20:5-44
+MERGED from [:library] C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\library\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:library] C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\library\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\17039260bcfdcf23e562e5753cd5b03f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\17039260bcfdcf23e562e5753cd5b03f\AndroidManifest.xml:20:5-44
+MERGED from [com.orhanobut:dialogplus:1.11] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\5fab3117925bd777dd262a5437fdb4be\AndroidManifest.xml:6:5-8:41
+MERGED from [com.orhanobut:dialogplus:1.11] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\5fab3117925bd777dd262a5437fdb4be\AndroidManifest.xml:6:5-8:41
+MERGED from [com.makeramen:roundedimageview:2.3.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\96623861d6e947a0fdea1f908e247d09\AndroidManifest.xml:7:5-43
+MERGED from [com.makeramen:roundedimageview:2.3.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\96623861d6e947a0fdea1f908e247d09\AndroidManifest.xml:7:5-43
+MERGED from [com.github.channguyen:rsv:1.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2734cc162cbc357a443b4d45dceeeaf5\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.channguyen:rsv:1.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2734cc162cbc357a443b4d45dceeeaf5\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.navasmdc:MaterialDesign:1.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f9a5e7c647209466c55ae8f2f1c0294b\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.navasmdc:MaterialDesign:1.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f9a5e7c647209466c55ae8f2f1c0294b\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9cf0c7e8687568df6e9dd85d746a3f5d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9cf0c7e8687568df6e9dd85d746a3f5d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\802ccc605748b4e385f5e51ead245f53\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\802ccc605748b4e385f5e51ead245f53\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d5a8c615364cfad1d7cc6c3d56777eea\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d5a8c615364cfad1d7cc6c3d56777eea\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\cde59a468e5490dc0e802a8b3b173e55\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\cde59a468e5490dc0e802a8b3b173e55\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4d3d719042b13cd34d39477903268777\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4d3d719042b13cd34d39477903268777\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\b53c53264b47bb3269947e3e6ecd1628\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\b53c53264b47bb3269947e3e6ecd1628\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c836cb725c214ef925d917c44526528c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c836cb725c214ef925d917c44526528c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\0c16d716fe24d2395d196fe16a7e382a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\0c16d716fe24d2395d196fe16a7e382a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\08477563a827ee723a50f3a1d705b6ed\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\08477563a827ee723a50f3a1d705b6ed\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\76505c56d1eab010e060d276535c34e6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\76505c56d1eab010e060d276535c34e6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c68dc810f05ee55d939745f009a80d0b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c68dc810f05ee55d939745f009a80d0b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\5016e3488a14f106a8239210275c96a2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\5016e3488a14f106a8239210275c96a2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\75d1804a231476d93aaa4fd959ec4ad5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\75d1804a231476d93aaa4fd959ec4ad5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c5d352013e8ef40c1ee0f01ed4f44636\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\c5d352013e8ef40c1ee0f01ed4f44636\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d3953743353f2c954a508bda107968f4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d3953743353f2c954a508bda107968f4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\cb97c38f4bbd05c302652cdd289fd218\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\cb97c38f4bbd05c302652cdd289fd218\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dba38006f70631c5808582abff8987e3\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dba38006f70631c5808582abff8987e3\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\773036388657b96e6e8b133435ed28dd\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\773036388657b96e6e8b133435ed28dd\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a402d99356eb3afe6b602991bfde68bf\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a402d99356eb3afe6b602991bfde68bf\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\7e5e1d0243b0e1aca7c3d4ace783439e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\7e5e1d0243b0e1aca7c3d4ace783439e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\fe8cd3af102b4c4f8d6618cc06d11d06\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\fe8cd3af102b4c4f8d6618cc06d11d06\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a2c6c98e26818f58b6298b6e6fa9e6ff\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a2c6c98e26818f58b6298b6e6fa9e6ff\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a4ad661a0ca345b26721032385fd36c5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a4ad661a0ca345b26721032385fd36c5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d9fce4eaeb78f0726727613ba99f6ab3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d9fce4eaeb78f0726727613ba99f6ab3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\40f0ed52ff716728b9e546ac76a5aa9d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\40f0ed52ff716728b9e546ac76a5aa9d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\bdd6a66dc76815913cbc8c012432053f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\bdd6a66dc76815913cbc8c012432053f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\6d9ee8f7b0a5c95c25527aaf909f28ee\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\6d9ee8f7b0a5c95c25527aaf909f28ee\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a1994f6bd1a0d67413ce82bfc7c53911\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a1994f6bd1a0d67413ce82bfc7c53911\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
+provider#android.arch.lifecycle.ProcessLifecycleOwnerInitializer
+ADDED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e37092027d9a05e4ae6cddf6f0e5013f\AndroidManifest.xml:23:9-27:43
+	android:authorities
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e37092027d9a05e4ae6cddf6f0e5013f\AndroidManifest.xml:25:13-68
+	android:multiprocess
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e37092027d9a05e4ae6cddf6f0e5013f\AndroidManifest.xml:27:13-40
+	android:exported
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e37092027d9a05e4ae6cddf6f0e5013f\AndroidManifest.xml:26:13-37
+	android:name
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e37092027d9a05e4ae6cddf6f0e5013f\AndroidManifest.xml:24:13-83

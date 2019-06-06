@@ -1,0 +1,4 @@
+#Thu Jun 06 23:46:24 CST 2019
+base.0=C\:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
+path.0=classes.dex
+renamed.0=classes.dex
