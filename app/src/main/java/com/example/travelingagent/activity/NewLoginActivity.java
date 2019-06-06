@@ -110,7 +110,7 @@ public class NewLoginActivity extends AppCompatActivity {
         final ProgressDialog progressDialog = new ProgressDialog(NewLoginActivity.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Authenticating...");
+        progressDialog.setMessage("验证中...");
         progressDialog.show();
 
         final String email = _emailText.getText().toString();
@@ -163,7 +163,7 @@ public class NewLoginActivity extends AppCompatActivity {
         _loginButton.setEnabled(true);
     }
 
-    private boolean loginByasyncHttpcClientGet(String email,String password  ) {
+    private boolean loginByasyncHttpcClientGet(String email,String password) {
 
         AsyncHttpClient client = new AsyncHttpClient();
         //String url = "http://www.baidu.com";
@@ -176,9 +176,7 @@ public class NewLoginActivity extends AppCompatActivity {
         final boolean[] objs = new boolean[1];
         client.get(url, params, new AsyncHttpResponseHandler() {
             @Override
-            public void onSuccess(int i, Header[] headers, byte[] bytes  ) {
-//                global array;
-
+            public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 Log.d("请求响应码",i+"");
                 for (int ii = 0; ii < headers.length;ii++){
                     Header header = headers[ii];
@@ -186,7 +184,6 @@ public class NewLoginActivity extends AppCompatActivity {
                     System.out.println(new String(bytes));
                 }
                 String flag = new String(bytes);
-                System.out.println("flag:"+flag);
 //                tv_result.setText(new String(bytes));
                 if(flag.equals("0")){
                     objs[0] = false;
@@ -196,15 +193,14 @@ public class NewLoginActivity extends AppCompatActivity {
                     System.out.println("+++");
                 }
 
-
-                System.out.println("333:"+" ");
+                System.out.println("333:" + " ");
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
 //                objs[0]=false;
+                Log.d("failure", "kkk");
                 throwable.printStackTrace();
-
             }
         });
         return objs[0];
