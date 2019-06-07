@@ -45,6 +45,7 @@ dependencies {
     implementation 'com.github.channguyen:rsv:1.0.1'
     implementation 'com.github.navasmdc:MaterialDesign:1.5@aar'
     implementation files('libs/android-async-http-1.4.7.jar')
+    implementation 'com.telenav.expandablepager:expandablepager:0.2.1'
 }
 repositories {
     mavenCentral()

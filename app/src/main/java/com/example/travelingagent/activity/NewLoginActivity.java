@@ -160,6 +160,10 @@ public class NewLoginActivity extends AppCompatActivity {
     public void onLoginFailed() {
         Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
 
+        Intent intent = new Intent(this, MainActivity.class);
+//        EditText editText = (EditText) findViewById(R.id.userName);
+//        String username = editText.getText().toString();
+        startActivity(intent);
         _loginButton.setEnabled(true);
     }
 

@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.media.Image;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,6 +41,7 @@ import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.example.travelingagent.R;
+import com.example.travelingagent.adapter.SpotAdapter;
 import com.example.travelingagent.myclass.Hotel;
 import com.example.travelingagent.myclass.Recommend;
 import com.example.travelingagent.myclass.Sight;
@@ -49,6 +51,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
+import com.telenav.expandablepager.ExpandablePager;
+import com.telenav.expandablepager.listener.OnSliderStateChangeListener;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -67,7 +71,7 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 //    private boolean isFirstLocate = true;
     RoutePlanSearch mSearch = null;
     LatLng currentLocation = null;
-    List<Spot> itinerary = null;
+    List<Spot> recommend = null;
     List<Hotel> hotelVec = new Vector<>();
     Vector<Sight> sightVec = new Vector<>();
 
@@ -75,7 +79,7 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SDKInitializer.initialize(getApplicationContext());
-        setContentView(R.layout.activity_simulation);
+        setContentView(R.layout.activity_recommendation_display);
         mapView = (MapView) findViewById(R.id.bmapView);
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
@@ -92,10 +96,10 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         int choice4 = choice_data[3];
         int choice5 = choice_data[4];
         int choice6 = choice_data[5];
-//        Hotel hotel = new Hotel("FakeHotel", 1, 0, "Fake", 121.72, 31.55);
 
-        List<Spot> recommend = null;
+//        List<Spot> recommend = null;
 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////// 加载数据
         try {
             InputStream in = getAssets().open("hotel_information.json");
             int size = in.available();
@@ -144,6 +148,8 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
             e.printStackTrace();
         }
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         List<String> permissionList = new ArrayList<>();
         if (ContextCompat.checkSelfPermission(RecommendationDisplayActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             permissionList.add(Manifest.permission.ACCESS_FINE_LOCATION);
@@ -162,16 +168,61 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
             navigateTo(currentLocation, 10,"上海");
         }
 
+        Recommend r = new Recommend(3, choice1, choice2, choice3, choice4, choice5, choice6);
+        try {
+            recommend = r.recommend(sightVec, hotelVec.get(1));
+        } catch (FileNotFoundException e) {
+
+        }
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 施工现场
+
+//        ViewPager mViewPager = (ViewPager) findViewById(R.id.vp_details);
+//        mViewPager.setPadding(16, 0, 16, 0);
+//        mViewPager.setClipToPadding(false);
+//        mViewPager.setPageMargin(8);
+
+        SpotAdapter adapter = new SpotAdapter(recommend);
+        final ExpandablePager pager = (ExpandablePager) findViewById(R.id.container);
+        pager.setAdapter(adapter);
+        pager.setOnSliderStateChangeListener(new OnSliderStateChangeListener() {
+
+            @Override
+            public void onStateChanged(View page, int index, int state) {
+
+            }
+
+            @Override
+            public void onPageChanged(View page, int index, int state) {
+                currentLocation = recommend.get(index).getLatLng();
+                navigateTo(currentLocation, 14, null);
+
+                Toast.makeText(RecommendationDisplayActivity.this, String.valueOf(index), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        drawItinerary(recommend);
+
         BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(final Marker marker) {
-                String content = marker.getTitle(); // 假装利用title携带信息
-                String spotName = content.split("_")[0];
-                String spotID = content.split("_")[1];
-                String spotType = content.split("_")[2];
+                String [] contents = marker.getTitle().split("_"); // 假装利用title携带信息
+
+                String spotName = contents[0];
+                String spotID = contents[1];
+                String spotType = contents[2];
+                String index = contents[3];
+
+                try {
+                    pager.setCurrentItem(Integer.parseInt(index), true);
+                } catch (Exception e) {
+
+                }
 
 //                setContentView(R.layout.content_recommendation_1);
-                Toast.makeText(RecommendationDisplayActivity.this, spotName + spotID + "欢迎您~", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecommendationDisplayActivity.this, spotName + index + "欢迎您~", Toast.LENGTH_SHORT).show();
 
                 View view = View.inflate(RecommendationDisplayActivity.this, R.layout.content_recommendation, null);
                 TextView textView = (TextView) view.findViewById(R.id.place_name);
@@ -187,28 +238,18 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
                         imageView.setImageResource(getDrawResourceID("hotel_" + spotID));
                     }
                 }
-                DialogPlus dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
-                        .setContentHolder(new ViewHolder(view))
-                        .setCancelable(true)
-                        .setHeader(R.layout.header_recommendation)
-                        .setExpanded(true, 1500)  // This will enable the expand feature, (similar to android L share dialog)
-                        .create();
-                dialog.show();
+//                DialogPlus dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
+//                        .setContentHolder(new ViewHolder(view))
+//                        .setCancelable(true)
+//                        .setHeader(R.layout.header_recommendation)
+//                        .setExpanded(true, 1500)  // This will enable the expand feature, (similar to android L share dialog)
+//                        .create();
+//                dialog.show();
                 return true;
             }
         };
 
         baiduMap.setOnMarkerClickListener(markerClickListener);
-
-        Recommend r = new Recommend(3, choice1, choice2, choice3, choice4, choice5, choice6);
-        try {
-            recommend = r.recommend(sightVec, hotelVec.get(1));
-        } catch (FileNotFoundException e) {
-
-        }
-
-        drawItinerary(recommend);
-
     }
 
     @Override
@@ -251,17 +292,17 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         Spot currentSpot = spotList.get(0);
         currentLocation = currentSpot.getLatLng();
 
-        for( int i = 1 ; i < spotList.size() ; i++) {
+        for( int i = 0 ; i < spotList.size() ; i++) {
             Spot spot = spotList.get(i);
             mSearch = RoutePlanSearch.newInstance();
             mSearch.setOnGetRoutePlanResultListener(RecommendationDisplayActivity.this);
 
             if (spot.getType() == 0) {
-                addMarker(spot.getLatLng(), 0, spot.getID());
+                addMarker(spot, i);
             }
             else {
                 if (spot.getType() == 1) {
-                    addMarker(spot.getLatLng(), 1, spot.getID());
+                    addMarker(spot, i);
                 }
             }
 
@@ -275,6 +316,32 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
             currentLocation = spot.getLatLng();
 
         }
+    }
+
+    private void addMarker(Spot spot, int id) {
+        BitmapDescriptor hotelBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_pink);
+        BitmapDescriptor sightBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_green);
+//        //定义Maker坐标点
+//        LatLng point = new LatLng(lat, lng);
+        //构建Marker图标
+        //构建MarkerOption，用于在地图上添加Marker
+        OverlayOptions option = null;
+        if (spot.getType() == 0) {
+            option = new MarkerOptions()
+                    .position(spot.getLatLng())
+                    .icon(sightBitmap)
+                    .title(spot.getName() + '_' + String.valueOf(spot.getID()) + "_0_" + String.valueOf(id));
+        }
+        else {
+            option = new MarkerOptions()
+                    .position(spot.getLatLng())
+                    .icon(hotelBitmap)
+                    .title(spot.getName() + '_' + String.valueOf(spot.getID()) + "_1_" + String.valueOf(id));
+        }
+
+
+        //在地图上添加Marker，并显示
+        baiduMap.addOverlay(option);
     }
 
     private void addMarker(LatLng ll, int type, int id) {
@@ -401,7 +468,7 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         }
         if (drivingRouteResult.error == SearchResult.ERRORNO.NO_ERROR) {
             if (drivingRouteResult.getRouteLines().size() > 0) {
-                Toast.makeText(this, "有结果", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "有结果", Toast.LENGTH_SHORT).show();
                 //获取路径规划数据,(以返回的第一条路线为例）
                 //为DrivingRouteOverlay实例设置数据
                 overlay.setData(drivingRouteResult.getRouteLines().get(0));
