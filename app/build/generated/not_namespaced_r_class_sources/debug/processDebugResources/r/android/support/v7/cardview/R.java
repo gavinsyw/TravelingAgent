@@ -36,17 +36,17 @@ public final class R {
     public static final class dimen {
         private dimen() {}
 
-        public static final int cardview_compat_inset_shadow = 0x7f06004f;
-        public static final int cardview_default_elevation = 0x7f060050;
-        public static final int cardview_default_radius = 0x7f060051;
+        public static final int cardview_compat_inset_shadow = 0x7f060051;
+        public static final int cardview_default_elevation = 0x7f060052;
+        public static final int cardview_default_radius = 0x7f060053;
     }
     public static final class style {
         private style() {}
 
-        public static final int Base_CardView = 0x7f10000e;
-        public static final int CardView = 0x7f1000c7;
-        public static final int CardView_Dark = 0x7f1000c8;
-        public static final int CardView_Light = 0x7f1000c9;
+        public static final int Base_CardView = 0x7f100012;
+        public static final int CardView = 0x7f1000cb;
+        public static final int CardView_Dark = 0x7f1000cc;
+        public static final int CardView_Light = 0x7f1000cd;
     }
     public static final class styleable {
         private styleable() {}

@@ -20,12 +20,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-mdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_cab_background_top_material.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable\\abc_cab_background_top_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon_markb.png.flat",
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\icon_markb.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_cab_background_top_material.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
@@ -184,6 +184,10 @@
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\arrow.png"
     },
     {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_quick_view_load_more.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\b08e64b2423b15b3d91e3250d76c6d41\\res\\layout\\quick_view_load_more.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_next_.png.flat",
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\next_.png"
     },
@@ -196,16 +200,16 @@
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_menu_manage.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\color-v21_abc_btn_colored_borderless_text_material.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_secondary_text_material_light.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\color\\abc_secondary_text_material_light.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_default.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\color\\abc_tint_default.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_secondary_text_material_light.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\color\\abc_secondary_text_material_light.xml"
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\color-v21_abc_btn_colored_borderless_text_material.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_notification_action_background.xml.flat",
@@ -216,12 +220,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_menu_gallery.png.flat",
-        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_menu_gallery.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\cb97c38f4bbd05c302652cdd289fd218\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_menu_gallery.png.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_menu_gallery.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_longpressed_holo.9.png.flat",
@@ -300,6 +304,10 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\fa691376508ae69ecd97e6f3ab94956c\\res\\color\\mtrl_tabs_ripple_color.xml"
     },
     {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_itinerary_resutl.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\layout\\activity_itinerary_resutl.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_google_maps_icon.png.flat",
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_google_maps_icon.png"
     },
@@ -360,12 +368,12 @@
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\hotel_7.jpg"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_base_container.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\5fab3117925bd777dd262a5437fdb4be\\res\\layout\\base_container.xml"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sight_12.jpg.flat",
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\sight_12.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_base_container.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\5fab3117925bd777dd262a5437fdb4be\\res\\layout\\base_container.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sight_25.jpg.flat",
@@ -392,12 +400,12 @@
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout-watch-v20_abc_alert_dialog_title_material.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\layout-watch-v20\\abc_alert_dialog_title_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout-watch-v20_abc_alert_dialog_title_material.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\layout-watch-v20\\abc_alert_dialog_title_material.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_menu_camera.png.flat",
@@ -440,12 +448,12 @@
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_background_button_rectangle.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\f9a5e7c647209466c55ae8f2f1c0294b\\res\\drawable\\background_button_rectangle.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
@@ -576,12 +584,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\layout\\abc_tooltip.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_36dp.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_36dp.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\cb97c38f4bbd05c302652cdd289fd218\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
@@ -616,20 +624,20 @@
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\marker_red.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_menu_gallery.png.flat",
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_menu_gallery.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_tab_icon.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\fa691376508ae69ecd97e6f3ab94956c\\res\\layout\\design_layout_tab_icon.xml"
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_avd_hide_password.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\fa691376508ae69ecd97e6f3ab94956c\\res\\drawable-v21\\avd_hide_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_tab_icon.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\fa691376508ae69ecd97e6f3ab94956c\\res\\layout\\design_layout_tab_icon.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_menu_share.png.flat",
@@ -832,24 +840,24 @@
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\default_back.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_fade_in.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_edittext_focused.xml.flat",
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\bg_edittext_focused.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_menu_camera.xml.flat",
-        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_camera.xml"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\cb97c38f4bbd05c302652cdd289fd218\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_menu_camera.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_camera.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
@@ -868,12 +876,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\fa691376508ae69ecd97e6f3ab94956c\\res\\layout\\design_navigation_menu_item.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_48dp.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_expanded_menu_layout.xml.flat",
@@ -912,12 +920,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sight_26.jpg.flat",
-        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\sight_26.jpg"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sight_26.jpg.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\sight_26.jpg"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hotel_20.jpg.flat",
@@ -972,12 +980,12 @@
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_16dp.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_popup_right.png.flat",
@@ -1004,12 +1012,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-hdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_menu_share.png.flat",
-        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_menu_share.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_menu_share.png.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_menu_share.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_design_fab_background.xml.flat",
@@ -1088,24 +1096,24 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\fa691376508ae69ecd97e6f3ab94956c\\res\\color\\mtrl_tabs_colored_ripple_color.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_menu_slideshow.png.flat",
-        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_menu_slideshow.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_text_input_password_icon.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\fa691376508ae69ecd97e6f3ab94956c\\res\\layout\\design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_menu_slideshow.png.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_menu_slideshow.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xhdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_simulation.xml.flat",
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\layout\\activity_simulation.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_fab_ripple_color.xml.flat",
@@ -1152,12 +1160,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sight_53.jpg.flat",
-        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\sight_53.jpg"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sight_60.jpg.flat",
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\sight_60.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sight_53.jpg.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\sight_53.jpg"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
@@ -1188,12 +1196,12 @@
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\hotel_1.jpg"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_36dp.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_logo_2.png.flat",
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\mipmap-xhdpi\\logo_2.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_36dp.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_hotel_28.jpg.flat",
@@ -1420,12 +1428,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\fa691376508ae69ecd97e6f3ab94956c\\res\\drawable\\design_password_eye.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sight_57.jpg.flat",
-        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\sight_57.jpg"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sight_8.jpg.flat",
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\sight_8.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sight_57.jpg.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable\\sight_57.jpg"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon_st.png.flat",
@@ -1454,6 +1462,10 @@
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-mdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_poster.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\layout\\activity_poster.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -1512,12 +1524,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\cb97c38f4bbd05c302652cdd289fd218\\res\\drawable\\notification_tile_bg.xml"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_menu_manage.png.flat",
-        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_menu_manage.png"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_layout.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_menu_manage.png.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_menu_manage.png"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
@@ -1948,12 +1960,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
     },
     {
-        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_material_dark.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\color\\abc_primary_text_material_dark.xml"
-    },
-    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_search_url_text.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\color\\abc_search_url_text.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_material_dark.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\color\\abc_primary_text_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_black_16dp.png.flat",
@@ -2340,6 +2352,10 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sample_footer_loading.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\b08e64b2423b15b3d91e3250d76c6d41\\res\\drawable\\sample_footer_loading.png"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\color_design_error.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\fa691376508ae69ecd97e6f3ab94956c\\res\\color\\design_error.xml"
     },
@@ -2620,6 +2636,10 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\f9a5e7c647209466c55ae8f2f1c0294b\\res\\drawable-xhdpi-v4\\float_button_shadow1.png"
     },
     {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_recommendation_result.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\layout\\activity_recommendation_result.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable-xxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
@@ -2768,6 +2788,10 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\fa691376508ae69ecd97e6f3ab94956c\\res\\layout-sw600dp-v13\\mtrl_layout_snackbar.xml"
     },
     {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sample_footer_loading_progress.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\b08e64b2423b15b3d91e3250d76c6d41\\res\\drawable\\sample_footer_loading_progress.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_menu_overflow_material.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\17039260bcfdcf23e562e5753cd5b03f\\res\\drawable\\abc_ic_menu_overflow_material.xml"
     },
@@ -2842,6 +2866,10 @@
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_map_icon.png.flat",
         "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\drawable-xhdpi\\map_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_recommendation_result.xml.flat",
+        "source": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\src\\main\\res\\layout\\fragment_recommendation_result.xml"
     },
     {
         "merged": "C:\\Users\\Administrator\\AndroidStudioProjects\\TA\\TravelingAgent\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_tooltip_enter.xml.flat",

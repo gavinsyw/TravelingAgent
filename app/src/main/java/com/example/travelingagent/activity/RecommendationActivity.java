@@ -105,7 +105,7 @@ public class RecommendationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 //开始confirm的动作
-                Intent intent = new Intent(RecommendationActivity.this,RecommendationDisplayActivity.class);
+                Intent intent = new Intent(RecommendationActivity.this,RecommendationResultActivity.class);
                 intent.putExtra("choiceData", choice_data);
                 startActivity(intent);
             }

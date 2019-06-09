@@ -8,16 +8,16 @@ import butterknife.ButterKnife.Injector;
 public class SignupActivity$$ViewInjector<T extends com.example.travelingagent.activity.SignupActivity> implements Injector<T> {
   @Override public void inject(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131230835, "field '_nameText'");
-    target._nameText = finder.castView(view, 2131230835, "field '_nameText'");
-    view = finder.findRequiredView(source, 2131230834, "field '_emailText'");
-    target._emailText = finder.castView(view, 2131230834, "field '_emailText'");
-    view = finder.findRequiredView(source, 2131230836, "field '_passwordText'");
-    target._passwordText = finder.castView(view, 2131230836, "field '_passwordText'");
-    view = finder.findRequiredView(source, 2131230761, "field '_signupButton'");
-    target._signupButton = finder.castView(view, 2131230761, "field '_signupButton'");
-    view = finder.findRequiredView(source, 2131230846, "field '_loginLink'");
-    target._loginLink = finder.castView(view, 2131230846, "field '_loginLink'");
+    view = finder.findRequiredView(source, 2131230842, "field '_nameText'");
+    target._nameText = finder.castView(view, 2131230842, "field '_nameText'");
+    view = finder.findRequiredView(source, 2131230841, "field '_emailText'");
+    target._emailText = finder.castView(view, 2131230841, "field '_emailText'");
+    view = finder.findRequiredView(source, 2131230843, "field '_passwordText'");
+    target._passwordText = finder.castView(view, 2131230843, "field '_passwordText'");
+    view = finder.findRequiredView(source, 2131230765, "field '_signupButton'");
+    target._signupButton = finder.castView(view, 2131230765, "field '_signupButton'");
+    view = finder.findRequiredView(source, 2131230853, "field '_loginLink'");
+    target._loginLink = finder.castView(view, 2131230853, "field '_loginLink'");
   }
 
   @Override public void reset(T target) {

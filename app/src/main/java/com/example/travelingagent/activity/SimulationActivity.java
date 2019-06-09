@@ -1,6 +1,7 @@
 package com.example.travelingagent.activity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -67,6 +68,7 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
     List<Hotel> hotelVec = new Vector<>();
     Vector<Sight> sightVec = new Vector<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +78,7 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
         currentLocation = new LatLng(31.209519, 121.457545);
+
 
         final BitmapDescriptor defaultBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_blue);
         final BitmapDescriptor selectedBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_yellow);
@@ -90,6 +93,17 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
 //                }
 //            }
 //        });
+        List<String> spotList = new ArrayList<>();//需要你们的spotlist~（景点路线信息）
+        Button button_submit_plan = (Button) findViewById(R.id.btn_submit_plan);
+        button_submit_plan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SimulationActivity.this, PosterActivity.class);
+                intent.putExtra("attractions","SJTU" );
+                startActivity(intent);
+            }
+        });
+
 
         List<String> permissionList = new ArrayList<>();
         if (ContextCompat.checkSelfPermission(SimulationActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -108,6 +122,7 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
 //            requestLocation();
             navigateTo(currentLocation, 14,"上海建业里嘉佩乐酒店欢迎您~");
             addMarker(currentLocation, selectedBitmap);
+
         }
 
         BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
@@ -174,6 +189,8 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                         dialog.dismiss();
                     }
                 });
+
+
                 return true;
             }
         };

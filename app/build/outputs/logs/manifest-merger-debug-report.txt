@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
-INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
-INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
-INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-63:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\63dad5a75edd2debe46dd170741d5e19\AndroidManifest.xml:2:1-11:12
 MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e37092027d9a05e4ae6cddf6f0e5013f\AndroidManifest.xml:17:1-30:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\fa691376508ae69ecd97e6f3ab94956c\AndroidManifest.xml:17:1-24:12
@@ -13,6 +13,7 @@ MERGED from [com.orhanobut:dialogplus:1.11] C:\Users\Administrator\.gradle\cache
 MERGED from [com.makeramen:roundedimageview:2.3.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\96623861d6e947a0fdea1f908e247d09\AndroidManifest.xml:2:1-9:12
 MERGED from [com.github.channguyen:rsv:1.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2734cc162cbc357a443b4d45dceeeaf5\AndroidManifest.xml:2:1-15:12
 MERGED from [com.github.navasmdc:MaterialDesign:1.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f9a5e7c647209466c55ae8f2f1c0294b\AndroidManifest.xml:2:1-13:12
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\b08e64b2423b15b3d91e3250d76c6d41\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9cf0c7e8687568df6e9dd85d746a3f5d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\802ccc605748b4e385f5e51ead245f53\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d5a8c615364cfad1d7cc6c3d56777eea\AndroidManifest.xml:17:1-22:12
@@ -41,20 +42,20 @@ MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Administrator\.gr
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\bdd6a66dc76815913cbc8c012432053f\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:print:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\6d9ee8f7b0a5c95c25527aaf909f28ee\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a1994f6bd1a0d67413ce82bfc7c53911\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
-INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
-INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-63:12
 	package
 		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:3:5-41
 		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-63:12
 		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-57:12
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:1-63:12
 		INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:2:11-69
@@ -107,7 +108,7 @@ ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\sr
 	android:name
 		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:16:22-66
 application
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:18:5-55:19
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:18:5-61:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\63dad5a75edd2debe46dd170741d5e19\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\63dad5a75edd2debe46dd170741d5e19\AndroidManifest.xml:9:5-20
 MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e37092027d9a05e4ae6cddf6f0e5013f\AndroidManifest.xml:22:5-28:19
@@ -127,7 +128,7 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Administra
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\cb97c38f4bbd05c302652cdd289fd218\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:22:9-35
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:23:9-35
 	android:label
 		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:21:9-41
 	android:icon
@@ -135,67 +136,79 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Administra
 	android:allowBackup
 		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:19:9-35
 	android:theme
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:23:9-45
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:24:9-45
 	android:networkSecurityConfig
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:24:9-69
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:22:9-69
+activity#com.example.travelingagent.activity.RecommendationResultActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:26:9-30:20
+	android:label
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:28:13-73
+	android:theme
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:29:13-61
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:27:13-66
+activity#com.example.travelingagent.activity.PosterActivity
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:32:9-61
+	android:name
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:32:19-58
 uses-library#org.apache.http.legacy
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:26:9-87
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:34:9-36:40
 	android:required
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:26:61-85
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:36:13-37
 	android:name
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:26:23-60
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:35:13-50
 activity#com.example.travelingagent.activity.RecommendationDisplayActivity
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:28:9-30:20
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:38:9-76
 	android:name
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:28:19-73
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:38:19-73
 activity#com.example.travelingagent.activity.NewLoginActivity
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:32:9-38:20
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:39:9-45:20
 	android:name
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:32:19-86
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:39:19-60
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:33:13-37:29
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:40:13-44:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:34:17-69
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:41:17-69
 	android:name
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:34:25-66
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:41:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:36:17-77
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:43:17-77
 	android:name
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:36:27-74
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:43:27-74
 activity#com.example.travelingagent.activity.SignupActivity
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:39:9-87
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:46:9-61
 	android:name
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:39:19-84
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:46:19-58
 meta-data#com.baidu.lbsapi.API_KEY
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:41:9-43:64
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:48:9-50:64
 	android:value
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:43:13-61
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:50:13-61
 	android:name
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:42:13-52
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:49:13-52
 activity#com.example.travelingagent.activity.SimulationActivity
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:45:9-65
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:52:9-65
 	android:name
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:45:19-62
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:52:19-62
 activity#com.example.travelingagent.activity.MainActivity
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:47:9-59
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:53:9-59
 	android:name
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:47:19-56
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:53:19-56
 activity#com.example.travelingagent.activity.Main2Activity
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:48:9-60
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:54:9-60
 	android:name
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:48:19-57
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:54:19-57
 activity#com.example.travelingagent.activity.RecommendationActivity
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:49:9-69
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:55:9-69
 	android:name
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:49:19-66
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:55:19-66
 service#com.baidu.location.f
-ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:51:9-54:41
+ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:57:9-60:41
 	android:process
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:54:13-38
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:60:13-38
 	android:enabled
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:53:13-35
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:59:13-35
 	android:name
-		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:52:13-48
+		ADDED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml:58:13-48
 uses-sdk
 INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Administrator\AndroidStudioProjects\TA\TravelingAgent\app\src\main\AndroidManifest.xml
@@ -218,6 +231,8 @@ MERGED from [com.github.channguyen:rsv:1.0.1] C:\Users\Administrator\.gradle\cac
 MERGED from [com.github.channguyen:rsv:1.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2734cc162cbc357a443b4d45dceeeaf5\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.navasmdc:MaterialDesign:1.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f9a5e7c647209466c55ae8f2f1c0294b\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.navasmdc:MaterialDesign:1.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f9a5e7c647209466c55ae8f2f1c0294b\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\b08e64b2423b15b3d91e3250d76c6d41\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\b08e64b2423b15b3d91e3250d76c6d41\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9cf0c7e8687568df6e9dd85d746a3f5d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9cf0c7e8687568df6e9dd85d746a3f5d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\802ccc605748b4e385f5e51ead245f53\AndroidManifest.xml:20:5-44

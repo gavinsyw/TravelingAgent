@@ -859,6 +859,8 @@ dimen abc_text_size_title_material_toolbar
 dimen activity_horizontal_margin
 dimen activity_vertical_margin
 dimen app_bar_height
+dimen appbar_padding
+dimen appbar_padding_top
 dimen button_text_size
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
@@ -870,6 +872,7 @@ dimen compat_button_padding_vertical_material
 dimen compat_control_corner_material
 dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
+dimen def_height
 dimen design_appbar_elevation
 dimen design_bottom_navigation_active_item_max_width
 dimen design_bottom_navigation_active_item_min_width
@@ -917,6 +920,10 @@ dimen design_textinput_caption_translate_y
 dimen dialogplus_default_center_margin
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
+dimen dp_10
+dimen dp_4
+dimen dp_40
+dimen dp_72
 dimen fab_margin
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
@@ -1007,6 +1014,9 @@ dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
 dimen sample_text_size
+dimen sp_12
+dimen sp_14
+dimen sp_16
 dimen text_margin
 dimen title_text_size
 dimen tooltip_corner_radius
@@ -1236,6 +1246,8 @@ drawable pre_down_
 drawable recommendation_icon
 drawable right
 drawable ruth
+drawable sample_footer_loading
+drawable sample_footer_loading_progress
 drawable selector_bg_button
 drawable shadow_down
 drawable shadow_right
@@ -1311,6 +1323,10 @@ drawable walter
 drawable white_gradient
 drawable yeats
 id ALT
+id BaseQuickAdapter_databinding_support
+id BaseQuickAdapter_dragging_support
+id BaseQuickAdapter_swiping_support
+id BaseQuickAdapter_viewholder_support
 id CTRL
 id FUNCTION
 id META
@@ -1352,6 +1368,7 @@ id bottom
 id bottomImageView
 id btn_login
 id btn_signup
+id btn_submit_plan
 id button
 id buttonPanel
 id button_accept
@@ -1367,6 +1384,8 @@ id clamp
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id confirm_plan
+id constraintLayout
 id container
 id content
 id contentDialog
@@ -1440,6 +1459,11 @@ id link_login
 id link_signup
 id listMode
 id list_item
+id load_more_load_end_view
+id load_more_load_fail_view
+id load_more_loading_view
+id loading_progress
+id loading_text
 id masked
 id maybe_not_button
 id message
@@ -1512,6 +1536,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id section_label
 id select_dialog_listview
 id selected
 id shape_bacground
@@ -1527,6 +1552,15 @@ id snap
 id snapMargins
 id spacer
 id split_action_bar
+id spot
+id spot0
+id spot1
+id spot2
+id spot3
+id spot4
+id spot5
+id spot6
+id spot7
 id spotNameView
 id spread
 id spread_inside
@@ -1539,6 +1573,7 @@ id stretch
 id submenuarrow
 id submit_area
 id tabMode
+id tabs
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
@@ -1568,6 +1603,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id tv_prompt
 id uniform
 id unlabeled
 id up
@@ -1575,6 +1611,7 @@ id useLogo
 id userName
 id viewColor
 id view_offset_helper
+id view_pager
 id visible
 id withText
 id word_cloud_image
@@ -1628,10 +1665,13 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_itinerary_resutl
 layout activity_login
 layout activity_main2
 layout activity_main_page
+layout activity_poster
 layout activity_recommendation_display
+layout activity_recommendation_result
 layout activity_signup
 layout activity_simulation
 layout base_container
@@ -1657,6 +1697,7 @@ layout dialog
 layout dialog_grid
 layout dialog_list
 layout dialog_view
+layout fragment_recommendation_result
 layout header_recommendation
 layout header_simulation
 layout item_layout
@@ -1674,6 +1715,7 @@ layout notification_template_part_chronometer
 layout notification_template_part_time
 layout number_indicator_spinner
 layout progress_dialog
+layout quick_view_load_more
 layout recommendation_preference
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
@@ -1759,7 +1801,6 @@ string grid_holder
 string header
 string hello_world
 string hide_bottom_view_on_scroll_behavior
-string large_text
 string leisure
 string library_roundedimageview_author
 string library_roundedimageview_authorWebsite
@@ -1771,6 +1812,10 @@ string library_roundedimageview_libraryWebsite
 string library_roundedimageview_licenseId
 string library_roundedimageview_repositoryLink
 string list_holder
+string load_end
+string load_failed
+string loading
+string make_list
 string menu_communicate
 string menu_login
 string menu_poster
@@ -1800,8 +1845,12 @@ string show_header
 string simulation_header_sample
 string simulation_header_title
 string status_bar_notification_info_overflow
+string tab_text_1
+string tab_text_2
+string tab_text_3
 string title_activity_main2
 string title_activity_main3
+string title_activity_recommendation_result
 string title_activity_result
 string user_name
 string view_holder
@@ -1812,8 +1861,12 @@ style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
 style Animation_Design_BottomSheetDialog
 style AppTheme
+style AppTheme_AppBarOverlay
 style AppTheme_Dark
 style AppTheme_Dark_Dialog
+style AppTheme_Dark_NoActionBar
+style AppTheme_NoActionBar
+style AppTheme_PopupOverlay
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog

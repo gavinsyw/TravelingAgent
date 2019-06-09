@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -209,7 +210,21 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 
         drawItinerary(recommend);
 
+        List<String> spotList = new ArrayList<>();
+        Button button_submit_plan = (Button) findViewById(R.id.btn_submit_plan);
+
+        button_submit_plan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RecommendationDisplayActivity.this, PosterActivity.class);
+                intent.putExtra("attractions","SJTU" );
+                startActivity(intent);
+            }
+        });
+
     }
+
+
 
     @Override
     protected void onResume() {

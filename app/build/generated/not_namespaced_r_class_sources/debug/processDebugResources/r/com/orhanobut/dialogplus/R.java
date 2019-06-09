@@ -28,17 +28,17 @@ public final class R {
     public static final class dimen {
         private dimen() {}
 
-        public static final int dialogplus_default_center_margin = 0x7f060085;
+        public static final int dialogplus_default_center_margin = 0x7f060088;
     }
     public static final class id {
         private id() {}
 
-        public static final int dialogplus_content_container = 0x7f08004b;
-        public static final int dialogplus_footer_container = 0x7f08004c;
-        public static final int dialogplus_header_container = 0x7f08004d;
-        public static final int dialogplus_list = 0x7f08004e;
-        public static final int dialogplus_outmost_container = 0x7f08004f;
-        public static final int dialogplus_view_container = 0x7f080050;
+        public static final int dialogplus_content_container = 0x7f080052;
+        public static final int dialogplus_footer_container = 0x7f080053;
+        public static final int dialogplus_header_container = 0x7f080054;
+        public static final int dialogplus_list = 0x7f080055;
+        public static final int dialogplus_outmost_container = 0x7f080056;
+        public static final int dialogplus_view_container = 0x7f080057;
     }
     public static final class integer {
         private integer() {}
@@ -48,9 +48,9 @@ public final class R {
     public static final class layout {
         private layout() {}
 
-        public static final int base_container = 0x7f0b0022;
-        public static final int dialog_grid = 0x7f0b0036;
-        public static final int dialog_list = 0x7f0b0037;
-        public static final int dialog_view = 0x7f0b0038;
+        public static final int base_container = 0x7f0b0025;
+        public static final int dialog_grid = 0x7f0b0039;
+        public static final int dialog_list = 0x7f0b003a;
+        public static final int dialog_view = 0x7f0b003b;
     }
 }

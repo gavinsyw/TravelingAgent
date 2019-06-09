@@ -32,12 +32,18 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme.Dark" >
+        <activity
+            android:name="com.example.travelingagent.activity.RecommendationResultActivity"
+            android:label="@string/title_activity_recommendation_result"
+            android:theme="@style/AppTheme.Dark.NoActionBar" >
+        </activity>
+        <activity android:name="com.example.travelingagent.activity.PosterActivity" />
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name="com.example.travelingagent.activity.RecommendationDisplayActivity" >
-        </activity>
+        <activity android:name="com.example.travelingagent.activity.RecommendationDisplayActivity" />
         <activity android:name="com.example.travelingagent.activity.NewLoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
