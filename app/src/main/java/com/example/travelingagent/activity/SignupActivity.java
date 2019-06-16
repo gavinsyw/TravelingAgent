@@ -1,6 +1,7 @@
 package com.example.travelingagent.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -12,13 +13,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.travelingagent.R;
+import com.example.travelingagent.protocol.LoginClientApi;
+import com.example.travelingagent.protocol.Register;
+import com.example.travelingagent.protocol.RegisterClientApi;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 import org.apache.http.Header;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
@@ -54,40 +67,76 @@ public class SignupActivity extends AppCompatActivity {
     public void signup() {
         Log.d(TAG, "Signup");
 
+        String name = _nameText.getText().toString();
+        final String email = _emailText.getText().toString();
+        String password = _passwordText.getText().toString();
+
         if (!validate()) {
             onSignupFailed();
             return;
         }
 
-        _signupButton.setEnabled(false);
+        //////////////////////////////////////////////////////////////// 施工现场
 
-        final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
-                R.style.AppTheme_Dark_Dialog);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Creating Account...");
-        progressDialog.show();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.100:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-        String name = _nameText.getText().toString();
-        String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
+        RegisterClientApi registerClientApi = retrofit.create(RegisterClientApi.class);
 
-        // TODO: Implement your own signup logic here.
+        Map<String, String> options = new HashMap<String, String>();
+        options.put("mail", email);
+        options.put("userpass", password);
+        options.put("username", name);
 
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onSignupSuccess or onSignupFailed
-                        // depending on success
-                        onSignupSuccess();
-                        // onSignupFailed();
-                        progressDialog.dismiss();
-                    }
-                }, 3000);
+        Call<String> call = registerClientApi.registerState(options);
+
+       call.enqueue(new Callback<String>() {
+           @Override
+           public void onResponse(Call<String> call, Response<String> response) {
+               final String userid = response.body();
+               Toast.makeText(SignupActivity.this, userid, Toast.LENGTH_SHORT).show();
+
+               _signupButton.setEnabled(false);
+
+               final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
+                       R.style.AppTheme_Dark_Dialog);
+               progressDialog.setIndeterminate(true);
+               progressDialog.setMessage("注册中...");
+               progressDialog.show();
+
+               // TODO: Implement your own signup logic here.
+
+               new android.os.Handler().postDelayed(
+                       new Runnable() {
+                           public void run() {
+                               // On complete call either onSignupSuccess or onSignupFailed
+                               // depending on success
+                               onSignupSuccess(userid, email);
+                               // onSignupFailed();
+                               progressDialog.dismiss();
+                           }
+                       }, 3000);
+           }
+
+           @Override
+           public void onFailure(Call<String> call, Throwable t) {
+               t.printStackTrace();
+           }
+       });
     }
 
-    public void onSignupSuccess() {
+    public void onSignupSuccess(String userid, String email) {
         _signupButton.setEnabled(true);
-        setResult(RESULT_OK, null);
+
+        Intent intent = new Intent(this, MainActivity.class);
+//        EditText editText = (EditText) findViewById(R.id.userName);
+//        String username = editText.getText().toString();
+        intent.putExtra("UserName", email);
+        intent.putExtra("UserId", userid);
+        startActivity(intent);
+//        setResult(RESULT_OK, null);
         finish();
     }
 
@@ -97,43 +146,43 @@ public class SignupActivity extends AppCompatActivity {
         _signupButton.setEnabled(true);
     }
 
-    private boolean registerByasyncHttpcClientGet(String userName, String email,String password) {
-
-        AsyncHttpClient client = new AsyncHttpClient();
-        //String url = "http://www.baidu.com";
-        String url = "http://10.162.235.166:8080/jsf-helloworld/register?";
-
-        RequestParams params =  new RequestParams();
-        params.put("username",userName);
-        params.put("mail",email);
-        params.put("userpass",password);
-        final boolean[] objs = new boolean[1];
-        client.get(url, params, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                Log.d("请求响应码",i+"");
-                for (int ii = 0; ii < headers.length;ii++){
-                    Header header = headers[ii];
-                    Log.d("values","header name:"+header.getName()+" value:"+header.getValue());
-                    System.out.println(new String(bytes));
-                }
-//                tv_result.setText(new String(bytes));
-                String flag = new String(bytes);
-                if(flag.equals("0")){
-                    objs[0] = false;
-                }
-                else{
-                    objs[0]= true;
-                }
-            }
-
-            @Override
-            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-                throwable.printStackTrace();
-            }
-        });
-        return objs[0];
-    }
+//    private boolean registerByasyncHttpcClientGet(String userName, String email,String password) {
+//
+//        AsyncHttpClient client = new AsyncHttpClient();
+//        //String url = "http://www.baidu.com";
+//        String url = "http://10.162.235.166:8080/jsf-helloworld/register?";
+//
+//        RequestParams params =  new RequestParams();
+//        params.put("username",userName);
+//        params.put("mail",email);
+//        params.put("userpass",password);
+//        final boolean[] objs = new boolean[1];
+//        client.get(url, params, new AsyncHttpResponseHandler() {
+//            @Override
+//            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+//                Log.d("请求响应码",i+"");
+//                for (int ii = 0; ii < headers.length;ii++){
+//                    Header header = headers[ii];
+//                    Log.d("values","header name:"+header.getName()+" value:"+header.getValue());
+//                    System.out.println(new String(bytes));
+//                }
+////                tv_result.setText(new String(bytes));
+//                String flag = new String(bytes);
+//                if(flag.equals("0")){
+//                    objs[0] = false;
+//                }
+//                else{
+//                    objs[0]= true;
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+//                throwable.printStackTrace();
+//            }
+//        });
+//        return objs[0];
+//    }
 
 
 
@@ -166,13 +215,8 @@ public class SignupActivity extends AppCompatActivity {
             _passwordText.setError(null);
         }
 
-        if (valid == true){
-        valid = registerByasyncHttpcClientGet(name,email,password);}
-
-
+//        if (valid == true){
+//        valid = registerByasyncHttpcClientGet(name,email,password);}
         return valid;
-
-
-
     }
 }

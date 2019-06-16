@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.travelingagent"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -46,6 +46,12 @@ dependencies {
     implementation 'com.github.navasmdc:MaterialDesign:1.5@aar'
     implementation files('libs/android-async-http-1.4.7.jar')
     implementation 'com.telenav.expandablepager:expandablepager:0.2.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.0.2'
+    implementation "com.squareup.retrofit2:converter-gson:2.0.2"
+    implementation 'com.webianks.library:easy-feedback:1.0.5'
+    implementation 'design.ivisionblog.apps:feedback-dialog:0.0.1-alpha'
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+    implementation 'com.instabug.library:instabug:8.4.0'
 }
 repositories {
     mavenCentral()

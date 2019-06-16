@@ -15,6 +15,7 @@ public class ItemEntity {
     private String description;
     private String time;
     private String mapImageUrl;
+    private String cityid;
 
     public ItemEntity(JSONObject jsonObject) {
         this.country = jsonObject.optString("country");
@@ -24,6 +25,7 @@ public class ItemEntity {
         this.description = jsonObject.optString("description");
         this.time = jsonObject.optString("time");
         this.mapImageUrl = jsonObject.optString("mapImageUrl");
+        this.cityid = jsonObject.optString("cityid");
     }
 
     public String getCountry() {
@@ -81,4 +83,6 @@ public class ItemEntity {
     public void setMapImageUrl(String mapImageUrl) {
         this.mapImageUrl = mapImageUrl;
     }
+
+    public String getCityid() { return cityid; }
 }

@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue"
+    android:background="@color/primary"
     android:orientation="vertical">
-
 
     <include
         layout="@layout/header" />
@@ -30,7 +29,6 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:text="4.5 / 5.0\n stars"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
 
@@ -48,12 +46,11 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/page_reviews"
+                android:id="@+id/page_popularity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:text="586\nreviews"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
         </RelativeLayout>
@@ -64,12 +61,11 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/page_comments"
+                android:id="@+id/page_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:text="13,424\ncomments"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
 
@@ -82,14 +78,21 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        tools:text="Crime and Punishment (Russian: Преступлéние и наказáние, tr. Prestupleniye i nakazaniye; IPA: [prʲɪstʊˈplʲenʲɪɪ ɪ nəkɐˈzanʲɪɪ]) is a novel by the Russian author Fyodor Dostoyevsky. It was first published in the literary journal The Russian Messenger in twelve monthly installments during 1866.[1] It was later published in a single volume. It is the second of Dostoyevsky's full-length novels following his return from 10 years of exile in Siberia. Crime and Punishment is considered the first great novel of his \'mature\' period of writing.[2]" />
+    <ImageView
+        android:id="@+id/word_cloud_image"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/text"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="@dimen/activity_horizontal_margin"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="15sp"-->
+        <!--tools:text="Crime and Punishment (Russian: Преступлéние и наказáние, tr. Prestupleniye i nakazaniye; IPA: [prʲɪstʊˈplʲenʲɪɪ ɪ nəkɐˈzanʲɪɪ]) is a novel by the Russian author Fyodor Dostoyevsky. It was first published in the literary journal The Russian Messenger in twelve monthly installments during 1866.[1] It was later published in a single volume. It is the second of Dostoyevsky's full-length novels following his return from 10 years of exile in Siberia. Crime and Punishment is considered the first great novel of his \'mature\' period of writing.[2]" />-->
 
     <TextView
         android:layout_width="wrap_content"

@@ -18,7 +18,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <com.example.travelingagent.widget.HorizontalTransitionLayout
+        <com.example.travelingagent.util.pileLayout.widget.HorizontalTransitionLayout
             android:id="@+id/countryView"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -29,10 +29,10 @@
             scene:textColor="#424242"
             scene:textSize="22" >
 
-        </com.example.travelingagent.widget.HorizontalTransitionLayout>
+        </com.example.travelingagent.util.pileLayout.widget.HorizontalTransitionLayout>
 
 
-        <com.example.travelingagent.widget.HorizontalTransitionLayout
+        <com.example.travelingagent.util.pileLayout.widget.HorizontalTransitionLayout
             android:id="@+id/temperatureView"
             android:layout_width="90dp"
             android:layout_height="match_parent"
@@ -49,7 +49,7 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/right" />
 
-        </com.example.travelingagent.widget.HorizontalTransitionLayout>
+        </com.example.travelingagent.util.pileLayout.widget.HorizontalTransitionLayout>
 
 
     </LinearLayout>
@@ -77,7 +77,7 @@
             android:layout_height="15dp"
             android:src="@drawable/star" />
 
-        <com.example.travelingagent.widget.VerticalTransitionLayout
+        <com.example.travelingagent.util.pileLayout.widget.VerticalTransitionLayout
             android:id="@+id/addressView"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -111,7 +111,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.travelingagent.widget.FadeTransitionImageView
+        <com.example.travelingagent.util.pileLayout.widget.FadeTransitionImageView
             android:id="@+id/bottomImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -135,7 +135,7 @@
                 android:layout_height="15dp"
                 android:src="@drawable/clock" />
 
-            <com.example.travelingagent.widget.VerticalTransitionLayout
+            <com.example.travelingagent.util.pileLayout.widget.VerticalTransitionLayout
                 android:id="@+id/timeView"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

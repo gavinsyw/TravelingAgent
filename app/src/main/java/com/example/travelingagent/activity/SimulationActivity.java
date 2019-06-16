@@ -1,6 +1,7 @@
 package com.example.travelingagent.activity;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.route.BikingRouteResult;
 import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
@@ -40,9 +42,9 @@ import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.example.travelingagent.R;
 import com.example.travelingagent.myclass.Hotel;
+import com.example.travelingagent.myclass.Itinerary;
 import com.example.travelingagent.myclass.Sight;
-import com.example.travelingagent.myclass.Spot;
-import com.example.travelingagent.overlayutil.DrivingRouteOverlay;
+import com.example.travelingagent.util.baiduMap.DrivingRouteOverlay;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.orhanobut.dialogplus.DialogPlus;
@@ -56,6 +58,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import design.ivisionblog.apps.reviewdialoglibrary.FeedBackActionsListeners;
+import design.ivisionblog.apps.reviewdialoglibrary.FeedBackDialog;
+
+import static com.loopj.android.http.AsyncHttpClient.LOG_TAG;
+
 public class SimulationActivity extends AppCompatActivity implements OnGetRoutePlanResultListener {
     public LocationClient mLocationClient;
     private TextView positionText;
@@ -65,7 +72,9 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
     RoutePlanSearch mSearch = null;
     LatLng currentLocation = null;
     List<Hotel> hotelVec = new Vector<>();
-    Vector<Sight> sightVec = new Vector<>();
+    List<Sight> sightVec = new Vector<>();
+    Itinerary itinerary = new Itinerary(0); // TODO: 添加id接口
+    List<Marker> markers = new ArrayList<>(30);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,20 +85,8 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
         currentLocation = new LatLng(31.209519, 121.457545);
-
-        final BitmapDescriptor defaultBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_blue);
         final BitmapDescriptor selectedBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_yellow);
-
-//        mLocationClient = new LocationClient(getApplicationContext());
-//        mLocationClient.registerLocationListener(new BDLocationListener() {
-//            @Override
-//            public void onReceiveLocation(BDLocation location) {
-//                if (location.getLocType() == BDLocation.TypeGpsLocation
-//                        || location.getLocType() == BDLocation.TypeNetWorkLocation) {
-//                    navigateTo(location.getLatitude(), location.getLongitude(), 18, location.getAddrStr());
-//                }
-//            }
-//        });
+        final BitmapDescriptor startBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_blue);
 
         List<String> permissionList = new ArrayList<>();
         if (ContextCompat.checkSelfPermission(SimulationActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -105,26 +102,26 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
             String [] permissions = permissionList.toArray(new String[permissionList.size()]);
             ActivityCompat.requestPermissions(SimulationActivity.this, permissions, 1);
         } else {
-//            requestLocation();
-            navigateTo(currentLocation, 14,"上海建业里嘉佩乐酒店欢迎您~");
-            addMarker(currentLocation, selectedBitmap);
+            navigateTo(currentLocation, 18,"选择您将要入住的酒店");
+//            addMarker(currentLocation, selectedBitmap);
         }
 
-        BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
+        final BaiduMap.OnMarkerClickListener markerClickListenerChosen = new BaiduMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(final Marker marker) {
                 String content = marker.getTitle(); // 假装利用title携带信息
+                if (content == null) return false;
                 String spotName = content.split("_")[0];
-                String spotID = content.split("_")[1];
-                String spotType = content.split("_")[2];
+                final String spotID = content.split("_")[1];
+                final String spotType = content.split("_")[2];
 
                 Toast.makeText(SimulationActivity.this, content, Toast.LENGTH_SHORT).show();
 
                 View view = View.inflate(SimulationActivity.this, R.layout.content_simulation, null);
-                TextView textView = (TextView) view.findViewById(R.id.title);
+                TextView textView = view.findViewById(R.id.title);
                 textView.setText("下一站，" + spotName + '?');
 
-                ImageView imageView = (ImageView) view.findViewById(R.id.word_cloud_image);
+                ImageView imageView = view.findViewById(R.id.word_cloud_image);
                 if (spotType.equals("0")) {
                     imageView.setImageResource(getDrawResourceID("sight_" + spotID));
                 }
@@ -143,12 +140,51 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                         .create();
                 dialog.show();
 
-                Button button_yes = (Button) findViewById(R.id.like_it_button);
-                Button button_no = (Button) findViewById(R.id.maybe_not_button);
+                Button button_yes = findViewById(R.id.like_it_button);
+                Button button_no = findViewById(R.id.maybe_not_button);
 
                 button_yes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        //////////////////////////////////////////////
+                        FeedBackDialog mDialog = new FeedBackDialog(SimulationActivity.this)
+                                .setBackgroundColor(R.color.white)
+                                .setIcon(R.drawable.ic_google_maps_icon)
+                                .setIconColor(R.color.green)
+                                .setTitle(R.string.app_name)
+                                .setDescription(R.string.app_name)
+                                .setReviewQuestion(R.string.app_name)
+                                .setPositiveFeedbackText(R.string.app_name)
+                                .setNegativeFeedbackText(R.string.app_name)
+                                .setAmbiguityFeedbackText(R.string.app_name)
+                                .setOnReviewClickListener(new FeedBackActionsListeners() {
+                                    @Override
+                                    public void onPositiveFeedback(FeedBackDialog dialog) {
+                                        Log.d(LOG_TAG,"positive feedback callback");
+                                        dialog.dismiss();
+                                    }
+
+                                    @Override
+                                    public void onNegativeFeedback(FeedBackDialog dialog) {
+                                        Log.d(LOG_TAG,"negative feedback callback");
+                                        dialog.dismiss();
+                                    }
+
+                                    @Override
+                                    public void onAmbiguityFeedback(FeedBackDialog dialog) {
+                                        Log.d(LOG_TAG,"ambiguity feedback callback");
+                                        dialog.dismiss();
+                                    }
+
+                                    @Override
+                                    public void onCancelListener(DialogInterface dialog) {
+                                        Log.d(LOG_TAG,"feedback dialog cancel listener callback");
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .show();  // Finally don't forget to call show()
+                        //////////////////////////////////////////////
+
                         dialog.dismiss();
                         mSearch = RoutePlanSearch.newInstance();
                         mSearch.setOnGetRoutePlanResultListener(SimulationActivity.this);
@@ -161,10 +197,21 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                                 .to(enNode));
 
                         currentLocation = marker.getPosition();
-                        navigateTo(currentLocation, 14, null);
+                        navigateTo(currentLocation, 18, null);
 
                         marker.remove();
                         addMarker(currentLocation, selectedBitmap);
+
+                        if (spotType.equals("0")) {
+                            itinerary.add(sightVec.get(Integer.parseInt(spotID) - 1));
+                        }
+                        else {
+                            if (spotType.equals("1")) {
+                                itinerary.add(hotelVec.get(Integer.parseInt(spotID) - 1));
+                            }
+                        }
+
+                        Toast.makeText(SimulationActivity.this, String.valueOf(itinerary.getSpotNum()), Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -174,6 +221,78 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                         dialog.dismiss();
                     }
                 });
+                return true;
+            }
+        };
+
+
+        BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(final Marker marker) {
+                String content = marker.getTitle(); // 假装利用title携带信息
+                if (content == null) return false;
+                String spotName = content.split("_")[0];
+                final String spotID = content.split("_")[1];
+                final String spotType = content.split("_")[2];
+
+                if (spotType.equals("1")) {
+                    Toast.makeText(SimulationActivity.this, content, Toast.LENGTH_SHORT).show();
+
+                    View view = View.inflate(SimulationActivity.this, R.layout.content_simulation, null);
+                    TextView textView = view.findViewById(R.id.title);
+                    textView.setText("将" + spotName + "定为您旅行所居住的酒店吗?");
+
+                    ImageView imageView = view.findViewById(R.id.word_cloud_image);
+                    imageView.setImageResource(getDrawResourceID("hotel_" + spotID));
+
+                    final DialogPlus dialog = DialogPlus.newDialog(SimulationActivity.this)
+                            .setContentHolder(new ViewHolder(view))
+                            .setCancelable(true)
+                            .setHeader(R.layout.header_simulation)
+                            .setExpanded(true, 2000)  // This will enable the expand feature, (similar to android L share dialog)
+                            .create();
+                    dialog.show();
+
+                    Button button_yes = findViewById(R.id.like_it_button);
+                    Button button_no = findViewById(R.id.maybe_not_button);
+
+                    button_yes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+
+                            baiduMap.setOnMarkerClickListener(markerClickListenerChosen);
+
+                            currentLocation = marker.getPosition();
+                            navigateTo(currentLocation, 18, null);
+
+                            List<Marker> markers = getMarkersOnMap();
+                            for (Marker markerItem : markers) {
+                                markerItem.remove();
+                            }
+                            addMarker(currentLocation, startBitmap);
+
+                            for (Marker markerItem : markers) {
+                                String id = markerItem.getTitle().split("_")[1];
+                                String type = markerItem.getTitle().split("_")[2];
+                                if (type.equals("0") && markerItem != marker) {
+                                    addMarker(markerItem.getPosition(), Integer.parseInt(type), Integer.parseInt(id));
+                                }
+                            }
+
+                            itinerary.add(hotelVec.get(Integer.parseInt(spotID) - 1));
+
+                            Toast.makeText(SimulationActivity.this, String.valueOf(itinerary.getSpotNum()), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    button_no.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+                }
                 return true;
             }
         };
@@ -197,7 +316,11 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                 double total = jsonObject.getDouble("total");
                 double latitude = jsonObject.getDouble("latitude");
                 double longitude = jsonObject.getDouble("longitude");
-                hotelVec.add(new Hotel(name, id, 1, popularity, money, total, longitude, latitude));
+                Hotel newHotel = new Hotel(name, id, 1, popularity, money, total, longitude, latitude);
+                newHotel.setDrawResourceID(getDrawResourceID("hotel_" + String.valueOf(id)));
+                hotelVec.add(newHotel);
+
+//                spotVec.add(new Hotel(name, id, 1, popularity, money, total, longitude, latitude));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -222,7 +345,10 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                 double service = jsonObject.getDouble("service");
                 double latitude = jsonObject.getDouble("latitude");
                 double longitude = jsonObject.getDouble("longitude");
-                sightVec.add(new Sight(name, id, 0, "blabla", longitude, latitude, popularity, total, environment, service, money));
+                Sight newSight = new Sight(name, id, 0, "blabla", longitude, latitude, popularity, total, environment, service, money);
+                newSight.setDrawResourceID(getDrawResourceID("sight_" + String.valueOf(id)));
+                sightVec.add(newSight);
+//                spotVec.add(new Sight(name, id, 0, "blabla", longitude, latitude, popularity, total, environment, service, money));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -249,8 +375,8 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         mapView.onPause();
     }
 
-    public int getDrawResourceID(String resourceName) {
-        Resources res=getResources();
+    private int getDrawResourceID(String resourceName) {
+        Resources res = getResources();
         int picid = res.getIdentifier(resourceName,"drawable",getPackageName());
         return picid;
     }
@@ -278,6 +404,17 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         update = MapStatusUpdateFactory.zoomTo(zoom);
         baiduMap.animateMapStatus(update);
         isFirstLocate = false;
+    }
+
+    private List<Marker> getMarkersOnMap() {
+        LatLng northeast = new LatLng(180, 180);
+        LatLng southwest = new LatLng(0, 0);
+        LatLngBounds.Builder builder  = new LatLngBounds.Builder();
+        builder.include(northeast);
+        builder.include(southwest);
+        LatLngBounds latLngBounds = builder.build();
+
+        return baiduMap.getMarkersInBounds(latLngBounds);
     }
 
     private void addMarker(LatLng ll, BitmapDescriptor bitmap) {

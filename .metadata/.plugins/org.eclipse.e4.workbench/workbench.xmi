@@ -2552,7 +2552,7 @@
   <commands xmi:id="_oUrlNXZNEemF-_57yRoXUQ" elementId="org.eclipse.jdt.ui.generate.javadoc" commandName="Generate Javadoc" description="Generates Javadoc for a selectable set of Java resources" category="_oUsLR3ZNEemF-_57yRoXUQ"/>
   <commands xmi:id="_oUrlNnZNEemF-_57yRoXUQ" elementId="org.eclipse.egit.ui.RepositoriesViewConfigureGerritRemote" commandName="Gerrit Configuration..." category="_oUsLTHZNEemF-_57yRoXUQ"/>
   <commands xmi:id="_oUrlN3ZNEemF-_57yRoXUQ" elementId="org.eclipse.jdt.debug.ui.commands.StepIntoSelection" commandName="Step Into Selection" description="Step into the current selected statement" category="_oUsLSXZNEemF-_57yRoXUQ"/>
-  <commands xmi:id="_oUrlOHZNEemF-_57yRoXUQ" elementId="org.eclipse.buildship.ui.shortcut.test.run" commandName="Run Gradle Test" description="Run Gradle test based on the current selection" category="_oUsLSXZNEemF-_57yRoXUQ"/>
+  <commands xmi:id="_oUrlOHZNEemF-_57yRoXUQ" elementId="org.eclipse.buildship.ui.shortcut.weather.run" commandName="Run Gradle Test" description="Run Gradle weather based on the current selection" category="_oUsLSXZNEemF-_57yRoXUQ"/>
   <commands xmi:id="_oUrlOXZNEemF-_57yRoXUQ" elementId="org.eclipse.ui.ide.configureColumns" commandName="Configure Columns..." description="Configure the columns in the markers view" category="_oUsLU3ZNEemF-_57yRoXUQ"/>
   <commands xmi:id="_oUrlOnZNEemF-_57yRoXUQ" elementId="org.eclipse.egit.ui.team.ReplaceWithCommit" commandName="Replace with commit" category="_oUsLTHZNEemF-_57yRoXUQ"/>
   <commands xmi:id="_oUrlO3ZNEemF-_57yRoXUQ" elementId="org.eclipse.ui.file.exit" commandName="Exit" description="Exit the application" category="_oUsLQnZNEemF-_57yRoXUQ">

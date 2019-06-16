@@ -4,10 +4,8 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.media.Image;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,16 +39,14 @@ import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.example.travelingagent.R;
-import com.example.travelingagent.adapter.SpotAdapter;
+import com.example.travelingagent.util.adapter.SpotAdapter;
 import com.example.travelingagent.myclass.Hotel;
 import com.example.travelingagent.myclass.Recommend;
 import com.example.travelingagent.myclass.Sight;
 import com.example.travelingagent.myclass.Spot;
-import com.example.travelingagent.overlayutil.DrivingRouteOverlay;
+import com.example.travelingagent.util.baiduMap.DrivingRouteOverlay;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.orhanobut.dialogplus.DialogPlus;
-import com.orhanobut.dialogplus.ViewHolder;
 import com.telenav.expandablepager.ExpandablePager;
 import com.telenav.expandablepager.listener.OnSliderStateChangeListener;
 
@@ -117,8 +113,9 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
                 double total = jsonObject.getDouble("total");
                 double latitude = jsonObject.getDouble("latitude");
                 double longitude = jsonObject.getDouble("longitude");
-                hotelVec.add(new Hotel(name, id, 1, popularity, money, total, longitude, latitude));
-            }
+                Hotel newHotel = new Hotel(name, id, 1, popularity, money, total, longitude, latitude);
+                newHotel.setDrawResourceID(getDrawResourceID("hotel_" + String.valueOf(id)));
+                hotelVec.add(newHotel);            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -137,12 +134,14 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
                 String name = jsonObject.getString("name");
                 double popularity = jsonObject.getDouble("popularity");
                 double money = jsonObject.getDouble("money");
-                double total = jsonObject.getDouble("money");
+                double total = jsonObject.getDouble("total");
                 double environment = jsonObject.getDouble("environment");
                 double service = jsonObject.getDouble("service");
                 double latitude = jsonObject.getDouble("latitude");
                 double longitude = jsonObject.getDouble("longitude");
-                sightVec.add(new Sight(name, id, 0, "blabla", longitude, latitude, popularity, total, environment, service, money));
+                Sight newSight = new Sight(name, id, 0, "blabla", longitude, latitude, popularity, total, environment, service, money);
+                newSight.setDrawResourceID(getDrawResourceID("sight_" + String.valueOf(id)));
+                sightVec.add(newSight);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -176,17 +175,12 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 施工现场
-
-//        ViewPager mViewPager = (ViewPager) findViewById(R.id.vp_details);
-//        mViewPager.setPadding(16, 0, 16, 0);
-//        mViewPager.setClipToPadding(false);
-//        mViewPager.setPageMargin(8);
+        // TODO: 底部切换条
 
         SpotAdapter adapter = new SpotAdapter(recommend);
-        final ExpandablePager pager = (ExpandablePager) findViewById(R.id.container);
+        final ExpandablePager pager = findViewById(R.id.container);
         pager.setAdapter(adapter);
         pager.setOnSliderStateChangeListener(new OnSliderStateChangeListener() {
-
             @Override
             public void onStateChanged(View page, int index, int state) {
 
@@ -194,14 +188,12 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 
             @Override
             public void onPageChanged(View page, int index, int state) {
-                currentLocation = recommend.get(index).getLatLng();
+                currentLocation = recommend.get(pager.getCurrentItem()).getLatLng();
                 navigateTo(currentLocation, 14, null);
-
-                Toast.makeText(RecommendationDisplayActivity.this, String.valueOf(index), Toast.LENGTH_SHORT).show();
             }
         });
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 施工现场
 
         drawItinerary(recommend);
 
@@ -217,11 +209,12 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 
                 try {
                     pager.setCurrentItem(Integer.parseInt(index), true);
+                    currentLocation = recommend.get(Integer.parseInt(index)).getLatLng();
+                    navigateTo(currentLocation, 14, null);
                 } catch (Exception e) {
-
+                    e.printStackTrace();
                 }
 
-//                setContentView(R.layout.content_recommendation_1);
                 Toast.makeText(RecommendationDisplayActivity.this, spotName + index + "欢迎您~", Toast.LENGTH_SHORT).show();
 
                 View view = View.inflate(RecommendationDisplayActivity.this, R.layout.content_recommendation, null);

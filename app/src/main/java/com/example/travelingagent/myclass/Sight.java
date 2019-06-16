@@ -4,17 +4,17 @@ import java.lang.*;
 
 
 public class Sight extends Spot{
-	protected double popularity;
-	protected double score, environment, service;
-	protected double menPiao;
-	
-	public Sight(String name, int ID, int spotType, String description, double longitude, double latitude, double popularity, double score, double environment, double service, double menPiao) {
+	protected double environment, service;
+
+	public Sight(String name, int ID, int spotType, String description, double longitude, double latitude, double popularity, double total, double environment, double service, double money) {
 		super(name, ID, spotType, description, longitude, latitude);
 		this.popularity = popularity;
-		this.score = score;
 		this.environment = environment;
 		this.service = service;
-		this.menPiao = menPiao;
+
+		super.setTotal(total);
+		super.setPopularity(popularity);
+		super.setMoney(money);
 	}
 	
 	public void print()	{

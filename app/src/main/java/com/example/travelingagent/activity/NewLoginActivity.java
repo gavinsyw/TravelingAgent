@@ -52,17 +52,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.travelingagent.R;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
+import com.example.travelingagent.protocol.LoginClientApi;
+import com.example.travelingagent.protocol.Weather;
+import com.example.travelingagent.protocol.WeatherClientApi;
 
-import org.apache.http.Header;
-
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NewLoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -82,6 +86,14 @@ public class NewLoginActivity extends AppCompatActivity {
         _loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ///////////////////////////////////////////////////////////////// 未连接
+                Intent intent = new Intent(NewLoginActivity.this, MainActivity.class);
+                //        EditText editText = (EditText) findViewById(R.id.userName);
+                //        String username = editText.getText().toString();
+                intent.putExtra("UserName", "test@163.com");
+                startActivity(intent);
+                ///////////////////////////////////////////////////////////////// 未连接
+
                 login();
             }
         });
@@ -100,33 +112,68 @@ public class NewLoginActivity extends AppCompatActivity {
     public void login() {
         Log.d(TAG, "Login");
 
+        final String email = _emailText.getText().toString();
+        String password = _passwordText.getText().toString();
+
         if (!validate()) {
             onLoginFailed();
             return;
         }
 
-        _loginButton.setEnabled(false);
+        //////////////////////////////////////////////////////////////// 施工现场
 
-        final ProgressDialog progressDialog = new ProgressDialog(NewLoginActivity.this,
-                R.style.AppTheme_Dark_Dialog);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("验证中...");
-        progressDialog.show();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.100:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-        final String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
+        LoginClientApi loginClientApi = retrofit.create(LoginClientApi.class);
 
-        // TODO: Implement your own authentication logic here.
+        Map<String, String> options = new HashMap<String, String>();
+        options.put("mail", email);
+        options.put("userpass", password);
 
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onLoginSuccess or onLoginFailed
-                        onLoginSuccess(email);
-                        // onLoginFailed();
-                        progressDialog.dismiss();
-                    }
-                }, 300);
+        Call<String> call = loginClientApi.loginState(options);
+
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                String state = response.body();
+                Toast.makeText(NewLoginActivity.this, state, Toast.LENGTH_SHORT).show();
+                //////////////////////////////////////////////////////////////// 施工现场
+
+                if (state.equals("0")) {
+                    Toast.makeText(NewLoginActivity.this, "邮箱或密码错误", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                _loginButton.setEnabled(false);
+
+                final ProgressDialog progressDialog = new ProgressDialog(NewLoginActivity.this,
+                        R.style.AppTheme_Dark_Dialog);
+                progressDialog.setIndeterminate(true);
+                progressDialog.setMessage("验证中...");
+                progressDialog.show();
+
+                // TODO: Implement your own authentication logic here.
+
+                new android.os.Handler().postDelayed(
+                        new Runnable() {
+                            public void run() {
+                                // On complete call either onLoginSuccess or onLoginFailed
+                                onLoginSuccess(email);
+                                // onLoginFailed();
+                                progressDialog.dismiss();
+                            }
+                        }, 300);
+                Toast.makeText(NewLoginActivity.this, state, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 
     @Override
@@ -149,6 +196,7 @@ public class NewLoginActivity extends AppCompatActivity {
 
     public void onLoginSuccess(String email) {
         _loginButton.setEnabled(true);
+
         Intent intent = new Intent(this, MainActivity.class);
 //        EditText editText = (EditText) findViewById(R.id.userName);
 //        String username = editText.getText().toString();
@@ -158,57 +206,57 @@ public class NewLoginActivity extends AppCompatActivity {
     }
 
     public void onLoginFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
+//        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
 
-        Intent intent = new Intent(this, MainActivity.class);
-//        EditText editText = (EditText) findViewById(R.id.userName);
-//        String username = editText.getText().toString();
-        startActivity(intent);
+//        Intent intent = new Intent(this, MainActivity.class);
+////        EditText editText = (EditText) findViewById(R.id.userName);
+////        String username = editText.getText().toString();
+//        startActivity(intent);
         _loginButton.setEnabled(true);
     }
 
-    private boolean loginByasyncHttpcClientGet(String email,String password) {
-
-        AsyncHttpClient client = new AsyncHttpClient();
-        //String url = "http://www.baidu.com";
-        String url = "http://10.162.235.166:8080/jsf-helloworld/login?";
-        System.out.println("111");
-        RequestParams params =  new RequestParams();
-        params.put("mail",email);
-        params.put("userpass",password);
-        System.out.println("222:"+email+" "+password);
-        final boolean[] objs = new boolean[1];
-        client.get(url, params, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int i, Header[] headers, byte[] bytes) {
-                Log.d("请求响应码",i+"");
-                for (int ii = 0; ii < headers.length;ii++){
-                    Header header = headers[ii];
-                    Log.d("values","header name:"+header.getName()+" value:"+header.getValue());
-                    System.out.println(new String(bytes));
-                }
-                String flag = new String(bytes);
-//                tv_result.setText(new String(bytes));
-                if(flag.equals("0")){
-                    objs[0] = false;
-                }
-                else{
-                    objs[0]= true;
-                    System.out.println("+++");
-                }
-
-                System.out.println("333:" + " ");
-            }
-
-            @Override
-            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-//                objs[0]=false;
-                Log.d("failure", "kkk");
-                throwable.printStackTrace();
-            }
-        });
-        return objs[0];
-    }
+//    private boolean loginByasyncHttpcClientGet(String email,String password) {
+//
+//        AsyncHttpClient client = new AsyncHttpClient();
+//        //String url = "http://www.baidu.com";
+//        String url = "http://10.162.235.166:8080/jsf-helloworld/login?";
+//        System.out.println("111");
+//        RequestParams params =  new RequestParams();
+//        params.put("mail",email);
+//        params.put("userpass",password);
+//        System.out.println("222:"+email+" "+password);
+//        final boolean[] objs = new boolean[1];
+//        client.get(url, params, new AsyncHttpResponseHandler() {
+//            @Override
+//            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+//                Log.d("请求响应码",i+"");
+//                for (int ii = 0; ii < headers.length;ii++){
+//                    Header header = headers[ii];
+//                    Log.d("values","header name:"+header.getName()+" value:"+header.getValue());
+//                    System.out.println(new String(bytes));
+//                }
+//                String flag = new String(bytes);
+////                tv_result.setText(new String(bytes));
+//                if(flag.equals("0")){
+//                    objs[0] = false;
+//                }
+//                else{
+//                    objs[0]= true;
+//                    System.out.println("+++");
+//                }
+//
+//                System.out.println("333:" + " ");
+//            }
+//
+//            @Override
+//            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+////                objs[0]=false;
+//                Log.d("failure", "kkk");
+//                throwable.printStackTrace();
+//            }
+//        });
+//        return objs[0];
+//    }
 
     public boolean validate() {
         boolean valid = true;
@@ -233,10 +281,10 @@ public class NewLoginActivity extends AppCompatActivity {
 //        List<string> list = new ArrayList<boolean>();
 //        boolean x[] = {valid};
 
-        if (valid == true){
-            valid =  loginByasyncHttpcClientGet(email,password);
-            System.out.println("after:"+valid);
-        }
+//        if (valid == true){
+//            valid =  loginByasyncHttpcClientGet(email,password);
+//            System.out.println("after:"+valid);
+//        }
 
         return valid;
     }

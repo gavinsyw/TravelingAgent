@@ -10,7 +10,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,17 +19,20 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.travelingagent.R;
-import com.example.travelingagent.adapter.ModeAdapter;
+import com.example.travelingagent.util.adapter.ModeAdapter;
 import com.example.travelingagent.entity.ItemEntity;
 import com.example.travelingagent.entity.ModeEntity;
-import com.example.travelingagent.util.Utils;
-import com.example.travelingagent.widget.FadeTransitionImageView;
-import com.example.travelingagent.widget.HorizontalTransitionLayout;
-import com.example.travelingagent.widget.VerticalTransitionLayout;
+import com.example.travelingagent.protocol.Weather;
+import com.example.travelingagent.protocol.WeatherClientApi;
+import com.example.travelingagent.util.pileLayout.util.Utils;
+import com.example.travelingagent.util.pileLayout.widget.FadeTransitionImageView;
+import com.example.travelingagent.util.pileLayout.widget.HorizontalTransitionLayout;
+import com.example.travelingagent.util.pileLayout.widget.VerticalTransitionLayout;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.GridHolder;
 import com.orhanobut.dialogplus.OnItemClickListener;
 import com.stone.pile.libs.PileLayout;
+import com.webianks.easy_feedback.EasyFeedback;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,11 +41,16 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 /**
  * Created by xmuSistone on 2017/5/12.
  */
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     private View positionView;
     private PileLayout pileLayout;
@@ -67,23 +74,12 @@ public class MainActivity extends AppCompatActivity
 
         // 加载模式选择需要的信息
         initModes();
+        initDataList();
 
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
         String username = intent.getStringExtra("UserName");
 
-//        Toast.makeText(this,username,Toast.LENGTH_SHORT).show();
-
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Capture the layout's TextView and set the string as its text
@@ -96,16 +92,48 @@ public class MainActivity extends AppCompatActivity
 //                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 //        drawer.addDrawerListener(toggle);
 //        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {//实现点击操作
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                // Handle navigation view item clicks here.
+                int id = item.getItemId();
+
+                System.out.println("点击的item id 是："+id);
+                Intent mIntent;
+                switch (id) {
+                    case R.id.nav_login:
+                        mIntent = new Intent(MainActivity.this, NewLoginActivity.class);
+                        startActivity(mIntent);
+                        break;
+                    case R.id.nav_poster:
+                        mIntent = new Intent(MainActivity.this, HistoryResultActivity.class);
+                        startActivity(mIntent);
+                        break;
+                    case R.id.nav_share:
+                        break;
+                    case R.id.nav_send:
+                        new EasyFeedback.Builder(MainActivity.this)
+                                .withEmail("fffffarmer@sjtu.edu.com")
+                                .withSystemInfo()
+                                .build()
+                                .start();
+                        break;
+                }
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+
+                return true;
+            }
+        });
 
         positionView = findViewById(R.id.positionView);
-        countryView = (HorizontalTransitionLayout) findViewById(R.id.countryView);
-        temperatureView = (HorizontalTransitionLayout) findViewById(R.id.temperatureView);
-        pileLayout = (PileLayout) findViewById(R.id.pileLayout);
-        addressView = (VerticalTransitionLayout) findViewById(R.id.addressView);
-        descriptionView = (TextView) findViewById(R.id.descriptionView);
-        timeView = (VerticalTransitionLayout) findViewById(R.id.timeView);
-        bottomView = (FadeTransitionImageView) findViewById(R.id.bottomImageView);
+        countryView = findViewById(R.id.countryView);
+        temperatureView = findViewById(R.id.temperatureView);
+        pileLayout = findViewById(R.id.pileLayout);
+        addressView = findViewById(R.id.addressView);
+        descriptionView = findViewById(R.id.descriptionView);
+        timeView = findViewById(R.id.timeView);
+        bottomView = findViewById(R.id.bottomImageView);
 
         // 1. 状态栏侵入
         boolean adjustStatusHeight = false;
@@ -161,7 +189,7 @@ public class MainActivity extends AppCompatActivity
 
 
         // 3. PileLayout绑定Adapter
-        initDataList();
+//        initDataList();
         pileLayout.setAdapter(new PileLayout.Adapter() {
             @Override
             public int getLayoutId() {
@@ -302,7 +330,39 @@ public class MainActivity extends AppCompatActivity
                 for (int j = 0; j < 3; j++) {
                     for (int i = 0; i < len; i++) {
                         JSONObject itemJsonObject = jsonArray.getJSONObject(i);
-                        ItemEntity itemEntity = new ItemEntity(itemJsonObject);
+                        final ItemEntity itemEntity = new ItemEntity(itemJsonObject);
+                        String cityId = itemEntity.getCityid();
+
+                        // 魅族天气API接入
+                        Retrofit retrofit = new Retrofit.Builder()
+                                .baseUrl("http://aider.meizu.com/")
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .build();
+
+                        WeatherClientApi WeatherClientApi = retrofit.create(WeatherClientApi.class);
+                        Call<Weather> call = WeatherClientApi.weather(cityId);
+
+                        call.enqueue(new Callback<Weather>() {
+                            @Override
+                            public void onResponse(Call<Weather> call, Response<Weather> response) {
+                                Weather weather = response.body();
+                                Weather.Value info = weather.value.get(0);
+                                List<Weather.Value.WeatherInfo> weather_info = info.weathers;
+                                List<Weather.Value.ForecastInfo> forecast_Info_info = info.indexes;
+                                itemEntity.setTemperature(weather_info.get(0).temp_night_c + "-" + weather_info.get(0).temp_day_c + "°C");
+                                for (Weather.Value.ForecastInfo forecastInfo : forecast_Info_info) {
+                                    if (forecastInfo.name.equals("穿衣指数")) {
+                                        itemEntity.setTime(forecastInfo.level + "-" + forecastInfo.content);
+                                        break;
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Weather> call, Throwable t) {
+                                t.printStackTrace();
+                            }
+                        });
                         dataList.add(itemEntity);
                     }
                 }
@@ -326,63 +386,6 @@ public class MainActivity extends AppCompatActivity
 
     public float getTransitionValue() {
         return transitionValue;
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_page, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     class ViewHolder {

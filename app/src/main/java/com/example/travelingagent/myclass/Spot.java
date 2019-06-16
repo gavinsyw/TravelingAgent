@@ -1,5 +1,7 @@
 package com.example.travelingagent.myclass;
 
+import android.content.res.Resources;
+
 import com.baidu.mapapi.model.LatLng;
 
 import java.util.Date;
@@ -10,6 +12,10 @@ public class Spot {
     protected int spotType;   // 0 for sight and 1 for hotel
     protected String description;
     protected double longitude, latitude;
+    protected int drawResourceID;
+    protected double total;
+    protected double popularity;
+    protected double money;
 
     protected Spot(String name, int ID, int spotType, String description, double longitude, double latitude) {
         this.name = name;
@@ -22,11 +28,11 @@ public class Spot {
 
     public double reward(Sight anoSpot, double distanceLoss, double popularityLoss, double scoreLoss, double environmentLoss, double serviceLoss, double costLoss) {
         double reward = distanceLoss * this.distance(anoSpot);
-        reward += popularityLoss * anoSpot.popularity;
-		reward += scoreLoss * anoSpot.score;
+        reward += popularityLoss * popularity;
+		reward += scoreLoss * total;
 		reward += environmentLoss * anoSpot.environment;
 		reward += serviceLoss * anoSpot.service;
-		reward += costLoss * anoSpot.menPiao;
+		reward += costLoss * money;
 		return reward;
     }
 
@@ -59,4 +65,39 @@ public class Spot {
         return this.ID;
     }
 
+    public boolean setDrawResourceID(int drawResourceID) {
+        this.drawResourceID = drawResourceID;
+        return true;
+    }
+
+    public int getDrawResourceID() {
+        return this.drawResourceID;
+    }
+
+    public boolean setTotal(double total) {
+        this.total = total;
+        return true;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public boolean setPopularity(double popularity) {
+        this.popularity = popularity;
+        return true;
+    }
+
+    public double getPopularity() {
+        return this.popularity;
+    }
+
+    public boolean setMoney(double money) {
+        this.money = money;
+        return true;
+    }
+
+    public double getMoney() {
+        return this.money;
+    }
 }
