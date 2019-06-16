@@ -60,6 +60,7 @@ import java.util.Vector;
 
 import design.ivisionblog.apps.reviewdialoglibrary.FeedBackActionsListeners;
 import design.ivisionblog.apps.reviewdialoglibrary.FeedBackDialog;
+import retrofit2.http.HEAD;
 
 import static com.loopj.android.http.AsyncHttpClient.LOG_TAG;
 
@@ -75,6 +76,7 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
     List<Sight> sightVec = new Vector<>();
     Itinerary itinerary = new Itinerary(0); // TODO: 添加id接口
     List<Marker> markers = new ArrayList<>(30);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -221,6 +223,8 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                         dialog.dismiss();
                     }
                 });
+
+
                 return true;
             }
         };

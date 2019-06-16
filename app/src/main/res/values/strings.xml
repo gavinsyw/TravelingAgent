@@ -51,5 +51,12 @@
     <string name="cheap">要少花钱</string>
     <string name="leisure">悠闲旅游</string>
     <string name="search_button">搜一下！</string>
+    <string name="title_activity_main3">Main3Activity</string>
+    <string name="title_activity_result">ResultActivity</string>
+    <string name="make_list">来列一个清单吧！</string>
+    <string name="title_activity_recommendation_result">RecommendationResultActivity</string>
+    <string name="tab_text_1">悠闲舒服路线</string>
+    <string name="tab_text_2">紧张刺激路线</string>
+    <string name="tab_text_3">浪漫欢乐路线</string>
 
 </resources>

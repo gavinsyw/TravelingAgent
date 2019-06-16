@@ -30,13 +30,13 @@ public class RecommendationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recommendation_preference);//此activity方法将生成指定布局的视图并将其放在屏幕上
 
-        RangeSliderView slider1 = (RangeSliderView) findViewById(
+        RangeSliderView slider1 = findViewById(
                 R.id.rsv_smal1);
-        RangeSliderView slider2 = (RangeSliderView) findViewById(
+        RangeSliderView slider2 = findViewById(
                 R.id.rsv_smal2);
-        RangeSliderView slider3 = (RangeSliderView) findViewById(
+        RangeSliderView slider3 = findViewById(
                 R.id.rsv_smal3);
-        RangeSliderView slider4 = (RangeSliderView) findViewById(
+        RangeSliderView slider4 = findViewById(
                 R.id.rsv_smal4);
         RangeSliderView slider5 = (RangeSliderView) findViewById(
                 R.id.rsv_smal5);
@@ -100,12 +100,12 @@ public class RecommendationActivity extends AppCompatActivity {
         choice_data[4] = choice5;
         choice_data[5] = choice6;
 
-        ButtonFlat confirm_bt = (ButtonFlat) findViewById(R.id.buttonflat);
+        ButtonFlat confirm_bt = findViewById(R.id.buttonflat);
         confirm_bt.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 //开始confirm的动作
-                Intent intent = new Intent(RecommendationActivity.this,RecommendationDisplayActivity.class);
+                Intent intent = new Intent(RecommendationActivity.this, RecommendationDisplayActivity.class);
                 intent.putExtra("choiceData", choice_data);
                 startActivity(intent);
             }

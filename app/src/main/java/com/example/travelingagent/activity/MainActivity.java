@@ -387,7 +387,6 @@ public class MainActivity extends AppCompatActivity {
     public float getTransitionValue() {
         return transitionValue;
     }
-
     class ViewHolder {
         ImageView imageView;
     }

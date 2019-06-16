@@ -19,24 +19,31 @@
         android:allowBackup="true"
         android:icon="@mipmap/logo_2"
         android:label="@string/app_name"
-        android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme.Dark">
 
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
-
-        <activity android:name=".activity.RecommendationDisplayActivity">
-
+        <activity
+            android:name=".activity.RecommendationResultActivity"
+            android:label="@string/title_activity_recommendation_result"
+            android:theme="@style/AppTheme.Dark.NoActionBar">
         </activity>
 
-        <activity android:name="com.example.travelingagent.activity.NewLoginActivity">
+        <activity android:name=".activity.PosterActivity" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity android:name=".activity.RecommendationDisplayActivity" />
+        <activity android:name=".activity.NewLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.travelingagent.activity.SignupActivity" />
+        <activity android:name=".activity.SignupActivity" />
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
@@ -44,7 +51,6 @@
 
         <activity android:name=".activity.SimulationActivity" />
         <activity android:name=".activity.HistoryResultActivity" />
-
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.Main2Activity" />
         <activity android:name=".activity.RecommendationActivity" />

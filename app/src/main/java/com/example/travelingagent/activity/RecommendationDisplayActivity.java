@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +40,8 @@ import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.example.travelingagent.R;
+import com.example.travelingagent.protocol.LoginClientApi;
+import com.example.travelingagent.protocol.RecommendationClientApi;
 import com.example.travelingagent.util.adapter.SpotAdapter;
 import com.example.travelingagent.myclass.Hotel;
 import com.example.travelingagent.myclass.Recommend;
@@ -56,8 +59,16 @@ import org.json.JSONObject;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RecommendationDisplayActivity extends AppCompatActivity implements OnGetRoutePlanResultListener {
     public LocationClient mLocationClient;
@@ -76,7 +87,7 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         super.onCreate(savedInstanceState);
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_recommendation_display);
-        mapView = (MapView) findViewById(R.id.bmapView);
+        mapView = findViewById(R.id.bmapView);
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
         currentLocation = new LatLng(31.23, 121.47 );   // 上海的中心经纬
@@ -195,7 +206,44 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 施工现场
 
-        drawItinerary(recommend);
+        ////////////////////////////////////////////////    施工现场
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.108:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RecommendationClientApi recommendationClientApi = retrofit.create(RecommendationClientApi.class);
+
+        Map<String, String> options = new HashMap<String, String>();
+        options.put("choice1", String.valueOf(choice1));
+        options.put("choice2", String.valueOf(choice2));
+        options.put("choice3", String.valueOf(choice3));
+        options.put("choice4", String.valueOf(choice4));
+        options.put("choice5", String.valueOf(choice5));
+        options.put("choice6", String.valueOf(choice6));
+        options.put("user_id", "1");
+        options.put("city_id", "1");
+
+        Call<List<Spot>> call = recommendationClientApi.recommend(options);
+
+        call.enqueue(new Callback<List<Spot>>() {
+            @Override
+            public void onResponse(Call<List<Spot>> call, Response<List<Spot>> response) {
+                List<Spot> recommend = response.body();
+                Toast.makeText(RecommendationDisplayActivity.this, String.valueOf(recommend.size()), Toast.LENGTH_SHORT).show();
+                drawItinerary(recommend);
+            }
+
+            @Override
+            public void onFailure(Call<List<Spot>> call, Throwable t) {
+                Toast.makeText(RecommendationDisplayActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
+            }
+        });
+
+        ////////////////////////////////////////////////    施工现场
+
+//        drawItinerary(recommend);
 
         BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
             @Override
@@ -218,11 +266,11 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
                 Toast.makeText(RecommendationDisplayActivity.this, spotName + index + "欢迎您~", Toast.LENGTH_SHORT).show();
 
                 View view = View.inflate(RecommendationDisplayActivity.this, R.layout.content_recommendation, null);
-                TextView textView = (TextView) view.findViewById(R.id.place_name);
+                TextView textView = view.findViewById(R.id.place_name);
                 textView.setText(spotName);
 
 
-                ImageView imageView = (ImageView) view.findViewById(R.id.word_cloud_image);
+                ImageView imageView = view.findViewById(R.id.word_cloud_image);
                 if (spotType.equals("0")) {
                     imageView.setImageResource(getDrawResourceID("sight_" + spotID));
                 }
@@ -244,6 +292,8 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 
         baiduMap.setOnMarkerClickListener(markerClickListener);
     }
+
+
 
     @Override
     protected void onResume() {
