@@ -1,0 +1,59 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Purpose}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Scope}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Definition}{3}{subsection.1.3}
+\contentsline {section}{\numberline {2}Architecture of the Current System}{3}{section.2}
+\contentsline {section}{\numberline {3}Design Objective of System Architecture}{4}{section.3}
+\contentsline {section}{\numberline {4}Architecture of our Proposed System}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}Introduction}{4}{subsection.4.1}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {UI}}\mathsurround \z@ $\relax }{5}{section*.2}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {UserManagement}}\mathsurround \z@ $\relax }{5}{section*.3}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {JourneyManagement}}\mathsurround \z@ $\relax }{5}{section*.4}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {FeedbackManagement}}\mathsurround \z@ $\relax }{5}{section*.5}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {CommonService}}\mathsurround \z@ $\relax }{5}{section*.6}
+\contentsline {subsection}{\numberline {4.2}Use Case View}{6}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Logic View}{6}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}System Architecture}{6}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Subsystem}{9}{subsubsection.4.3.2}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {UI Subsystem}}\mathsurround \z@ $\relax }{9}{section*.7}
+\contentsline {subparagraph}{Functionality}{9}{section*.8}
+\contentsline {subparagraph}{Service}{9}{section*.9}
+\contentsline {subparagraph}{Class Diagram}{9}{section*.10}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {UserManagement Subsystem}}\mathsurround \z@ $\relax }{10}{section*.11}
+\contentsline {subparagraph}{Functionality}{10}{section*.12}
+\contentsline {subparagraph}{Service}{10}{section*.13}
+\contentsline {subparagraph}{Class Diagram}{10}{section*.14}
+\contentsline {subparagraph}{Component Diagram}{10}{section*.15}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {ItineraryManagement Subsystem}}\mathsurround \z@ $\relax }{11}{section*.16}
+\contentsline {subparagraph}{Functionality}{11}{section*.17}
+\contentsline {subparagraph}{Service}{11}{section*.18}
+\contentsline {subparagraph}{Class Diagram}{11}{section*.19}
+\contentsline {subparagraph}{Component Diagram}{12}{section*.20}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {FeedbackManagement Subsystem}}\mathsurround \z@ $\relax }{13}{section*.21}
+\contentsline {subparagraph}{Functionality}{13}{section*.22}
+\contentsline {subparagraph}{Service}{13}{section*.23}
+\contentsline {subparagraph}{Class Diagram}{13}{section*.24}
+\contentsline {subparagraph}{Component Diagram}{14}{section*.25}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {CommonService Subsystem}}\mathsurround \z@ $\relax }{14}{section*.26}
+\contentsline {subparagraph}{Functionality}{14}{section*.27}
+\contentsline {subparagraph}{Service}{14}{section*.28}
+\contentsline {subparagraph}{Class Diagram}{14}{section*.29}
+\contentsline {subsubsection}{\numberline {4.3.3}Use Case Realization}{15}{subsubsection.4.3.3}
+\contentsline {subsubsection}{\numberline {4.3.4}Subsystem Cooporation}{18}{subsubsection.4.3.4}
+\contentsline {subsection}{\numberline {4.4}System Operation Diagram}{19}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Client Operation Diagram}{19}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Server Operation Diagram}{20}{subsubsection.4.4.2}
+\contentsline {subsection}{\numberline {4.5}Physical View of the System}{20}{subsection.4.5}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {User Machine}}\mathsurround \z@ $\relax }{20}{section*.30}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Application Server}}\mathsurround \z@ $\relax }{20}{section*.31}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Network}}\mathsurround \z@ $\relax }{21}{section*.32}
+\contentsline {subsection}{\numberline {4.6}Design of Boundary Condition}{21}{subsection.4.6}
+\contentsline {subsubsection}{\numberline {4.6.1}Server Startup}{21}{subsubsection.4.6.1}
+\contentsline {subsubsection}{\numberline {4.6.2}Server Shutdown}{22}{subsubsection.4.6.2}
+\contentsline {subsubsection}{\numberline {4.6.3}App Startup}{23}{subsubsection.4.6.3}
+\contentsline {subsubsection}{\numberline {4.6.4}App Shutdown}{24}{subsubsection.4.6.4}
+\contentsline {subsubsection}{\numberline {4.6.5}Error Handling}{25}{subsubsection.4.6.5}
+\contentsline {subsection}{\numberline {4.7}Data Management Design}{25}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.8}Other Design}{26}{subsection.4.8}
+\contentsline {subsubsection}{\numberline {4.8.1}Access Control and Safety Design}{26}{subsubsection.4.8.1}
+\contentsline {subsection}{\numberline {4.9}Reliability Design}{27}{subsection.4.9}

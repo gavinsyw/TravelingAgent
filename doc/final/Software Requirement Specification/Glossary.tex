@@ -1,0 +1,129 @@
+\documentclass[10pt]{article}
+
+\usepackage[a4paper, left=2cm, right=2cm]{geometry} % A4 paper size and thin margins
+
+\usepackage{xcolor} % Required for specifying custom colours
+\definecolor{grey}{rgb}{0.9,0.9,0.9} % Colour of the box surrounding the title
+
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[sfdefault]{ClearSans} % Use the Clear Sans font (sans serif)
+%\usepackage{XCharter} % Use the XCharter font (serif)
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} 	
+
+\begin{document}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+	
+	%------------------------------------------------
+	%	Grey title box
+	%------------------------------------------------
+	
+	\colorbox{grey}{
+		\parbox[t]{1.1\textwidth}{ % Outer full width box
+			\parbox[t]{1.02\textwidth}{ % Inner box for inner right text margin
+				\raggedleft % Right align the text
+				\fontsize{34pt}{40pt}\selectfont % Title font size, the first argument is the font size and the second is the line spacing, adjust depending on title length
+				\vspace{0.7cm} % Space between the start of the title and the top of the grey box
+				
+				< Journey Assistant >\\
+                Glossary\\
+                Version 1.0\\
+				
+				\vspace{0.7cm} % Space between the end of the title and the bottom of the grey box
+			}
+		}
+	}
+	
+	\vfill % Space between the title box and author information
+	
+	%------------------------------------------------
+	%	Author name and information
+	%------------------------------------------------
+	
+	\parbox[t]{1\textwidth}{ % Box to inset this section slightly
+		\raggedleft % Right align the text
+		\large % Increase the font size
+		{\Large Group Member}\\[4pt] % Extra space after name
+        Yiwen Song\\
+        Zhihui Xie\\
+        Weizhe Wang\\
+        Huangfei Jiang\\
+        Haoping Chen\\
+		% Institution Name\\[4pt] % Extra space before URL
+		% \texttt{LaTeXTemplates.com}\\
+		
+		\hfill\rule{0.2\linewidth}{1pt}% Horizontal line, first argument width, second thickness
+    }
+    
+	
+\end{titlepage}
+
+\newpage
+
+\begin{center}
+    {\LARGE Modification History}
+    
+    \begin{tabular}{|c|c|c|c|} 
+        \hline 
+        Date&Version&Description&Author\\
+        \hline  
+        2019-04-02&1.0&The first version of this document.&Zhihui Xie\\
+		\hline 
+		& & & \\
+		\hline
+		& & & \\
+		\hline
+		& & & \\
+		\hline
+    \end{tabular}    
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Intruduction}
+\subsection{Purpose}
+The glossary aims to explain the terms used in our <Software Requirement Specification> document. We will specialize the meaning in order to both avoid any misunderstanding and provide reference to our developers.
+
+\subsection{Scope}
+The target system is our proposed system: Journey Assistant System.
+
+\subsection{Bibliography}
+\begin{itemize}
+    \item[(1)] <Object Oriented Software Engineering (Version 3)> (Tsinghua University Press)
+    \item[(2)] <IEEE Recommended Practice for Software Requirement Specifications> (IEEE Std 830-1998)
+\end{itemize}
+
+\subsection{Brief Description}
+The glossary includes the definition in the documents of software system in alphabetical order.
+
+\section{Definition}
+\paragraph{\underline{Android}} Android is a mobile operating system developed by Google.
+
+\paragraph{\underline{APP}} Application software (app for short) is software designed to perform a group of coordinated functions, tasks, or activities for the benefit of the user. 
+
+\paragraph{\underline{Functional}} Some requirement that need to be realized.
+
+\paragraph{\underline{GAN}} A generative adversarial network (GAN) is a class of machine learning systems. Two neural networks contest with each other in a zero-sum game framework. This technique can generate photographs that look at least superficially authentic to human observers, having many realistic characteristics. It is a form of unsupervised learning.
+
+\paragraph{\underline{JAS}}  Our proposed system: Journey Assistant System.
+
+\paragraph{\underline{Non-functional}} Some requirement that can not berealized but is indispensable to our system.
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
+

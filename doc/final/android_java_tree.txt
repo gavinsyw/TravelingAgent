@@ -1,0 +1,41 @@
+java/com.example.travelingagent
+├─activity
+│  │  CustomizationActivity.java		//路线定制活动
+│  │  FeedbackActivity.java			//用户反馈活动
+│  │  CheckItinerariesActivity.java		//保存路线查看活动	
+│  │  LoginActivity.java			//登录活动
+│  │  MainActivity.java			//主页面活动
+│  │  RecommendationActivity.java		//路线推荐偏好获取活动
+│  │  RecommendationDisplayActivity.java	//路线展示活动
+│  │  SavedItineraryDisplayActivity.java	//保存路线展示活动
+│  │  RegisterActivity.java			//登录活动
+│  │
+│  └─ui					
+│
+├─entity
+│      Hotel.java				//酒店实体类
+│      Sight.java				//景点实体类
+│      Spot.java				//地点实体类
+│      User.java				//用户实体类
+│      Itinerary.java				//路线实体类
+│
+├─protocol
+│  ├─api
+│  │      CustomizationClientApi.java		//路线定制所需的客户API
+│  │      ItineraryClientApi.java		//路线规划所需的客户API
+│  │      LoginClientApi.java			//登录所需的客户API
+│  │      RecommendationClientApi.java	//路线推荐所需的客户API
+│  │      RegisterClientApi.java		//注册所需的客户API
+│  │      WeatherClientApi.java		//获取天气所需的客户API
+│  │
+│  └─entity				
+│          LoginEntity.java			//登录信息实体类
+│          RegisterEntity.java			//注册信息实体类
+│          WeatherEntity.java			//天气信息实体类
+│
+└─util
+       adapter				//包含各类信息展示的Adapter
+       baiduMap				//包含百度地图API官方调用的实体类
+       easyFeedback				//包含反馈用户信息的实体类
+       listener				//包含触控操作相应的Listener
+       viewHolder				//包含各类填充信息的ViewHolder

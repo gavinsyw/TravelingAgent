@@ -20,7 +20,5 @@ Project of Software Engineering
 ## Developer Guide
 ### 路线规划功能的开发者帮助
 * 路线规划功能现在能够再指定酒店的情况下对旅游景点的顺序做10天的规划，可以设置的参数有：一天途径的旅游景点的数量（不能超过6）
-
 * 路线规划功能包中包含关键类Sight，后续开发用到景点类的，可以借鉴此类，以免重复
-
 * 路线规划函数Graph类中的journeySequence函数返回了一个Vector<Sight>，是一个按顺序排列的景点的向量，注意其中包含了酒店。

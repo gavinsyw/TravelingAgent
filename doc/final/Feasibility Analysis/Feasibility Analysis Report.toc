@@ -1,0 +1,96 @@
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}Purpose}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Background}{4}{subsection.1.2}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {The Name of the Software System}}\mathsurround \z@ $\relax }{4}{section*.2}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {The Proposer of the Task}}\mathsurround \z@ $\relax }{4}{section*.3}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {The Developers}}\mathsurround \z@ $\relax }{4}{section*.4}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {The Aimed Users}}\mathsurround \z@ $\relax }{4}{section*.5}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {The Relationship With Other Systems or Associations}}\mathsurround \z@ $\relax }{4}{section*.6}
+\contentsline {subsection}{\numberline {1.3}Definition}{4}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Bibliography}{4}{subsection.1.4}
+\contentsline {section}{\numberline {2}Presupposition}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Requirement}{5}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Functional Requirement}{5}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Performance Requirement}{5}{subsubsection.2.1.2}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Treatment Capacity of the System}}\mathsurround \z@ $\relax }{5}{section*.7}
+\contentsline {subsubsection}{\numberline {2.1.3}Input}{5}{subsubsection.2.1.3}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {User Information}}\mathsurround \z@ $\relax }{5}{section*.8}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Travel Expectation}}\mathsurround \z@ $\relax }{5}{section*.9}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Message Logging}}\mathsurround \z@ $\relax }{6}{section*.10}
+\contentsline {subsubsection}{\numberline {2.1.4}Output}{6}{subsubsection.2.1.4}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Recommended Itinerary}}\mathsurround \z@ $\relax }{6}{section*.11}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Travel Experience Feedback}}\mathsurround \z@ $\relax }{6}{section*.12}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Message}}\mathsurround \z@ $\relax }{6}{section*.13}
+\contentsline {subsubsection}{\numberline {2.1.5}Data Flow and Processing Flow}{7}{subsubsection.2.1.5}
+\contentsline {subsubsection}{\numberline {2.1.6}Security and Confidentiality}{7}{subsubsection.2.1.6}
+\contentsline {subsubsection}{\numberline {2.1.7}Deadline}{7}{subsubsection.2.1.7}
+\contentsline {subsection}{\numberline {2.2}Purpose}{8}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Condition, Supposition and Limitation}{8}{subsection.2.3}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {The Minimum Recommended Operating Life of the System}}\mathsurround \z@ $\relax }{8}{section*.14}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Time for Comparison of System Options}}\mathsurround \z@ $\relax }{8}{section*.15}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Sources and Restrictions on Investment or Funds}}\mathsurround \z@ $\relax }{8}{section*.16}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Restrictions on Law and Policy}}\mathsurround \z@ $\relax }{8}{section*.17}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Conditions on Developing/Run-time Environment or Hardware/Software}}\mathsurround \z@ $\relax }{8}{section*.18}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Available Information and Resources}}\mathsurround \z@ $\relax }{8}{section*.19}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Deadline for the System to Come Into Operation}}\mathsurround \z@ $\relax }{8}{section*.20}
+\contentsline {subsection}{\numberline {2.4}Method of Feasibility Study}{8}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Evaluation Criteria}{9}{subsection.2.5}
+\contentsline {section}{\numberline {3}Existing System Analysis}{9}{section.3}
+\contentsline {subsection}{\numberline {3.1}Data Flow and Processing Flow}{9}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Working Load}{10}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Expenditure}{10}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Personnel}{10}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Devices}{10}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Limitation}{10}{subsection.3.6}
+\contentsline {section}{\numberline {4}Proposed System}{10}{section.4}
+\contentsline {subsection}{\numberline {4.1}Some Explainations}{10}{subsection.4.1}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Well-designed Algorithm}}\mathsurround \z@ $\relax }{11}{section*.21}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {High-performance Server}}\mathsurround \z@ $\relax }{11}{section*.22}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Good Teamwork}}\mathsurround \z@ $\relax }{11}{section*.23}
+\contentsline {subsection}{\numberline {4.2}Data Flow and Processing Flow}{11}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Improvement}{12}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Impact}{12}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Impacts on Devices}{12}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Impacts on Software}{12}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}Impacts on Users}{12}{subsubsection.4.4.3}
+\contentsline {subsubsection}{\numberline {4.4.4}Impacts on Run-time Process}{13}{subsubsection.4.4.4}
+\contentsline {subsubsection}{\numberline {4.4.5}Impacts on Development}{13}{subsubsection.4.4.5}
+\contentsline {subsubsection}{\numberline {4.4.6}Impacts on Location and Facility}{13}{subsubsection.4.4.6}
+\contentsline {subsubsection}{\numberline {4.4.7}Impacts on Expenditure}{13}{subsubsection.4.4.7}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Development}}\mathsurround \z@ $\relax }{13}{section*.24}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Design}}\mathsurround \z@ $\relax }{13}{section*.25}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Maintenance}}\mathsurround \z@ $\relax }{13}{section*.26}
+\contentsline {subsection}{\numberline {4.5}Limitation}{13}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Feasibility on Technical Condition}{13}{subsection.4.6}
+\contentsline {section}{\numberline {5}Alternative Solution}{14}{section.5}
+\contentsline {section}{\numberline {6}Cost/Benefit Analysis}{14}{section.6}
+\contentsline {subsection}{\numberline {6.1}Cost}{14}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Cost for Infrastructure (500 yuan / year)}{14}{subsubsection.6.1.1}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Hardware Devices}}\mathsurround \z@ $\relax }{14}{section*.27}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Software}}\mathsurround \z@ $\relax }{14}{section*.28}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Location}}\mathsurround \z@ $\relax }{14}{section*.29}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Maintenance}}\mathsurround \z@ $\relax }{14}{section*.30}
+\contentsline {subsubsection}{\numberline {6.1.2}Other Cost for One-off Investment (2000 yuan)}{14}{subsubsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.3}Non-One-off Investment (1000 yuan/year)}{14}{subsubsection.6.1.3}
+\contentsline {subsection}{\numberline {6.2}Benefits}{14}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}One-off Benefit}{15}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Non-one-off Benefit}{15}{subsubsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.3}Immeasurable Benefit}{15}{subsubsection.6.2.3}
+\contentsline {subsection}{\numberline {6.3}Cost/Ratio Benefit}{15}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Investment Return Period}{15}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Sensibility Analysis}{15}{subsection.6.5}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Life Circle}}\mathsurround \z@ $\relax }{15}{section*.31}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Working Load}}\mathsurround \z@ $\relax }{15}{section*.32}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Working Type}}\mathsurround \z@ $\relax }{15}{section*.33}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Influence of Other Factors}}\mathsurround \z@ $\relax }{15}{section*.34}
+\contentsline {subparagraph}{Stability of the Server}{16}{section*.35}
+\contentsline {subparagraph}{Persistence of Data}{16}{section*.36}
+\contentsline {subparagraph}{Security of Data}{16}{section*.37}
+\contentsline {subparagraph}{Similar Products from the Counterpart}{16}{section*.38}
+\contentsline {subparagraph}{Resource}{16}{section*.39}
+\contentsline {subparagraph}{Team members}{16}{section*.40}
+\contentsline {subparagraph}{Market Demand}{16}{section*.41}
+\contentsline {section}{\numberline {7}Other Social Factors}{16}{section.7}
+\contentsline {subsection}{\numberline {7.1}Law-based Factors}{16}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Usability-based Factors}{16}{subsection.7.2}
+\contentsline {section}{\numberline {8}Conclusion}{16}{section.8}

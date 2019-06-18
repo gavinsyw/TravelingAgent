@@ -257,8 +257,6 @@ public class SavedItineraryDisplayActivity extends AppCompatActivity implements 
 
                 itinerary = new Itinerary(0, spotList, Integer.parseInt(city_id), Integer.parseInt(user_id));
 
-                Toast.makeText(SavedItineraryDisplayActivity.this, String.valueOf(spotList.size()), Toast.LENGTH_SHORT).show();
-
                 // TODO: 底部切换条
 
                 SpotAdapter adapter = new SpotAdapter(spotList);
