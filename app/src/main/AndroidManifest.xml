@@ -25,20 +25,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Dark">
 
-        <activity
-            android:name=".activity.RecommendationResultActivity"
-            android:label="@string/title_activity_recommendation_result"
-            android:theme="@style/AppTheme.Dark.NoActionBar">
-        </activity>
-
-        <activity android:name=".activity.PosterActivity" />
-
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
 
         <activity android:name=".activity.RecommendationDisplayActivity" />
-        <activity android:name=".activity.NewLoginActivity">
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,10 +43,9 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="PGVpR1FpomjL3coAKdOl7OvLznrgSY5g" />
 
-        <activity android:name=".activity.SimulationActivity" />
+        <activity android:name=".activity.CustomizationActivity" />
         <activity android:name=".activity.HistoryResultActivity" />
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.Main2Activity" />
         <activity android:name=".activity.RecommendationActivity" />
         <activity android:name=".activity.SavedItineraryDisplayActivity" />
 

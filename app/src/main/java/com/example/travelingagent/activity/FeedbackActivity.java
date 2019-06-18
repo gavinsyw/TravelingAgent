@@ -43,11 +43,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
-/**
- * Created by R Ankit on 28-10-2016.
- */
-
 public class FeedbackActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String KEY_WITH_INFO = "with_info";
@@ -63,8 +58,6 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
     private String realPath;
     private ImageView selectedImageView;
     private LinearLayout selectContainer;
-    private String BASE_URL = "http://192.168.43.126:8080/";
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,7 +69,6 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         init();
-
 
     }
 

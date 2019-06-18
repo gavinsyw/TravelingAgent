@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,16 +39,13 @@ import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.example.travelingagent.R;
-import com.example.travelingagent.protocol.ItineraryClientApi;
-import com.example.travelingagent.protocol.RecommendationClientApi;
+import com.example.travelingagent.protocol.api.ItineraryClientApi;
+import com.example.travelingagent.protocol.api.RecommendationClientApi;
 import com.example.travelingagent.util.adapter.SpotAdapter;
-import com.example.travelingagent.myentity.Hotel;
-import com.example.travelingagent.myentity.Sight;
-import com.example.travelingagent.myentity.Spot;
+import com.example.travelingagent.entity.Spot;
 import com.example.travelingagent.util.baiduMap.DrivingRouteOverlay;
+
 import com.github.clans.fab.FloatingActionButton;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.telenav.expandablepager.ExpandablePager;
 import com.telenav.expandablepager.listener.OnSliderStateChangeListener;
 
@@ -57,7 +53,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -67,7 +62,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RecommendationDisplayActivity extends AppCompatActivity implements OnGetRoutePlanResultListener {
     public LocationClient mLocationClient;
-//    private TextView positionText;
     private MapView mapView;
     private BaiduMap baiduMap;
     private String user_id;
@@ -77,11 +71,8 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
     private Retrofit retrofit;
     private String BASE_URL = "http://192.168.43.126:8080/";
 
-    //    private boolean isFirstLocate = true;
     RoutePlanSearch mSearch = null;
     LatLng currentLocation = null;
-    List<Hotel> hotelVec = new Vector<>();
-    Vector<Sight> sightVec = new Vector<>();
 
 
     @Override
@@ -104,6 +95,7 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         user_id = intent.getStringExtra("user_id");
         city_id = intent.getStringExtra("city_id");
 
+        // 获取用户权限
         List<String> permissionList = new ArrayList<>();
         if (ContextCompat.checkSelfPermission(RecommendationDisplayActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             permissionList.add(Manifest.permission.ACCESS_FINE_LOCATION);
@@ -118,10 +110,6 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
             String [] permissions = permissionList.toArray(new String[permissionList.size()]);
             ActivityCompat.requestPermissions(RecommendationDisplayActivity.this, permissions, 1);
         }
-//        else {
-////            requestLocation();
-////            navigateTo(currentLocation, 10,"城市名");
-//        }
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,10 +124,6 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 
         getRecommend(choice_data);
 
-        ////////////////////////////////////////////////    施工现场
-
-
-//        drawItinerary(recommend);
     }
 
 
@@ -157,20 +141,6 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
     }
 
     private void navigateTo(LatLng ll, float zoom, String description) {
-//        if (isFirstLocate) {
-//            Toast.makeText(this, "nav to " + description, Toast.LENGTH_SHORT).show();
-//            MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(ll);
-//            baiduMap.animateMapStatus(update);
-//            update = MapStatusUpdateFactory.zoomTo(zoom);
-//            baiduMap.animateMapStatus(update);
-//            isFirstLocate = false;
-//        }
-//        MyLocationData.Builder locationBuilder = new MyLocationData.Builder();
-//        locationBuilder.latitude(lat);
-//        locationBuilder.longitude(lng);
-//        MyLocationData locationData = locationBuilder.build();
-//        baiduMap.setMyLocationData(locationData);
-
         MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(ll);
         baiduMap.animateMapStatus(update);
         update = MapStatusUpdateFactory.zoomTo(zoom);
@@ -210,8 +180,7 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
     private void addMarker(Spot spot, int id) {
         BitmapDescriptor hotelBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_pink);
         BitmapDescriptor sightBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_green);
-//        //定义Maker坐标点
-//        LatLng point = new LatLng(lat, lng);
+
         //构建Marker图标
         //构建MarkerOption，用于在地图上添加Marker
         OverlayOptions option = null;
@@ -233,46 +202,10 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         baiduMap.addOverlay(option);
     }
 
-    private void addMarker(LatLng ll, int type, int id) {
-        BitmapDescriptor hotelBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_pink);
-        BitmapDescriptor sightBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_green);
-//        //定义Maker坐标点
-//        LatLng point = new LatLng(lat, lng);
-        //构建Marker图标
-        //构建MarkerOption，用于在地图上添加Marker
-        OverlayOptions option = null;
-        if (type == 0) {
-            option = new MarkerOptions()
-                    .position(ll)
-                    .icon(sightBitmap)
-                    .title(sightVec.get(id - 1).getName() + '_' + String.valueOf(id) + "_0");
-        }
-        else {
-            option = new MarkerOptions()
-                    .position(ll)
-                    .icon(hotelBitmap)
-                    .title(hotelVec.get(id - 1).getName() + '_' + String.valueOf(id) + "_1");
-        }
-
-
-        //在地图上添加Marker，并显示
-        baiduMap.addOverlay(option);
-    }
-
     private int getDrawResourceID(String resourceName) {
         Resources res = getResources();
         int picid = res.getIdentifier(resourceName,"drawable",getPackageName());
         return picid;
-    }
-
-    private List<Hotel> getHotelFromJSONString(String jsonString) {
-        Gson gson = new Gson();
-        List<Hotel> hotels = gson.fromJson(jsonString, new TypeToken<List<Hotel>>() {}.getType());
-
-        for (Hotel hotel : hotels) {
-            Log.d("hotel", hotel.getName());
-        }
-        return hotels;
     }
 
     private void requestLocation() {
@@ -309,20 +242,7 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         }
     }
 
-//    public class MyLocationListener implements BDLocationListener {
-//
-//        @Override
-//        public void onReceiveLocation(BDLocation location) {
-//            if (location.getLocType() == BDLocation.TypeGpsLocation
-//                    || location.getLocType() == BDLocation.TypeNetWorkLocation) {
-//                navigateTo(location);
-//            }
-//
-//        }
-//    }
-
     private void getRecommend(final int[] choice_data) {
-        ////////////////////////////////////////////////    施工现场
 
         final RecommendationClientApi recommendationClientApi = retrofit.create(RecommendationClientApi.class);
 
@@ -361,7 +281,6 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 
                 itinerary = new Itinerary(0, recommend, Integer.parseInt(city_id), Integer.parseInt(user_id));
 
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 施工现场
                 // TODO: 底部切换条
 
                 SpotAdapter adapter = new SpotAdapter(recommend);
@@ -380,7 +299,6 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
                     }
                 });
 
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 施工现场
 
                 drawItinerary(recommend);
 
@@ -402,7 +320,6 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
                             e.printStackTrace();
                         }
 
-//                        Toast.makeText(RecommendationDisplayActivity.this, spotName + index + "欢迎您~", Toast.LENGTH_SHORT).show();
 
                         View view = View.inflate(RecommendationDisplayActivity.this, R.layout.content_recommendation, null);
                         TextView textView = view.findViewById(R.id.place_name);
@@ -487,18 +404,7 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         }
         if (drivingRouteResult.error == SearchResult.ERRORNO.NO_ERROR) {
             if (drivingRouteResult.getRouteLines().size() > 0) {
-//                Toast.makeText(this, "有结果", Toast.LENGTH_SHORT).show();
-                //获取路径规划数据,(以返回的第一条路线为例）
-                //为DrivingRouteOverlay实例设置数据
                 overlay.setData(drivingRouteResult.getRouteLines().get(0));
-
-
-//                List<OverlayOptions> allOverlay = overlay.getOverlayOptions();
-//                for (OverlayOptions option : allOverlay) {
-////                    baiduMap.addOverlay(option);
-//
-//                }
-
 
 //                在地图上绘制DrivingRouteOverlay
                 overlay.addToMap();

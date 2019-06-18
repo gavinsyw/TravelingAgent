@@ -14,7 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.travelingagent.R;
-import com.example.travelingagent.protocol.RegisterClientApi;
+import com.example.travelingagent.protocol.api.RegisterClientApi;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -55,7 +55,7 @@ public class SignupActivity extends AppCompatActivity {
         _loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Finish the registration screen and return to the Login activity
+                // Finish the registration screen and return to the LoginEntity activity
                 finish();
             }
         });
@@ -72,8 +72,6 @@ public class SignupActivity extends AppCompatActivity {
             onSignupFailed();
             return;
         }
-
-        //////////////////////////////////////////////////////////////// 施工现场
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -127,8 +125,6 @@ public class SignupActivity extends AppCompatActivity {
         _signupButton.setEnabled(true);
 
         Intent intent = new Intent(this, MainActivity.class);
-//        EditText editText = (EditText) findViewById(R.id.userName);
-//        String username = editText.getText().toString();
         intent.putExtra("email", email);
         intent.putExtra("user_id", user_id);
         startActivity(intent);
@@ -141,47 +137,6 @@ public class SignupActivity extends AppCompatActivity {
 
         _signupButton.setEnabled(true);
     }
-
-//    private boolean registerByasyncHttpcClientGet(String userName, String email,String password) {
-//
-//        AsyncHttpClient client = new AsyncHttpClient();
-//        //String url = "http://www.baidu.com";
-//        String url = "http://10.162.235.166:8080/jsf-helloworld/register?";
-//
-//        RequestParams params =  new RequestParams();
-//        params.put("username",userName);
-//        params.put("mail",email);
-//        params.put("userpass",password);
-//        final boolean[] objs = new boolean[1];
-//        client.get(url, params, new AsyncHttpResponseHandler() {
-//            @Override
-//            public void onSuccess(int i, Header[] headers, byte[] bytes) {
-//                Log.d("请求响应码",i+"");
-//                for (int ii = 0; ii < headers.length;ii++){
-//                    Header header = headers[ii];
-//                    Log.d("values","header name:"+header.getName()+" value:"+header.getValue());
-//                    System.out.println(new String(bytes));
-//                }
-////                tv_result.setText(new String(bytes));
-//                String flag = new String(bytes);
-//                if(flag.equals("0")){
-//                    objs[0] = false;
-//                }
-//                else{
-//                    objs[0]= true;
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-//                throwable.printStackTrace();
-//            }
-//        });
-//        return objs[0];
-//    }
-
-
-
 
     public boolean validate() {
         boolean valid = true;
@@ -211,8 +166,6 @@ public class SignupActivity extends AppCompatActivity {
             _passwordText.setError(null);
         }
 
-//        if (valid == true){
-//        valid = registerByasyncHttpcClientGet(name,email,password);}
         return valid;
     }
 }

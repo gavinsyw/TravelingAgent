@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.travelingagent.R;
-import com.example.travelingagent.entity.ModeEntity;
+import com.example.travelingagent.protocol.entity.ModeEntity;
 
 import java.util.List;
 

@@ -2,7 +2,7 @@ package com.example.travelingagent.activity;
 
 import android.view.View;
 
-import com.example.travelingagent.myentity.Spot;
+import com.example.travelingagent.entity.Spot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,9 +79,5 @@ public class Itinerary {
 
     public View.OnClickListener getRequestBtnClickListener() {
         return requestBtnClickListener;
-    }
-
-    public void setRequestBtnClickListener(View.OnClickListener requestBtnClickListener) {
-        this.requestBtnClickListener = requestBtnClickListener;
     }
 }

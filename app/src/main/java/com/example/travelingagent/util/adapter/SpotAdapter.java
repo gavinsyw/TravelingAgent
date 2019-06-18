@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.example.travelingagent.myentity.Spot;
+import com.example.travelingagent.entity.Spot;
 import com.telenav.expandablepager.adapter.ExpandablePagerAdapter;
 import com.example.travelingagent.R;
 

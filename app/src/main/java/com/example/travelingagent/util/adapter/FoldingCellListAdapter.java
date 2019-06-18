@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 
 import com.example.travelingagent.R;
 import com.example.travelingagent.activity.Itinerary;
-import com.example.travelingagent.myentity.Spot;
+import com.example.travelingagent.entity.Spot;
 import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.HashSet;

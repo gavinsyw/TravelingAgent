@@ -39,8 +39,8 @@ import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.example.travelingagent.R;
-import com.example.travelingagent.myentity.Spot;
-import com.example.travelingagent.protocol.ItineraryClientApi;
+import com.example.travelingagent.entity.Spot;
+import com.example.travelingagent.protocol.api.ItineraryClientApi;
 import com.example.travelingagent.util.adapter.SpotAdapter;
 import com.example.travelingagent.util.baiduMap.DrivingRouteOverlay;
 import com.telenav.expandablepager.ExpandablePager;
@@ -59,7 +59,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SavedItineraryDisplayActivity extends AppCompatActivity implements OnGetRoutePlanResultListener {
     public LocationClient mLocationClient;
-//    private TextView positionText;
     private MapView mapView;
     private BaiduMap baiduMap;
     private String user_id;
@@ -67,7 +66,6 @@ public class SavedItineraryDisplayActivity extends AppCompatActivity implements 
     private Itinerary itinerary;
     private Retrofit retrofit;
     private List<Spot> spotList;
-//    private boolean isFirstLocate = true;
     RoutePlanSearch mSearch = null;
     LatLng currentLocation = null;
     private String BASE_URL = "http://192.168.43.126:8080/";
@@ -105,17 +103,9 @@ public class SavedItineraryDisplayActivity extends AppCompatActivity implements 
             String [] permissions = permissionList.toArray(new String[permissionList.size()]);
             ActivityCompat.requestPermissions(SavedItineraryDisplayActivity.this, permissions, 1);
         }
-//        else {
-////            requestLocation();
-////            navigateTo(currentLocation, 10,"城市名");
-//        }
 
         getItinerary();
 
-        ////////////////////////////////////////////////    施工现场
-
-
-//        drawItinerary(spotList);
     }
 
 
@@ -175,8 +165,7 @@ public class SavedItineraryDisplayActivity extends AppCompatActivity implements 
     private void addMarker(Spot spot, int id) {
         BitmapDescriptor hotelBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_pink);
         BitmapDescriptor sightBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_green);
-//        //定义Maker坐标点
-//        LatLng point = new LatLng(lat, lng);
+
         //构建Marker图标
         //构建MarkerOption，用于在地图上添加Marker
         OverlayOptions option = null;
@@ -238,21 +227,7 @@ public class SavedItineraryDisplayActivity extends AppCompatActivity implements 
         }
     }
 
-//    public class MyLocationListener implements BDLocationListener {
-//
-//        @Override
-//        public void onReceiveLocation(BDLocation location) {
-//            if (location.getLocType() == BDLocation.TypeGpsLocation
-//                    || location.getLocType() == BDLocation.TypeNetWorkLocation) {
-//                navigateTo(location);
-//            }
-//
-//        }
-//    }
-
     private void getItinerary() {
-        ////////////////////////////////////////////////    施工现场
-
         ItineraryClientApi itineraryClientApi = retrofit.create(ItineraryClientApi.class);
 
         Map<String, String> options = new HashMap<String, String>();
@@ -283,7 +258,7 @@ public class SavedItineraryDisplayActivity extends AppCompatActivity implements 
                 itinerary = new Itinerary(0, spotList, Integer.parseInt(city_id), Integer.parseInt(user_id));
 
                 Toast.makeText(SavedItineraryDisplayActivity.this, String.valueOf(spotList.size()), Toast.LENGTH_SHORT).show();
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 施工现场
+
                 // TODO: 底部切换条
 
                 SpotAdapter adapter = new SpotAdapter(spotList);
@@ -301,9 +276,6 @@ public class SavedItineraryDisplayActivity extends AppCompatActivity implements 
                         navigateTo(currentLocation, 14, null);
                     }
                 });
-
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 施工现场
-
                 drawItinerary(spotList);
 
                 BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
@@ -323,8 +295,6 @@ public class SavedItineraryDisplayActivity extends AppCompatActivity implements 
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-
-//                        Toast.makeText(RecommendationDisplayActivity.this, spotName + index + "欢迎您~", Toast.LENGTH_SHORT).show();
 
                         View view = View.inflate(SavedItineraryDisplayActivity.this, R.layout.content_recommendation, null);
                         TextView textView = view.findViewById(R.id.place_name);
@@ -352,25 +322,6 @@ public class SavedItineraryDisplayActivity extends AppCompatActivity implements 
             }
         });
 
-    }
-
-    private void saveItinerary(ItineraryClientApi itineraryClientApi, Itinerary itinerary) {
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl("http://192.168.1.108:8080/")
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-        Call<Itinerary> call = itineraryClientApi.itineraryAdd(itinerary);
-
-        call.enqueue(new Callback<Itinerary>() {
-            @Override
-            public void onResponse(Call<Itinerary> call, Response<Itinerary> response) {
-            }
-
-            @Override
-            public void onFailure(Call<Itinerary> call, Throwable t) {
-
-            }
-        });
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -409,18 +360,9 @@ public class SavedItineraryDisplayActivity extends AppCompatActivity implements 
         }
         if (drivingRouteResult.error == SearchResult.ERRORNO.NO_ERROR) {
             if (drivingRouteResult.getRouteLines().size() > 0) {
-//                Toast.makeText(this, "有结果", Toast.LENGTH_SHORT).show();
                 //获取路径规划数据,(以返回的第一条路线为例）
                 //为DrivingRouteOverlay实例设置数据
                 overlay.setData(drivingRouteResult.getRouteLines().get(0));
-
-
-//                List<OverlayOptions> allOverlay = overlay.getOverlayOptions();
-//                for (OverlayOptions option : allOverlay) {
-////                    baiduMap.addOverlay(option);
-//
-//                }
-
 
 //                在地图上绘制DrivingRouteOverlay
                 overlay.addToMap();

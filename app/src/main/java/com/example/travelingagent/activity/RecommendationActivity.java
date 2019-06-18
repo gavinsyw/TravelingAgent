@@ -3,9 +3,6 @@ package com.example.travelingagent.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,14 +11,9 @@ import com.gc.materialdesign.views.ButtonFlat;
 import com.github.channguyen.rsv.RangeSliderView;
 
 public class RecommendationActivity extends AppCompatActivity {
-    private Button btn;
-    private CheckBox cb;
-    private LinearLayout linear;
     int choice1 = 1, choice2 = 1, choice3 = 1, choice4 = 1, choice5 = 1, choice6 = 1;
     private String city_id;
     private String user_id;
-    private String BASE_URL = "http://192.168.43.126:8080/";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

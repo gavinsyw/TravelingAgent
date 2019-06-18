@@ -8,7 +8,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.travelingagent.R;
-import com.example.travelingagent.myentity.Sight;
+import com.example.travelingagent.entity.Sight;
 
 public class ReadFile {
 	String city;

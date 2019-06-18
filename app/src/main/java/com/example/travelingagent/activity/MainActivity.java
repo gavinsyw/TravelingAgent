@@ -20,11 +20,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.travelingagent.R;
+import com.example.travelingagent.protocol.entity.WeatherEntity;
 import com.example.travelingagent.util.adapter.ModeAdapter;
-import com.example.travelingagent.entity.ItemEntity;
-import com.example.travelingagent.entity.ModeEntity;
-import com.example.travelingagent.entity.Weather;
-import com.example.travelingagent.protocol.WeatherClientApi;
+import com.example.travelingagent.protocol.entity.ItemEntity;
+import com.example.travelingagent.protocol.entity.ModeEntity;
+import com.example.travelingagent.protocol.api.WeatherClientApi;
 import com.example.travelingagent.util.pileLayout.util.Utils;
 import com.example.travelingagent.util.pileLayout.widget.FadeTransitionImageView;
 import com.example.travelingagent.util.pileLayout.widget.HorizontalTransitionLayout;
@@ -49,19 +49,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by xmuSistone on 2017/5/12.
- */
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     private View positionView;
     private PileLayout pileLayout;
     private List<ItemEntity> dataList;
     private List<ModeEntity> modeList = new ArrayList<ModeEntity>();
     private String mail;
     private String user_id;
-    private String BASE_URL = "http://192.168.43.126:8080/";
-
 
     private int lastDisplay = -1;
 
@@ -95,10 +89,6 @@ public class MainActivity extends AppCompatActivity {
             TextView un = header.findViewById(R.id.textUser);
             un.setText(mail);
         }
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.addDrawerListener(toggle);
-//        toggle.syncState();
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {//实现点击操作
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -109,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent mIntent;
                 switch (id) {
                     case R.id.nav_logout:
-                        mIntent = new Intent(MainActivity.this, NewLoginActivity.class);
+                        mIntent = new Intent(MainActivity.this, LoginActivity.class);
                         startActivity(mIntent);
                         break;
                     case R.id.nav_itinerary:
@@ -249,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
                                         intent = new Intent(MainActivity.this, RecommendationActivity.class);
                                         break;
                                     case 1:
-                                        intent = new Intent(MainActivity.this, SimulationActivity.class);
+                                        intent = new Intent(MainActivity.this, CustomizationActivity.class);
                                         break;
                                 }
                                 intent.putExtra("city_id", String.valueOf(city_position + 1));
@@ -265,11 +255,6 @@ public class MainActivity extends AppCompatActivity {
                         .create();
                 dialog.show();
 
-//                Intent intent2 = new Intent(MainActivity.this, Main2Activity.class);
-//                String country_name=dataList.get(position).getCountry();
-//                //Toast.makeText(MainActivity.this, country_name, Toast.LENGTH_SHORT ).show();
-//                intent2.putExtra(EXTRA_MESSAGE, country_name);
-//                startActivity(intent2);
             }
         });
     }
@@ -349,17 +334,17 @@ public class MainActivity extends AppCompatActivity {
                                 .build();
 
                         WeatherClientApi WeatherClientApi = retrofit.create(WeatherClientApi.class);
-                        Call<Weather> call = WeatherClientApi.weather(cityId);
+                        Call<WeatherEntity> call = WeatherClientApi.weather(cityId);
 
-                        call.enqueue(new Callback<Weather>() {
+                        call.enqueue(new Callback<WeatherEntity>() {
                             @Override
-                            public void onResponse(Call<Weather> call, Response<Weather> response) {
-                                Weather weather = response.body();
-                                Weather.Value info = weather.value.get(0);
-                                List<Weather.Value.WeatherInfo> weather_info = info.weathers;
-                                List<Weather.Value.ForecastInfo> forecast_Info_info = info.indexes;
+                            public void onResponse(Call<WeatherEntity> call, Response<WeatherEntity> response) {
+                                WeatherEntity weatherEntity = response.body();
+                                WeatherEntity.Value info = weatherEntity.value.get(0);
+                                List<WeatherEntity.Value.WeatherInfo> weather_info = info.weathers;
+                                List<WeatherEntity.Value.ForecastInfo> forecast_Info_info = info.indexes;
                                 itemEntity.setTemperature(weather_info.get(0).temp_night_c + "-" + weather_info.get(0).temp_day_c + "°C");
-                                for (Weather.Value.ForecastInfo forecastInfo : forecast_Info_info) {
+                                for (WeatherEntity.Value.ForecastInfo forecastInfo : forecast_Info_info) {
                                     if (forecastInfo.name.equals("穿衣指数")) {
                                         itemEntity.setTime(forecastInfo.content);   // TODO
                                         break;
@@ -368,7 +353,7 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                             @Override
-                            public void onFailure(Call<Weather> call, Throwable t) {
+                            public void onFailure(Call<WeatherEntity> call, Throwable t) {
                                 t.printStackTrace();
                             }
                         });
