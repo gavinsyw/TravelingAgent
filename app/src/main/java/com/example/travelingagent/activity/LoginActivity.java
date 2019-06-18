@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start the Signup activity
-                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);//连接SignupActivity
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);//连接SignupActivity
                 startActivityForResult(intent, REQUEST_SIGNUP);
             }
         });

@@ -27,8 +27,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SignupActivity extends AppCompatActivity {
-    private static final String TAG = "SignupActivity";
+public class RegisterActivity extends AppCompatActivity {
+    private static final String TAG = "RegisterActivity";
     private String BASE_URL = "http://192.168.43.126:8080/";
     private String user_id;
     private String email;
@@ -94,7 +94,7 @@ public class SignupActivity extends AppCompatActivity {
 
                _signupButton.setEnabled(false);
 
-               final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
+               final ProgressDialog progressDialog = new ProgressDialog(RegisterActivity.this,
                        R.style.AppTheme_Dark_Dialog);
                progressDialog.setIndeterminate(true);
                progressDialog.setMessage("注册中...");

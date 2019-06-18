@@ -17,7 +17,6 @@ import com.example.travelingagent.util.adapter.FoldingCellListAdapter;
 import com.example.travelingagent.util.adapter.RecyclerAdapter;
 import com.example.travelingagent.util.model.DataBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -27,7 +26,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class HistoryResultActivity extends AppCompatActivity {
+public class CheckItinerariesActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private List<DataBean> dataBeanList;
@@ -61,7 +60,7 @@ public class HistoryResultActivity extends AppCompatActivity {
             public void onResponse(Call<List<Itinerary>> call, Response<List<Itinerary>> response) {
                 itineraries = response.body();
 
-                final FoldingCellListAdapter adapter = new FoldingCellListAdapter(HistoryResultActivity.this, itineraries);
+                final FoldingCellListAdapter adapter = new FoldingCellListAdapter(CheckItinerariesActivity.this, itineraries);
 
                 mListView.setAdapter(adapter);
 
@@ -69,7 +68,7 @@ public class HistoryResultActivity extends AppCompatActivity {
                 mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
-                        Intent intent1 = new Intent(HistoryResultActivity.this, SavedItineraryDisplayActivity.class);
+                        Intent intent1 = new Intent(CheckItinerariesActivity.this, SavedItineraryDisplayActivity.class);
                         intent1.putExtra("user_id", user_id);
                         intent1.putExtra("itinerary_index", String.valueOf(pos));
                         startActivity(intent1);
@@ -80,7 +79,7 @@ public class HistoryResultActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Itinerary>> call, Throwable t) {
-                Toast.makeText(HistoryResultActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CheckItinerariesActivity.this, "failed", Toast.LENGTH_SHORT).show();
                 t.printStackTrace();
             }
         });

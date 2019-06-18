@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(mIntent);
                         break;
                     case R.id.nav_itinerary:
-                        mIntent = new Intent(MainActivity.this, HistoryResultActivity.class);
+                        mIntent = new Intent(MainActivity.this, CheckItinerariesActivity.class);
                         mIntent.putExtra("user_id", user_id);
                         startActivity(mIntent);
                         break;

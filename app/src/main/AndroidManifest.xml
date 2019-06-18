@@ -37,14 +37,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SignupActivity" />
+        <activity android:name=".activity.RegisterActivity" />
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="PGVpR1FpomjL3coAKdOl7OvLznrgSY5g" />
 
         <activity android:name=".activity.CustomizationActivity" />
-        <activity android:name=".activity.HistoryResultActivity" />
+        <activity android:name=".activity.CheckItinerariesActivity" />
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.RecommendationActivity" />
         <activity android:name=".activity.SavedItineraryDisplayActivity" />
