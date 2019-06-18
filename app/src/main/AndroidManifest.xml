@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.travelingagent">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -16,6 +17,7 @@
     <uses-permission android:name="android.permission.ACCESS_GPS" />
 
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/logo_2"
         android:label="@string/app_name"
@@ -54,6 +56,7 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.Main2Activity" />
         <activity android:name=".activity.RecommendationActivity" />
+        <activity android:name=".activity.SavedItineraryDisplayActivity" />
 
         <service
             android:name="com.baidu.location.f"

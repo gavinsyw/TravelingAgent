@@ -1,6 +1,6 @@
 package com.purvotara.airbnbmapexample.ui.activity;
 
-import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.core.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;

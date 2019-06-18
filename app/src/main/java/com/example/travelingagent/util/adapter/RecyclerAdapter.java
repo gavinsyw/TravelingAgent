@@ -1,10 +1,11 @@
 package com.example.travelingagent.util.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.travelingagent.R;
 import com.example.travelingagent.util.listener.ItemClickListener;

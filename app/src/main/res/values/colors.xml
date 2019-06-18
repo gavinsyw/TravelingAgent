@@ -25,6 +25,8 @@
     <!--<color name="primary_darker">#CC1D1D</color>-->
     <color name="primary_dark">#42A5F5</color>
     <color name="primary_darker">#42A5F5</color>
+    <color name="blue_darker">#086BCA</color>
+
     <color name="accent">#FFFFFF</color>
     <color name="secondary_text">#727272</color>
 
@@ -73,4 +75,17 @@
     <color name="gomalan_bule_bg">#00b1c7</color>
     <color name="gomalan_green_bg">#19c594</color>
     <color name="gomalon_dark_blue">#0097a9</color>
+
+
+    <color name="bgBackSideColor">#f4f0ff</color>
+    <color name="bgTitleLeft">#594691</color>
+    <color name="bgTitleRight">#ffffff</color>
+    <color name="bgContentTop">#594691</color>
+    <color name="bgContent">#ffffff</color>
+    <color name="contentDividerLine">#e0e0e0</color>
+    <color name="contentBadgeTitle">#a9a9a9</color>
+    <color name="titleBadgeTitle">#adafb1</color>
+    <color name="titleBadgeText">#adafb1</color>
+    <color name="mainTextColor">#343d43</color>
+    <color name="btnRequest">#ffbf12</color>
 </resources>

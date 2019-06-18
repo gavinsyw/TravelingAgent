@@ -43,7 +43,6 @@ package com.example.travelingagent.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -51,13 +50,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.travelingagent.R;
 import com.example.travelingagent.protocol.LoginClientApi;
-import com.example.travelingagent.protocol.Weather;
-import com.example.travelingagent.protocol.WeatherClientApi;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import butterknife.ButterKnife;
@@ -71,6 +69,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NewLoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
+    private String email;
+    private String password;
+    private String user_id;
+    private String BASE_URL = "http://192.168.43.126:8080/";
+
 
     @InjectView(R.id.input_email) EditText _emailText;
     @InjectView(R.id.input_password) EditText _passwordText;
@@ -86,13 +89,14 @@ public class NewLoginActivity extends AppCompatActivity {
         _loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ///////////////////////////////////////////////////////////////// 未连接
-                Intent intent = new Intent(NewLoginActivity.this, MainActivity.class);
-                //        EditText editText = (EditText) findViewById(R.id.userName);
-                //        String username = editText.getText().toString();
-                intent.putExtra("UserName", "test@163.com");
-                startActivity(intent);
-                ///////////////////////////////////////////////////////////////// 未连接
+//                ///////////////////////////////////////////////////////////////// 未连接
+//                Intent intent = new Intent(NewLoginActivity.this, MainActivity.class);
+//                //        EditText editText = (EditText) findViewById(R.id.userName);
+//                //        String username = editText.getText().toString();
+//                intent.putExtra("UserName", "test@163.com");
+//                intent.putExtra("user_id", "1");
+//                startActivity(intent);
+//                ///////////////////////////////////////////////////////////////// 未连接
 
                 login();
             }
@@ -112,8 +116,8 @@ public class NewLoginActivity extends AppCompatActivity {
     public void login() {
         Log.d(TAG, "Login");
 
-        final String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
+        email = _emailText.getText().toString();
+        password = _passwordText.getText().toString();
 
         if (!validate()) {
             onLoginFailed();
@@ -123,7 +127,7 @@ public class NewLoginActivity extends AppCompatActivity {
         //////////////////////////////////////////////////////////////// 施工现场
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.100:8080/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -139,12 +143,16 @@ public class NewLoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 String state = response.body();
-                Toast.makeText(NewLoginActivity.this, state, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(NewLoginActivity.this, state, Toast.LENGTH_SHORT).show();
                 //////////////////////////////////////////////////////////////// 施工现场
 
                 if (state.equals("0")) {
                     Toast.makeText(NewLoginActivity.this, "邮箱或密码错误", Toast.LENGTH_SHORT).show();
                     return;
+                }
+
+                else {
+                    user_id = state;
                 }
 
                 _loginButton.setEnabled(false);
@@ -161,12 +169,12 @@ public class NewLoginActivity extends AppCompatActivity {
                         new Runnable() {
                             public void run() {
                                 // On complete call either onLoginSuccess or onLoginFailed
-                                onLoginSuccess(email);
+                                onLoginSuccess();
                                 // onLoginFailed();
                                 progressDialog.dismiss();
                             }
                         }, 300);
-                Toast.makeText(NewLoginActivity.this, state, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(NewLoginActivity.this, state, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -194,13 +202,13 @@ public class NewLoginActivity extends AppCompatActivity {
         moveTaskToBack(true);
     }
 
-    public void onLoginSuccess(String email) {
+    public void onLoginSuccess() {
         _loginButton.setEnabled(true);
 
         Intent intent = new Intent(this, MainActivity.class);
-//        EditText editText = (EditText) findViewById(R.id.userName);
-//        String username = editText.getText().toString();
-        intent.putExtra("UserName", email);
+
+        intent.putExtra("email", email);
+        intent.putExtra("user_id", user_id);
         startActivity(intent);
         finish();
     }

@@ -5,10 +5,11 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,12 +23,13 @@ import com.example.travelingagent.R;
 import com.example.travelingagent.util.adapter.ModeAdapter;
 import com.example.travelingagent.entity.ItemEntity;
 import com.example.travelingagent.entity.ModeEntity;
-import com.example.travelingagent.protocol.Weather;
+import com.example.travelingagent.entity.Weather;
 import com.example.travelingagent.protocol.WeatherClientApi;
 import com.example.travelingagent.util.pileLayout.util.Utils;
 import com.example.travelingagent.util.pileLayout.widget.FadeTransitionImageView;
 import com.example.travelingagent.util.pileLayout.widget.HorizontalTransitionLayout;
 import com.example.travelingagent.util.pileLayout.widget.VerticalTransitionLayout;
+import com.google.android.material.navigation.NavigationView;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.GridHolder;
 import com.orhanobut.dialogplus.OnItemClickListener;
@@ -56,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
     private PileLayout pileLayout;
     private List<ItemEntity> dataList;
     private List<ModeEntity> modeList = new ArrayList<ModeEntity>();
+    private String mail;
+    private String user_id;
+    private String BASE_URL = "http://192.168.43.126:8080/";
+
 
     private int lastDisplay = -1;
 
@@ -78,15 +84,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
-        String username = intent.getStringExtra("UserName");
+        mail = intent.getStringExtra("mail");
+        user_id = intent.getStringExtra("user_id");
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Capture the layout's TextView and set the string as its text
         if(navigationView.getHeaderCount() > 0) {
             View header = navigationView.getHeaderView(0);
-            TextView un = (TextView) header.findViewById(R.id.textUser);
-            un.setText(username);
+            TextView un = header.findViewById(R.id.textUser);
+            un.setText(mail);
         }
 //        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
 //                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -101,12 +108,13 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("点击的item id 是："+id);
                 Intent mIntent;
                 switch (id) {
-                    case R.id.nav_login:
+                    case R.id.nav_logout:
                         mIntent = new Intent(MainActivity.this, NewLoginActivity.class);
                         startActivity(mIntent);
                         break;
-                    case R.id.nav_poster:
+                    case R.id.nav_itinerary:
                         mIntent = new Intent(MainActivity.this, HistoryResultActivity.class);
+                        mIntent.putExtra("user_id", user_id);
                         startActivity(mIntent);
                         break;
                     case R.id.nav_share:
@@ -201,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
                 ViewHolder viewHolder = (ViewHolder) view.getTag();
                 if (viewHolder == null) {
                     viewHolder = new ViewHolder();
-                    viewHolder.imageView = (ImageView) view.findViewById(R.id.imageView);
+                    viewHolder.imageView = view.findViewById(R.id.imageView);
                     view.setTag(viewHolder);
                 }
 
@@ -226,8 +234,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onItemClick(View view, int position) {
-                super.onItemClick(view, position);
+            public void onItemClick(View view, final int city_position) {
+                super.onItemClick(view, city_position);
                 ModeAdapter adapter = new ModeAdapter(MainActivity.this, R.layout.simple_list_item, modeList);
 
                 DialogPlus dialog = DialogPlus.newDialog(MainActivity.this)
@@ -244,6 +252,8 @@ public class MainActivity extends AppCompatActivity {
                                         intent = new Intent(MainActivity.this, SimulationActivity.class);
                                         break;
                                 }
+                                intent.putExtra("city_id", String.valueOf(city_position + 1));
+                                intent.putExtra("user_id", user_id);
                                 startActivity(intent);
                                 dialog.dismiss();
                             }
@@ -262,7 +272,6 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(intent2);
             }
         });
-
     }
 
     private void initSecene(int position) {
@@ -297,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
     private void initModes() {
         ModeEntity recommendation = new ModeEntity("路线推荐", R.drawable.recommendation_icon);
         modeList.add(recommendation);
-        ModeEntity simulation = new ModeEntity("模拟旅行", R.drawable.map_icon);
+        ModeEntity simulation = new ModeEntity("路线定制", R.drawable.map_icon);
         modeList.add(simulation);
     }
 
@@ -352,7 +361,7 @@ public class MainActivity extends AppCompatActivity {
                                 itemEntity.setTemperature(weather_info.get(0).temp_night_c + "-" + weather_info.get(0).temp_day_c + "°C");
                                 for (Weather.Value.ForecastInfo forecastInfo : forecast_Info_info) {
                                     if (forecastInfo.name.equals("穿衣指数")) {
-                                        itemEntity.setTime(forecastInfo.level + "-" + forecastInfo.content);
+                                        itemEntity.setTime(forecastInfo.content);   // TODO
                                         break;
                                     }
                                 }

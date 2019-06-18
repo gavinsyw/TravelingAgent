@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <include
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <View
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
         </RelativeLayout>
 
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <View
@@ -78,12 +78,29 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/word_cloud_image"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:scaleType="fitCenter" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/word_cloud_image"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:textSize="15sp"/>
+    </LinearLayout>
+
+
 
     <!--<TextView-->
         <!--android:id="@+id/text"-->
@@ -93,17 +110,4 @@
         <!--android:textColor="@color/white"-->
         <!--android:textSize="15sp"-->
         <!--tools:text="Crime and Punishment (Russian: Преступлéние и наказáние, tr. Prestupleniye i nakazaniye; IPA: [prʲɪstʊˈplʲenʲɪɪ ɪ nəkɐˈzanʲɪɪ]) is a novel by the Russian author Fyodor Dostoyevsky. It was first published in the literary journal The Russian Messenger in twelve monthly installments during 1866.[1] It was later published in a single volume. It is the second of Dostoyevsky's full-length novels following his return from 10 years of exile in Siberia. Crime and Punishment is considered the first great novel of his \'mature\' period of writing.[2]" />-->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/white"
-        android:paddingBottom="8dp"
-        android:paddingEnd="16dp"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"
-        android:text="more info"
-        android:textAllCaps="true"
-        android:textColor="@color/white" />
 </LinearLayout>

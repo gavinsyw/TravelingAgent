@@ -4,13 +4,13 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,24 +40,19 @@ import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.example.travelingagent.R;
-import com.example.travelingagent.protocol.LoginClientApi;
+import com.example.travelingagent.protocol.ItineraryClientApi;
 import com.example.travelingagent.protocol.RecommendationClientApi;
 import com.example.travelingagent.util.adapter.SpotAdapter;
-import com.example.travelingagent.myclass.Hotel;
-import com.example.travelingagent.myclass.Recommend;
-import com.example.travelingagent.myclass.Sight;
-import com.example.travelingagent.myclass.Spot;
+import com.example.travelingagent.myentity.Hotel;
+import com.example.travelingagent.myentity.Sight;
+import com.example.travelingagent.myentity.Spot;
 import com.example.travelingagent.util.baiduMap.DrivingRouteOverlay;
+import com.github.clans.fab.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.telenav.expandablepager.ExpandablePager;
 import com.telenav.expandablepager.listener.OnSliderStateChangeListener;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -75,12 +70,19 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 //    private TextView positionText;
     private MapView mapView;
     private BaiduMap baiduMap;
-//    private boolean isFirstLocate = true;
+    private String user_id;
+    private String city_id;
+    private List<Spot> recommend;
+    private Itinerary itinerary;
+    private Retrofit retrofit;
+    private String BASE_URL = "http://192.168.43.126:8080/";
+
+    //    private boolean isFirstLocate = true;
     RoutePlanSearch mSearch = null;
     LatLng currentLocation = null;
-    List<Spot> recommend = null;
     List<Hotel> hotelVec = new Vector<>();
     Vector<Sight> sightVec = new Vector<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,74 +93,16 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
         currentLocation = new LatLng(31.23, 121.47 );   // 上海的中心经纬
+        FloatingActionButton floatingActionButton = findViewById(R.id.fab);
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
         Intent intent = getIntent();
         int[] choice_data = intent.getIntArrayExtra("choiceData");
-
-        Toast.makeText(RecommendationDisplayActivity.this, String.valueOf(choice_data[1]), Toast.LENGTH_SHORT).show();
-
-        int choice1 = choice_data[0];
-        int choice2 = choice_data[1];
-        int choice3 = choice_data[2];
-        int choice4 = choice_data[3];
-        int choice5 = choice_data[4];
-        int choice6 = choice_data[5];
-
-//        List<Spot> recommend = null;
-
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////// 加载数据
-        try {
-            InputStream in = getAssets().open("hotel_information.json");
-            int size = in.available();
-            byte[] buffer = new byte[size];
-            in.read(buffer);
-            String jsonStr = new String(buffer, "GBK");
-            JSONArray jsonArray = new JSONArray(jsonStr);
-            // {"id": "1", "name": "上海也山花园酒店(崇明森林公园店)", "popularity": 190.0, "money": 559.0, "total": 49.0, "latitude": 31.666015, "longitude": 121.471442},
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                int id = jsonObject.getInt("id");
-                String name = jsonObject.getString("name");
-                double popularity = jsonObject.getDouble("popularity");
-                double money = jsonObject.getDouble("money");
-                double total = jsonObject.getDouble("total");
-                double latitude = jsonObject.getDouble("latitude");
-                double longitude = jsonObject.getDouble("longitude");
-                Hotel newHotel = new Hotel(name, id, 1, popularity, money, total, longitude, latitude);
-                newHotel.setDrawResourceID(getDrawResourceID("hotel_" + String.valueOf(id)));
-                hotelVec.add(newHotel);            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
-            InputStream in = getAssets().open("sight_information.json");
-            int size = in.available();
-            byte[] buffer = new byte[size];
-            in.read(buffer);
-            String jsonStr = new String(buffer, "GBK");
-            JSONArray jsonArray = new JSONArray(jsonStr);
-            // {"id": "1", "name": "上海迪士尼度假区", "popularity": 32903.0, "money": 587.0, "total": 92.0, "environment": 84.0, "service": 85.0, "latitude": 31.141201, "longitude": 121.666345}
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                int id = jsonObject.getInt("id");
-                String name = jsonObject.getString("name");
-                double popularity = jsonObject.getDouble("popularity");
-                double money = jsonObject.getDouble("money");
-                double total = jsonObject.getDouble("total");
-                double environment = jsonObject.getDouble("environment");
-                double service = jsonObject.getDouble("service");
-                double latitude = jsonObject.getDouble("latitude");
-                double longitude = jsonObject.getDouble("longitude");
-                Sight newSight = new Sight(name, id, 0, "blabla", longitude, latitude, popularity, total, environment, service, money);
-                newSight.setDrawResourceID(getDrawResourceID("sight_" + String.valueOf(id)));
-                sightVec.add(newSight);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        user_id = intent.getStringExtra("user_id");
+        city_id = intent.getStringExtra("city_id");
 
         List<String> permissionList = new ArrayList<>();
         if (ContextCompat.checkSelfPermission(RecommendationDisplayActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -173,124 +117,29 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         if (!permissionList.isEmpty()) {
             String [] permissions = permissionList.toArray(new String[permissionList.size()]);
             ActivityCompat.requestPermissions(RecommendationDisplayActivity.this, permissions, 1);
-        } else {
-//            requestLocation();
-            navigateTo(currentLocation, 10,"上海");
         }
+//        else {
+////            requestLocation();
+////            navigateTo(currentLocation, 10,"城市名");
+//        }
 
-        Recommend r = new Recommend(3, choice1, choice2, choice3, choice4, choice5, choice6);
-        try {
-            recommend = r.recommend(sightVec, hotelVec.get(1));
-        } catch (FileNotFoundException e) {
-
-        }
-
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 施工现场
-        // TODO: 底部切换条
-
-        SpotAdapter adapter = new SpotAdapter(recommend);
-        final ExpandablePager pager = findViewById(R.id.container);
-        pager.setAdapter(adapter);
-        pager.setOnSliderStateChangeListener(new OnSliderStateChangeListener() {
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onStateChanged(View page, int index, int state) {
+            public void onClick(View v) {
+                ItineraryClientApi itineraryClientApi = retrofit.create(ItineraryClientApi.class);
 
-            }
+                saveItinerary(itineraryClientApi, itinerary);
 
-            @Override
-            public void onPageChanged(View page, int index, int state) {
-                currentLocation = recommend.get(pager.getCurrentItem()).getLatLng();
-                navigateTo(currentLocation, 14, null);
+                Toast.makeText(RecommendationDisplayActivity.this, "路线已保存", Toast.LENGTH_SHORT).show();
             }
         });
 
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 施工现场
+        getRecommend(choice_data);
 
         ////////////////////////////////////////////////    施工现场
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.108:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        RecommendationClientApi recommendationClientApi = retrofit.create(RecommendationClientApi.class);
-
-        Map<String, String> options = new HashMap<String, String>();
-        options.put("choice1", String.valueOf(choice1));
-        options.put("choice2", String.valueOf(choice2));
-        options.put("choice3", String.valueOf(choice3));
-        options.put("choice4", String.valueOf(choice4));
-        options.put("choice5", String.valueOf(choice5));
-        options.put("choice6", String.valueOf(choice6));
-        options.put("user_id", "1");
-        options.put("city_id", "1");
-
-        Call<List<Spot>> call = recommendationClientApi.recommend(options);
-
-        call.enqueue(new Callback<List<Spot>>() {
-            @Override
-            public void onResponse(Call<List<Spot>> call, Response<List<Spot>> response) {
-                List<Spot> recommend = response.body();
-                Toast.makeText(RecommendationDisplayActivity.this, String.valueOf(recommend.size()), Toast.LENGTH_SHORT).show();
-                drawItinerary(recommend);
-            }
-
-            @Override
-            public void onFailure(Call<List<Spot>> call, Throwable t) {
-                Toast.makeText(RecommendationDisplayActivity.this, "failed", Toast.LENGTH_SHORT).show();
-                t.printStackTrace();
-            }
-        });
-
-        ////////////////////////////////////////////////    施工现场
 
 //        drawItinerary(recommend);
-
-        BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(final Marker marker) {
-                String [] contents = marker.getTitle().split("_"); // 假装利用title携带信息
-
-                String spotName = contents[0];
-                String spotID = contents[1];
-                String spotType = contents[2];
-                String index = contents[3];
-
-                try {
-                    pager.setCurrentItem(Integer.parseInt(index), true);
-                    currentLocation = recommend.get(Integer.parseInt(index)).getLatLng();
-                    navigateTo(currentLocation, 14, null);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                Toast.makeText(RecommendationDisplayActivity.this, spotName + index + "欢迎您~", Toast.LENGTH_SHORT).show();
-
-                View view = View.inflate(RecommendationDisplayActivity.this, R.layout.content_recommendation, null);
-                TextView textView = view.findViewById(R.id.place_name);
-                textView.setText(spotName);
-
-
-                ImageView imageView = view.findViewById(R.id.word_cloud_image);
-                if (spotType.equals("0")) {
-                    imageView.setImageResource(getDrawResourceID("sight_" + spotID));
-                }
-                else {
-                    if (spotType.equals("1")) {
-                        imageView.setImageResource(getDrawResourceID("hotel_" + spotID));
-                    }
-                }
-//                DialogPlus dialog = DialogPlus.newDialog(RecommendationDisplayActivity.this)
-//                        .setContentHolder(new ViewHolder(view))
-//                        .setCancelable(true)
-//                        .setHeader(R.layout.header_recommendation)
-//                        .setExpanded(true, 1500)  // This will enable the expand feature, (similar to android L share dialog)
-//                        .create();
-//                dialog.show();
-                return true;
-            }
-        };
-
-        baiduMap.setOnMarkerClickListener(markerClickListener);
     }
 
 
@@ -322,9 +171,6 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 //        MyLocationData locationData = locationBuilder.build();
 //        baiduMap.setMyLocationData(locationData);
 
-        if (description != null) {
-            Toast.makeText(this, description, Toast.LENGTH_SHORT).show();
-        }
         MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(ll);
         baiduMap.animateMapStatus(update);
         update = MapStatusUpdateFactory.zoomTo(zoom);
@@ -413,8 +259,8 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
         baiduMap.addOverlay(option);
     }
 
-    public int getDrawResourceID(String resourceName) {
-        Resources res=getResources();
+    private int getDrawResourceID(String resourceName) {
+        Resources res = getResources();
         int picid = res.getIdentifier(resourceName,"drawable",getPackageName());
         return picid;
     }
@@ -474,6 +320,136 @@ public class RecommendationDisplayActivity extends AppCompatActivity implements 
 //
 //        }
 //    }
+
+    private void getRecommend(final int[] choice_data) {
+        ////////////////////////////////////////////////    施工现场
+
+        final RecommendationClientApi recommendationClientApi = retrofit.create(RecommendationClientApi.class);
+
+        Map<String, String> options = new HashMap<String, String>();
+        options.put("choice1", String.valueOf(choice_data[0]));
+        options.put("choice2", String.valueOf(choice_data[1]));
+        options.put("choice3", String.valueOf(choice_data[2]));
+        options.put("choice4", String.valueOf(choice_data[3]));
+        options.put("choice5", String.valueOf(choice_data[4]));
+        options.put("choice6", String.valueOf(choice_data[5]));
+        options.put("user_id", user_id);
+        options.put("city_id", city_id);
+
+        Call<List<Spot>> call = recommendationClientApi.recommend(options);
+
+        call.enqueue(new Callback<List<Spot>>() {
+            @Override
+            public void onResponse(Call<List<Spot>> call, Response<List<Spot>> response) {
+                recommend = response.body();
+
+                for (Spot spot : recommend) {
+                    if (spot.getType() == 0) {
+                        spot.setIconResourceID(getDrawResourceID("sight"));
+                        spot.setWordCloudResourceID(getDrawResourceID("sight_" + String.valueOf(city_id) + "_" + String.valueOf(spot.getID())));
+                    }
+
+                    else {
+                        spot.setIconResourceID(getDrawResourceID("hotel"));
+                        spot.setWordCloudResourceID(getDrawResourceID("hotel_" + String.valueOf(city_id) + "_" + String.valueOf(spot.getID())));
+                    }
+                }
+
+                if (recommend.size() > 15) {
+                    recommend = recommend.subList(0, 15 - choice_data[5]);
+                }
+
+                itinerary = new Itinerary(0, recommend, Integer.parseInt(city_id), Integer.parseInt(user_id));
+
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 施工现场
+                // TODO: 底部切换条
+
+                SpotAdapter adapter = new SpotAdapter(recommend);
+                final ExpandablePager pager = findViewById(R.id.container);
+                pager.setAdapter(adapter);
+                pager.setOnSliderStateChangeListener(new OnSliderStateChangeListener() {
+                    @Override
+                    public void onStateChanged(View page, int index, int state) {
+
+                    }
+
+                    @Override
+                    public void onPageChanged(View page, int index, int state) {
+                        currentLocation = recommend.get(pager.getCurrentItem()).getLatLng();
+                        navigateTo(currentLocation, 14, null);
+                    }
+                });
+
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 施工现场
+
+                drawItinerary(recommend);
+
+                BaiduMap.OnMarkerClickListener markerClickListener = new BaiduMap.OnMarkerClickListener() {
+                    @Override
+                    public boolean onMarkerClick(final Marker marker) {
+                        String [] contents = marker.getTitle().split("_"); // 假装利用title携带信息
+
+                        String spotName = contents[0];
+                        String spotID = contents[1];
+                        String spotType = contents[2];
+                        String index = contents[3];
+
+                        try {
+                            pager.setCurrentItem(Integer.parseInt(index), true);
+                            currentLocation = recommend.get(Integer.parseInt(index)).getLatLng();
+                            navigateTo(currentLocation, 14, null);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+//                        Toast.makeText(RecommendationDisplayActivity.this, spotName + index + "欢迎您~", Toast.LENGTH_SHORT).show();
+
+                        View view = View.inflate(RecommendationDisplayActivity.this, R.layout.content_recommendation, null);
+                        TextView textView = view.findViewById(R.id.place_name);
+                        textView.setText(spotName);
+
+                        ImageView imageView = view.findViewById(R.id.word_cloud_image);
+                        if (spotType.equals("0")) {
+                            imageView.setImageResource(getDrawResourceID("sight_" + spotID));
+                        }
+                        else {
+                            if (spotType.equals("1")) {
+                                imageView.setImageResource(getDrawResourceID("hotel_" + spotID));
+                            }
+                        }
+                        return true;
+                    }
+                };
+
+                baiduMap.setOnMarkerClickListener(markerClickListener);
+            }
+
+            @Override
+            public void onFailure(Call<List<Spot>> call, Throwable t) {
+                Toast.makeText(RecommendationDisplayActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
+            }
+        });
+    }
+
+    private void saveItinerary(ItineraryClientApi itineraryClientApi, Itinerary itinerary) {
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("http://192.168.1.108:8080/")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+        Call<Itinerary> call = itineraryClientApi.itineraryAdd(itinerary);
+
+        call.enqueue(new Callback<Itinerary>() {
+            @Override
+            public void onResponse(Call<Itinerary> call, Response<Itinerary> response) {
+            }
+
+            @Override
+            public void onFailure(Call<Itinerary> call, Throwable t) {
+
+            }
+        });
+    }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

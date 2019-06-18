@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <com.baidu.mapapi.map.MapView
         android:id="@+id/bmapView"
-        android:layout_width="433dp"
-        android:layout_height="460dp"
-        android:clickable="true">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"/>
 
-    </com.baidu.mapapi.map.MapView>
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_submit_plan"
-        android:layout_width="fill_parent"
+    <!--<android.support.v7.widget.AppCompatButton-->
+        <!--android:id="@+id/btn_submit_plan"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="24dp"-->
+        <!--android:layout_marginBottom="24dp"-->
+        <!--android:padding="12dp"-->
+        <!--android:text="我选好了！"/>-->
+
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
-        android:padding="12dp"
-        android:text="我选好了！"/>
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/like"
+        app:fab_colorNormal="@color/primary"
+        app:fab_colorPressed="@color/primary_dark"
+        app:fab_colorRipple="@color/white"/>
 
 
-    <!--<LinearLayout>-->
+    <!--&lt;!&ndash;<LinearLayout>&ndash;&gt;-->
 
-    <!--</LinearLayout>-->
+    <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
 
-</LinearLayout>
+</FrameLayout>

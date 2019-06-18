@@ -1,13 +1,18 @@
 package com.example.travelingagent.activity;
 
 import android.Manifest;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -41,28 +46,29 @@ import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.example.travelingagent.R;
-import com.example.travelingagent.myclass.Hotel;
-import com.example.travelingagent.myclass.Itinerary;
-import com.example.travelingagent.myclass.Sight;
+import com.example.travelingagent.myentity.Hotel;
+import com.example.travelingagent.myentity.Sight;
+import com.example.travelingagent.myentity.Spot;
+import com.example.travelingagent.protocol.ItineraryClientApi;
+import com.example.travelingagent.protocol.CustomizationClientApi;
 import com.example.travelingagent.util.baiduMap.DrivingRouteOverlay;
+import com.github.clans.fab.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import design.ivisionblog.apps.reviewdialoglibrary.FeedBackActionsListeners;
-import design.ivisionblog.apps.reviewdialoglibrary.FeedBackDialog;
-import retrofit2.http.HEAD;
-
-import static com.loopj.android.http.AsyncHttpClient.LOG_TAG;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SimulationActivity extends AppCompatActivity implements OnGetRoutePlanResultListener {
     public LocationClient mLocationClient;
@@ -70,25 +76,56 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
     private MapView mapView;
     private BaiduMap baiduMap;
     private boolean isFirstLocate = true;
+    private String user_id;
+    private String city_id;
+    private List<Spot> spotList = new ArrayList<>();
+    private Retrofit retrofit;
+
+    private String BASE_URL = "http://192.168.43.126:8080/";
+
     RoutePlanSearch mSearch = null;
     LatLng currentLocation = null;
     List<Hotel> hotelVec = new Vector<>();
     List<Sight> sightVec = new Vector<>();
-    Itinerary itinerary = new Itinerary(0); // TODO: 添加id接口
+    Itinerary itinerary; // TODO: 添加id接口
     List<Marker> markers = new ArrayList<>(30);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_simulation);
-        mapView = (MapView) findViewById(R.id.bmapView);
+        mapView = findViewById(R.id.bmapView);
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
         currentLocation = new LatLng(31.209519, 121.457545);
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
         final BitmapDescriptor selectedBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_yellow);
         final BitmapDescriptor startBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_blue);
+
+        FloatingActionButton floatingActionButton = findViewById(R.id.fab);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (itinerary.getSpotNum() != 0) {
+                    ItineraryClientApi itineraryClientApi = retrofit.create(ItineraryClientApi.class);
+                    saveItinerary(itineraryClientApi, itinerary);
+                }
+
+                else {
+                    Toast.makeText(SimulationActivity.this, "选择下一站以完善行程", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        Intent intent = getIntent();
+        user_id = intent.getStringExtra("user_id");
+        city_id = intent.getStringExtra("city_id");
+        itinerary = new Itinerary(0, Integer.parseInt(city_id), Integer.parseInt(user_id));
 
         List<String> permissionList = new ArrayList<>();
         if (ContextCompat.checkSelfPermission(SimulationActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -103,10 +140,9 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         if (!permissionList.isEmpty()) {
             String [] permissions = permissionList.toArray(new String[permissionList.size()]);
             ActivityCompat.requestPermissions(SimulationActivity.this, permissions, 1);
-        } else {
-            navigateTo(currentLocation, 18,"选择您将要入住的酒店");
-//            addMarker(currentLocation, selectedBitmap);
         }
+
+        Toast.makeText(SimulationActivity.this, "选择您将要入住的酒店", Toast.LENGTH_SHORT).show();
 
         final BaiduMap.OnMarkerClickListener markerClickListenerChosen = new BaiduMap.OnMarkerClickListener() {
             @Override
@@ -116,8 +152,7 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                 String spotName = content.split("_")[0];
                 final String spotID = content.split("_")[1];
                 final String spotType = content.split("_")[2];
-
-                Toast.makeText(SimulationActivity.this, content, Toast.LENGTH_SHORT).show();
+                Spot currentSpot = spotList.get(Integer.parseInt(spotID));
 
                 View view = View.inflate(SimulationActivity.this, R.layout.content_simulation, null);
                 TextView textView = view.findViewById(R.id.title);
@@ -132,6 +167,33 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                         imageView.setImageResource(getDrawResourceID("hotel_" + spotID));
                     }
                 }
+
+                TextView rating = view.findViewById(R.id.page_rating);
+                if (currentSpot.getType() == 0) {
+                    String rate = String.valueOf(currentSpot.getTotal() / 20.0);
+                    rate = rate.substring(0, rate.indexOf(".") + 2);
+                    rating.setText(rate + " / 5.0\n 评分");
+                }
+                else {
+                    String rate = String.valueOf(currentSpot.getTotal() / 10.0);
+                    rate = rate.substring(0, rate.indexOf(".") + 2);
+                    rating.setText(rate + " / 5.0\n 评分");
+                }
+                setSpan(rating, "\\d\\.\\d / \\d\\.\\d");
+
+                TextView popularity = view.findViewById(R.id.page_popularity);
+                popularity.setText(String.valueOf((int) currentSpot.getPopularity()) + "\n人气指数");
+                setSpan(popularity, "\\d+");
+
+                TextView money = view.findViewById(R.id.page_money);
+
+                if (currentSpot.getType() == 0) {
+                    money.setText(String.valueOf((int) currentSpot.getMoney())+ "\n门票");
+                }
+                else {
+                    money.setText(String.valueOf((int) currentSpot.getMoney())+ "\n均价");
+                }
+                setSpan(money, "\\d+");
 
                 final DialogPlus dialog = DialogPlus.newDialog(SimulationActivity.this)
                         .setContentHolder(new ViewHolder(view))
@@ -148,45 +210,6 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                 button_yes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //////////////////////////////////////////////
-                        FeedBackDialog mDialog = new FeedBackDialog(SimulationActivity.this)
-                                .setBackgroundColor(R.color.white)
-                                .setIcon(R.drawable.ic_google_maps_icon)
-                                .setIconColor(R.color.green)
-                                .setTitle(R.string.app_name)
-                                .setDescription(R.string.app_name)
-                                .setReviewQuestion(R.string.app_name)
-                                .setPositiveFeedbackText(R.string.app_name)
-                                .setNegativeFeedbackText(R.string.app_name)
-                                .setAmbiguityFeedbackText(R.string.app_name)
-                                .setOnReviewClickListener(new FeedBackActionsListeners() {
-                                    @Override
-                                    public void onPositiveFeedback(FeedBackDialog dialog) {
-                                        Log.d(LOG_TAG,"positive feedback callback");
-                                        dialog.dismiss();
-                                    }
-
-                                    @Override
-                                    public void onNegativeFeedback(FeedBackDialog dialog) {
-                                        Log.d(LOG_TAG,"negative feedback callback");
-                                        dialog.dismiss();
-                                    }
-
-                                    @Override
-                                    public void onAmbiguityFeedback(FeedBackDialog dialog) {
-                                        Log.d(LOG_TAG,"ambiguity feedback callback");
-                                        dialog.dismiss();
-                                    }
-
-                                    @Override
-                                    public void onCancelListener(DialogInterface dialog) {
-                                        Log.d(LOG_TAG,"feedback dialog cancel listener callback");
-                                        dialog.dismiss();
-                                    }
-                                })
-                                .show();  // Finally don't forget to call show()
-                        //////////////////////////////////////////////
-
                         dialog.dismiss();
                         mSearch = RoutePlanSearch.newInstance();
                         mSearch.setOnGetRoutePlanResultListener(SimulationActivity.this);
@@ -199,21 +222,30 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                                 .to(enNode));
 
                         currentLocation = marker.getPosition();
-                        navigateTo(currentLocation, 18, null);
+                        navigateTo(currentLocation, 16, null);
 
                         marker.remove();
                         addMarker(currentLocation, selectedBitmap);
 
-                        if (spotType.equals("0")) {
-                            itinerary.add(sightVec.get(Integer.parseInt(spotID) - 1));
-                        }
-                        else {
-                            if (spotType.equals("1")) {
-                                itinerary.add(hotelVec.get(Integer.parseInt(spotID) - 1));
+                        for (Spot spot : spotList) {
+                            if (spot.getType() == Integer.parseInt(spotType) && spot.getID() == Integer.parseInt(spotID)) {
+                                itinerary.add(spot);
+                                break;
                             }
                         }
 
-                        Toast.makeText(SimulationActivity.this, String.valueOf(itinerary.getSpotNum()), Toast.LENGTH_SHORT).show();
+//                        if (spotType.equals("0")) {
+//                            for (Spot spot : spotList) {
+//                                if
+//                            }
+//                            itinerary.add(sightVec.get(Integer.parseInt(spotID) - 1));
+//                        }
+//                        else {
+//                            if (spotType.equals("1")) {
+//                                itinerary.add(hotelVec.get(Integer.parseInt(spotID) - 1));
+//                            }
+//                        }
+
                     }
                 });
 
@@ -223,7 +255,6 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                         dialog.dismiss();
                     }
                 });
-
 
                 return true;
             }
@@ -238,9 +269,9 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                 String spotName = content.split("_")[0];
                 final String spotID = content.split("_")[1];
                 final String spotType = content.split("_")[2];
+                Spot currentSpot = spotList.get(Integer.parseInt(spotID));
 
                 if (spotType.equals("1")) {
-                    Toast.makeText(SimulationActivity.this, content, Toast.LENGTH_SHORT).show();
 
                     View view = View.inflate(SimulationActivity.this, R.layout.content_simulation, null);
                     TextView textView = view.findViewById(R.id.title);
@@ -248,6 +279,33 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
 
                     ImageView imageView = view.findViewById(R.id.word_cloud_image);
                     imageView.setImageResource(getDrawResourceID("hotel_" + spotID));
+
+                    TextView rating = view.findViewById(R.id.page_rating);
+                    if (spotType.equals("0")) {
+                        String rate = String.valueOf(currentSpot.getTotal() / 20.0);
+                        rate = rate.substring(0, rate.indexOf(".") + 2);
+                        rating.setText(rate + " / 5.0\n 评分");
+                    }
+                    else {
+                        String rate = String.valueOf(currentSpot.getTotal() / 10.0);
+                        rate = rate.substring(0, rate.indexOf(".") + 2);
+                        rating.setText(rate + " / 5.0\n 评分");
+                    }
+                    setSpan(rating, "\\d\\.\\d / \\d\\.\\d");
+
+                    TextView popularity = view.findViewById(R.id.page_popularity);
+                    popularity.setText(String.valueOf((int) currentSpot.getPopularity()) + "\n人气指数");
+                    setSpan(popularity, "\\d+");
+
+                    TextView money = view.findViewById(R.id.page_money);
+
+                    if (currentSpot.getType() == 0) {
+                        money.setText(String.valueOf((int) currentSpot.getMoney())+ "\n门票");
+                    }
+                    else {
+                        money.setText(String.valueOf((int) currentSpot.getMoney())+ "\n均价");
+                    }
+                    setSpan(money, "\\d+");
 
                     final DialogPlus dialog = DialogPlus.newDialog(SimulationActivity.this)
                             .setContentHolder(new ViewHolder(view))
@@ -276,17 +334,32 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
                             }
                             addMarker(currentLocation, startBitmap);
 
-                            for (Marker markerItem : markers) {
-                                String id = markerItem.getTitle().split("_")[1];
-                                String type = markerItem.getTitle().split("_")[2];
-                                if (type.equals("0") && markerItem != marker) {
-                                    addMarker(markerItem.getPosition(), Integer.parseInt(type), Integer.parseInt(id));
+                            for (Spot spot :spotList) {
+                                if (spot.getType() == 0 && spot.getID() != Integer.parseInt(spotID)) {
+                                    addMarker(spot);
+                                }
+
+                                if (spot.getID() == Integer.parseInt(spotID) && spot.getType() == 1) {
+                                    itinerary.add(spot);
                                 }
                             }
 
-                            itinerary.add(hotelVec.get(Integer.parseInt(spotID) - 1));
+//                            for (Marker markerItem : markers) {
+//                                String id = markerItem.getTitle().split("_")[1];
+//                                String type = markerItem.getTitle().split("_")[2];
+//                                if (type.equals("0") && markerItem != marker) {
+//                                    addMarker(markerItem.getPosition(), Integer.parseInt(type), Integer.parseInt(id));
+//                                }
+//                            }
 
-                            Toast.makeText(SimulationActivity.this, String.valueOf(itinerary.getSpotNum()), Toast.LENGTH_SHORT).show();
+//                            for (Spot spot : spotList) {
+//                                if (spot.getType() == 1 && Integer.parseInt(spotID) == spot.getID()) {
+//                                    itinerary.add(spot);
+//                                }
+//                            }
+
+//                            itinerary.add(hotelVec.get(Integer.parseInt(spotID) - 1));
+
                         }
                     });
 
@@ -303,68 +376,15 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
 
         baiduMap.setOnMarkerClickListener(markerClickListener);
 
-        try {
-            InputStream in = getAssets().open("hotel_information.json");
-            int size = in.available();
-            byte[] buffer = new byte[size];
-            in.read(buffer);
-            String jsonStr = new String(buffer, "GBK");
-            JSONArray jsonArray = new JSONArray(jsonStr);
-            // {"id": "1", "name": "上海也山花园酒店(崇明森林公园店)", "popularity": 190.0, "money": 559.0, "total": 49.0, "latitude": 31.666015, "longitude": 121.471442},
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                int id = jsonObject.getInt("id");
-                String name = jsonObject.getString("name");
-                double popularity = jsonObject.getDouble("popularity");
-                double money = jsonObject.getDouble("money");
-                double total = jsonObject.getDouble("total");
-                double latitude = jsonObject.getDouble("latitude");
-                double longitude = jsonObject.getDouble("longitude");
-                Hotel newHotel = new Hotel(name, id, 1, popularity, money, total, longitude, latitude);
-                newHotel.setDrawResourceID(getDrawResourceID("hotel_" + String.valueOf(id)));
-                hotelVec.add(newHotel);
+        getSpotData();
 
-//                spotVec.add(new Hotel(name, id, 1, popularity, money, total, longitude, latitude));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
-            InputStream in = getAssets().open("sight_information.json");
-            int size = in.available();
-            byte[] buffer = new byte[size];
-            in.read(buffer);
-            String jsonStr = new String(buffer, "GBK");
-            JSONArray jsonArray = new JSONArray(jsonStr);
-            // {"id": "1", "name": "上海迪士尼度假区", "popularity": 32903.0, "money": 587.0, "total": 92.0, "environment": 84.0, "service": 85.0, "latitude": 31.141201, "longitude": 121.666345}
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                int id = jsonObject.getInt("id");
-                String name = jsonObject.getString("name");
-                double popularity = jsonObject.getDouble("popularity");
-                double money = jsonObject.getDouble("money");
-                double total = jsonObject.getDouble("money");
-                double environment = jsonObject.getDouble("environment");
-                double service = jsonObject.getDouble("service");
-                double latitude = jsonObject.getDouble("latitude");
-                double longitude = jsonObject.getDouble("longitude");
-                Sight newSight = new Sight(name, id, 0, "blabla", longitude, latitude, popularity, total, environment, service, money);
-                newSight.setDrawResourceID(getDrawResourceID("sight_" + String.valueOf(id)));
-                sightVec.add(newSight);
-//                spotVec.add(new Sight(name, id, 0, "blabla", longitude, latitude, popularity, total, environment, service, money));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        for (int i = 0; i < sightVec.size(); i++) {
-            addMarker(sightVec.get(i).getLatLng(), 0, sightVec.get(i).getID());
-        }
-
-        for (int j = 0; j < hotelVec.size(); j++) {
-            addMarker(hotelVec.get(j).getLatLng(), 1, hotelVec.get(j).getID());
-        }
+//        for (int i = 0; i < sightVec.size(); i++) {
+//            addMarker(sightVec.get(i).getLatLng(), 0, sightVec.get(i).getID());
+//        }
+//
+//        for (int j = 0; j < hotelVec.size(); j++) {
+//            addMarker(hotelVec.get(j).getLatLng(), 1, hotelVec.get(j).getID());
+//        }
     }
 
     @Override
@@ -386,23 +406,6 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
     }
 
     private void navigateTo(LatLng ll, float zoom, String description) {
-//        if (isFirstLocate) {
-//            Toast.makeText(this, "nav to " + description, Toast.LENGTH_SHORT).show();
-//            MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(ll);
-//            baiduMap.animateMapStatus(update);
-//            update = MapStatusUpdateFactory.zoomTo(zoom);
-//            baiduMap.animateMapStatus(update);
-//            isFirstLocate = false;
-//        }
-//        MyLocationData.Builder locationBuilder = new MyLocationData.Builder();
-//        locationBuilder.latitude(lat);
-//        locationBuilder.longitude(lng);
-//        MyLocationData locationData = locationBuilder.build();
-//        baiduMap.setMyLocationData(locationData);
-
-        if (description != null) {
-            Toast.makeText(this, description, Toast.LENGTH_SHORT).show();
-        }
         MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(ll);
         baiduMap.animateMapStatus(update);
         update = MapStatusUpdateFactory.zoomTo(zoom);
@@ -439,6 +442,32 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
 //                return true;
 //            }
 //        };
+    }
+
+    private void addMarker(Spot spot) {
+        BitmapDescriptor hotelBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_pink);
+        BitmapDescriptor sightBitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker_green);
+//        //定义Maker坐标点
+//        LatLng point = new LatLng(lat, lng);
+        //构建Marker图标
+        //构建MarkerOption，用于在地图上添加Marker
+        OverlayOptions option = null;
+        if (spot.getType() == 0) {
+            option = new MarkerOptions()
+                    .position(spot.getLatLng())
+                    .icon(sightBitmap)
+                    .title(spot.getName() + '_' + String.valueOf(spot.getID()) + "_0");
+        }
+        else {
+            option = new MarkerOptions()
+                    .position(spot.getLatLng())
+                    .icon(hotelBitmap)
+                    .title(spot.getName() + '_' + String.valueOf(spot.getID()) + "_1");
+        }
+
+
+        //在地图上添加Marker，并显示
+        baiduMap.addOverlay(option);
     }
 
     private void addMarker(LatLng ll, int type, int id) {
@@ -489,6 +518,27 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         mLocationClient.setLocOption(option);
     }
 
+    private void saveItinerary(ItineraryClientApi itineraryClientApi, Itinerary itinerary) {
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("http://192.168.1.108:8080/")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+        Call<Itinerary> call = itineraryClientApi.itineraryAdd(itinerary);
+
+        call.enqueue(new Callback<Itinerary>() {
+            @Override
+            public void onResponse(Call<Itinerary> call, Response<Itinerary> response) {
+
+                Toast.makeText(SimulationActivity.this, "行程已添加", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Itinerary> call, Throwable t) {
+
+            }
+        });
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
@@ -511,17 +561,41 @@ public class SimulationActivity extends AppCompatActivity implements OnGetRouteP
         }
     }
 
-//    public class MyLocationListener implements BDLocationListener {
-//
-//        @Override
-//        public void onReceiveLocation(BDLocation location) {
-//            if (location.getLocType() == BDLocation.TypeGpsLocation
-//                    || location.getLocType() == BDLocation.TypeNetWorkLocation) {
-//                navigateTo(location);
-//            }
-//
-//        }
-//    }
+    private void getSpotData() {
+        CustomizationClientApi customizationClientApi = retrofit.create(CustomizationClientApi.class);
+
+        Call<List<Spot>> call = customizationClientApi.spotLoad(city_id);
+
+        call.enqueue(new Callback<List<Spot>>() {
+            @Override
+            public void onResponse(Call<List<Spot>> call, Response<List<Spot>> response) {
+                spotList = response.body();
+
+                navigateTo(spotList.get(0).getLatLng(), 16, "");
+
+                for (Spot spot : spotList) {
+                    addMarker(spot);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Spot>> call, Throwable t) {
+                Toast.makeText(SimulationActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
+            }
+        });
+    }
+
+    private void setSpan(TextView textView, String pattern) {
+        float relativeSize = 1.5f;
+        Pattern pat = Pattern.compile(pattern);
+        Matcher m = pat.matcher(textView.getText());
+        if (m.find()) {
+            SpannableString span = new SpannableString(textView.getText());
+            span.setSpan(new RelativeSizeSpan(relativeSize), 0, m.group(0).length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            textView.setText(span);
+        }
+    }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

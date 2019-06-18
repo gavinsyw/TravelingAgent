@@ -1,5 +1,7 @@
 package com.example.travelingagent.protocol;
 
+import com.example.travelingagent.entity.Weather;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;

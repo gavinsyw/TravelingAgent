@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.example.travelingagent.myclass.Spot;
+import com.example.travelingagent.myentity.Spot;
 import com.telenav.expandablepager.adapter.ExpandablePagerAdapter;
 import com.example.travelingagent.R;
 
@@ -29,16 +29,20 @@ public class SpotAdapter extends ExpandablePagerAdapter<Spot> {
         Spot currentSpot = items.get(position);
 //        ((TextView) rootView.findViewById(R.id.text)).setText(items.get(position).getName());
         ((TextView) rootView.findViewById(R.id.header_title)).setText(currentSpot.getName());
-        ((TextView) rootView.findViewById(R.id.header_subtitle)).setText(currentSpot.getName());
+        ((TextView) rootView.findViewById(R.id.header_subtitle)).setText("第" + String.valueOf((position) / 3 + 1) +"天");
 
         ImageView imageView = rootView.findViewById(R.id.word_cloud_image);
 
+        ImageView iconView = rootView.findViewById(R.id.header_action);
+
         if (currentSpot.getType() == 0) {
-            imageView.setImageResource(currentSpot.getDrawResourceID());
+            imageView.setImageResource(currentSpot.getWordCloudResourceID());
+            iconView.setImageResource(currentSpot.getIconResourceID());
         }
         else {
             if (currentSpot.getType() == 1) {
-                imageView.setImageResource(currentSpot.getDrawResourceID());
+                imageView.setImageResource(currentSpot.getWordCloudResourceID());
+                iconView.setImageResource(currentSpot.getIconResourceID());
             }
         }
 
@@ -46,21 +50,30 @@ public class SpotAdapter extends ExpandablePagerAdapter<Spot> {
         if (currentSpot.getType() == 0) {
             String rate = String.valueOf(currentSpot.getTotal() / 20.0);
             rate = rate.substring(0, rate.indexOf(".") + 2);
-            rating.setText(rate + " / 5.0\n stars");
+            rating.setText(rate + " / 5.0\n 评分");
         }
         else {
             String rate = String.valueOf(currentSpot.getTotal() / 10.0);
             rate = rate.substring(0, rate.indexOf(".") + 2);
-            rating.setText(rate + " / 5.0\n stars");
+            rating.setText(rate + " / 5.0\n 评分");
         }
         setSpan(rating, "\\d\\.\\d / \\d\\.\\d");
 
         TextView popularity = rootView.findViewById(R.id.page_popularity);
-        popularity.setText(String.valueOf((int) currentSpot.getPopularity()) + "\npopularity");
+        popularity.setText(String.valueOf((int) currentSpot.getPopularity()) + "\n人气指数");
         setSpan(popularity, "\\d+");
 
+        TextView descirption = rootView.findViewById(R.id.description);
+        descirption.setText(currentSpot.getDescription());
+
         TextView money = rootView.findViewById(R.id.page_money);
-        money.setText(String.valueOf((int) currentSpot.getMoney())+ "\ncost");
+
+        if (currentSpot.getType() == 0) {
+            money.setText(String.valueOf((int) currentSpot.getMoney())+ "\n门票");
+        }
+        else {
+            money.setText(String.valueOf((int) currentSpot.getMoney())+ "\n均价");
+        }
         setSpan(money, "\\d+");
 
         return attach(container, rootView, position);
@@ -76,4 +89,5 @@ public class SpotAdapter extends ExpandablePagerAdapter<Spot> {
             textView.setText(span);
         }
     }
+
 }

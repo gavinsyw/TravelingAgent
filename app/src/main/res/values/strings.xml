@@ -40,10 +40,10 @@
     <string name="nav_header_desc">Navigation header</string>
 
     <string name="menu_communicate">互动 AND 交流</string>
-    <string name="menu_login">登录</string>
-    <string name="menu_poster">海报展示</string>
+    <string name="menu_logout">注销</string>
+    <string name="menu_itinerary">查看行程</string>
     <string name="menu_tools">工具</string>
-    <string name="menu_share">分享We-chat</string>
+    <string name="menu_share">分享</string>
     <string name="menu_support">反馈</string>
 
     <string name="popular_attraction">知名景点</string>
@@ -58,5 +58,45 @@
     <string name="tab_text_1">悠闲舒服路线</string>
     <string name="tab_text_2">紧张刺激路线</string>
     <string name="tab_text_3">浪漫欢乐路线</string>
+    <string name="word_cloud">词云图</string>
 
+    <string name="order_id_mock" translatable="false"># 1234–5678</string>
+    <string name="price_mock" translatable="false">$25</string>
+    <string name="requests_count_mock" translatable="false">5</string>
+    <string name="spot_count_badge" translatable="false">PLACE</string>
+    <string name="star_mock" translatable="false">50 oz</string>
+    <string name="star_badge" translatable="false">Star</string>
+    <string name="pledge_mock" translatable="false">$150</string>
+    <string name="day_badge" translatable="false">DAY</string>
+    <string name="sender_badge" translatable="false">SENDER</string>
+    <string name="client_name_mock" translatable="false">Edward Norton</string>
+    <string name="rating_mock" translatable="false">(26)</string>
+    <string name="from_badge" translatable="false">FROM</string>
+    <string name="to_badge" translatable="false">TO</string>
+    <string name="delivery_date_badge" translatable="false">DELIVERY DATE</string>
+    <string name="delivery_time_mock" translatable="false">6:30 pm</string>
+    <string name="delivery_date_mock" translatable="false">May 16, 2016</string>
+    <string name="deadline_badge" translatable="false">REQUEST DEADLINE</string>
+    <string name="deadline_time_mock" translatable="false">24 minutes</string>
+    <string name="request_btn_text" translatable="false">REQUEST</string>
+    <string name="btn_annotation_mock" translatable="false">5 people have sent a request</string>
+    <string name="content_from1_mock">W 90th St</string>
+    <string name="content_from2_mock">New York, NY 10025</string>
+    <string name="content_to1_mock">46th Ave</string>
+    <string name="content_to2_mock">Woodside, NY 11101</string>
+
+    <string name="info_fedback_legal_and">"和 "</string>
+    <string name="info_fedback_legal_log_data">"日志数据 "</string>
+    <string name="info_fedback_legal_start">"您的 "</string>
+    <string name="info_fedback_legal_system_info">"系统信息 "</string>
+    <string name="info_fedback_legal_will_be_sent">会被发送到 %s</string>
+    <string name="ok">OK</string>
+    <string name="please_write">Please write something.</string>
+    <string name="select_image">+ 添加截图</string>
+    <string name="select_picture_title">选择图片</string>
+    <string name="send_feedback">发送</string>
+    <string name="send_feedback_two">发送反馈</string>
+    <string name="space" translatable="false">" "</string>
+    <string name="system_info">系统信息</string>
+    <string name="your_input">请输入您宝贵的意见</string>
 </resources>

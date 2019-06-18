@@ -51,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/select_image"
+                    android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <ImageView

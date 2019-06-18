@@ -3,8 +3,7 @@ package com.example.travelingagent.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,13 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.travelingagent.R;
-import com.example.travelingagent.protocol.LoginClientApi;
-import com.example.travelingagent.protocol.Register;
 import com.example.travelingagent.protocol.RegisterClientApi;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -28,13 +24,14 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import org.apache.http.Header;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
+    private String BASE_URL = "http://192.168.43.126:8080/";
+    private String user_id;
+    private String email;
 
     @InjectView(R.id.input_name) EditText _nameText;
     @InjectView(R.id.input_email) EditText _emailText;
@@ -79,7 +76,7 @@ public class SignupActivity extends AppCompatActivity {
         //////////////////////////////////////////////////////////////// 施工现场
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.100:8080/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -95,8 +92,7 @@ public class SignupActivity extends AppCompatActivity {
        call.enqueue(new Callback<String>() {
            @Override
            public void onResponse(Call<String> call, Response<String> response) {
-               final String userid = response.body();
-               Toast.makeText(SignupActivity.this, userid, Toast.LENGTH_SHORT).show();
+               user_id = response.body();
 
                _signupButton.setEnabled(false);
 
@@ -113,7 +109,7 @@ public class SignupActivity extends AppCompatActivity {
                            public void run() {
                                // On complete call either onSignupSuccess or onSignupFailed
                                // depending on success
-                               onSignupSuccess(userid, email);
+                               onSignupSuccess(user_id, email);
                                // onSignupFailed();
                                progressDialog.dismiss();
                            }
@@ -133,15 +129,15 @@ public class SignupActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
 //        EditText editText = (EditText) findViewById(R.id.userName);
 //        String username = editText.getText().toString();
-        intent.putExtra("UserName", email);
-        intent.putExtra("UserId", userid);
+        intent.putExtra("email", email);
+        intent.putExtra("user_id", user_id);
         startActivity(intent);
 //        setResult(RESULT_OK, null);
         finish();
     }
 
     public void onSignupFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "邮箱或密码不合法", Toast.LENGTH_LONG).show();
 
         _signupButton.setEnabled(true);
     }
