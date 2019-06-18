@@ -1,0 +1,70 @@
+\contentsline {section}{\numberline {1}Intruduction}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Purpose}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Scope}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Definition}{3}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Bibliography}{3}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Sketch}{3}{subsection.1.5}
+\contentsline {section}{\numberline {2}System Overview}{3}{section.2}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Make an Itinerary on City}}\mathsurround \z@ $\relax }{4}{section*.2}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Simulate a Trip}}\mathsurround \z@ $\relax }{4}{section*.3}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Give a Report}}\mathsurround \z@ $\relax }{4}{section*.4}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Other Non-functional Requirement}}\mathsurround \z@ $\relax }{4}{section*.5}
+\contentsline {section}{\numberline {3}Targer System}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Sketch}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Functional Requirement}{4}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Non-functional Requirement}{5}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Availability}{5}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Reliability}{5}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}Performance}{6}{subsubsection.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.4}Supportability}{6}{subsubsection.3.3.4}
+\contentsline {subsubsection}{\numberline {3.3.5}Design Constraint}{6}{subsubsection.3.3.5}
+\contentsline {subsubsection}{\numberline {3.3.6}Interface}{6}{subsubsection.3.3.6}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {User Interface}}\mathsurround \z@ $\relax }{6}{section*.6}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Hardware Interface}}\mathsurround \z@ $\relax }{6}{section*.7}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Software Interface}}\mathsurround \z@ $\relax }{6}{section*.8}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Communication Interface}}\mathsurround \z@ $\relax }{7}{section*.9}
+\contentsline {subsubsection}{\numberline {3.3.7}Law, Copyright and Other Notice}{7}{subsubsection.3.3.7}
+\contentsline {subsubsection}{\numberline {3.3.8}Applicable Standard}{7}{subsubsection.3.3.8}
+\contentsline {subsection}{\numberline {3.4}System Model}{7}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Scenery}{7}{subsubsection.3.4.1}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Scenery One}}\mathsurround \z@ $\relax }{7}{section*.10}
+\contentsline {subparagraph}{Scenery name}{7}{section*.11}
+\contentsline {subparagraph}{Actor instance}{7}{section*.12}
+\contentsline {subparagraph}{Event flow}{7}{section*.13}
+\contentsline {subsubsection}{\numberline {3.4.2}Use Case Mode}{7}{subsubsection.3.4.2}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Login}}\mathsurround \z@ $\relax }{8}{section*.14}
+\contentsline {subparagraph}{Preconditions and Post Conditions}{8}{section*.15}
+\contentsline {subparagraph}{Basic Scenarios}{8}{section*.16}
+\contentsline {subparagraph}{Exception or Branches}{8}{section*.17}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Select Destination}}\mathsurround \z@ $\relax }{8}{section*.18}
+\contentsline {subparagraph}{Definition}{8}{section*.19}
+\contentsline {subparagraph}{Preconditions and Post Conditions}{8}{section*.20}
+\contentsline {subparagraph}{Basic Scenarios}{9}{section*.21}
+\contentsline {subparagraph}{Exception or Branches}{9}{section*.22}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Make an Itinerary}}\mathsurround \z@ $\relax }{9}{section*.23}
+\contentsline {subparagraph}{Definition}{9}{section*.24}
+\contentsline {subparagraph}{Preconditions and Post Conditions}{9}{section*.25}
+\contentsline {subparagraph}{Basic Scenarios}{9}{section*.26}
+\contentsline {subparagraph}{Exception or Branches}{9}{section*.27}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Simulation}}\mathsurround \z@ $\relax }{9}{section*.28}
+\contentsline {subparagraph}{Definition}{9}{section*.29}
+\contentsline {subparagraph}{Preconditions and Post Conditions}{9}{section*.30}
+\contentsline {subparagraph}{Basic Scenarios}{10}{section*.31}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Report}}\mathsurround \z@ $\relax }{10}{section*.32}
+\contentsline {subparagraph}{Definition}{10}{section*.33}
+\contentsline {subparagraph}{Preconditions and Post Conditions}{10}{section*.34}
+\contentsline {subparagraph}{Basic Scenarios}{10}{section*.35}
+\contentsline {subparagraph}{Exception Scenarios}{10}{section*.36}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Generation}}\mathsurround \z@ $\relax }{10}{section*.37}
+\contentsline {subparagraph}{Definition}{11}{section*.38}
+\contentsline {subparagraph}{Preconditions and Post Conditions}{11}{section*.39}
+\contentsline {subparagraph}{Basic Scenarios}{11}{section*.40}
+\contentsline {subsubsection}{\numberline {3.4.3}Object Model}{12}{subsubsection.3.4.3}
+\contentsline {subsubsection}{\numberline {3.4.4}Dynamic Model}{14}{subsubsection.3.4.4}
+\contentsline {subsubsection}{\numberline {3.4.5}User Interface}{17}{subsubsection.3.4.5}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Main Page}}\mathsurround \z@ $\relax }{17}{section*.41}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Log-in Page}}\mathsurround \z@ $\relax }{17}{section*.42}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Register Page}}\mathsurround \z@ $\relax }{17}{section*.43}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Itinerary-Design Page}}\mathsurround \z@ $\relax }{18}{section*.44}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Simulation Page}}\mathsurround \z@ $\relax }{18}{section*.45}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Personal Page}}\mathsurround \z@ $\relax }{18}{section*.46}
