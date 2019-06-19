@@ -1,0 +1,170 @@
+\documentclass[10pt]{article}
+
+\usepackage[a4paper, left=2cm, right=2cm]{geometry} % A4 paper size and thin margins
+
+\usepackage{xcolor} % Required for specifying custom colours
+\definecolor{grey}{rgb}{0.9,0.9,0.9} % Colour of the box surrounding the title
+
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[sfdefault]{ClearSans} % Use the Clear Sans font (sans serif)
+%\usepackage{XCharter} % Use the XCharter font (serif)
+\usepackage{float}
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} 	
+
+\begin{document}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+	
+	%------------------------------------------------
+	%	Grey title box
+	%------------------------------------------------
+	
+	\colorbox{grey}{
+		\parbox[t]{1.1\textwidth}{ % Outer full width box
+			\parbox[t]{1.02\textwidth}{ % Inner box for inner right text margin
+				\raggedleft % Right align the text
+				\fontsize{34pt}{40pt}\selectfont % Title font size, the first argument is the font size and the second is the line spacing, adjust depending on title length
+				\vspace{0.7cm} % Space between the start of the title and the top of the grey box
+				
+				< Journey Assistant >\\
+                Delivery List\\
+                Version 1.0\\
+				
+				\vspace{0.7cm} % Space between the end of the title and the bottom of the grey box
+			}
+		}
+	}
+	
+	\vfill % Space between the title box and author information
+	
+	%------------------------------------------------
+	%	Author name and information
+	%------------------------------------------------
+	
+	\parbox[t]{1\textwidth}{ % Box to inset this section slightly
+		\raggedleft % Right align the text
+		\large % Increase the font size
+		{\Large Group Member}\\[4pt] % Extra space after name
+        Yiwen Song\\
+        Zhihui Xie\\
+        Weizhe Wang\\
+        Huangfei Jiang\\
+        Haoping Chen\\
+		% Institution Name\\[4pt] % Extra space before URL
+		% \texttt{LaTeXTemplates.com}\\
+		
+		\hfill\rule{0.2\linewidth}{1pt}% Horizontal line, first argument width, second thickness
+    }
+    
+	
+\end{titlepage}
+
+\newpage
+
+\begin{center}
+    {\LARGE Modification History}
+    
+    \begin{tabular}{|c|c|c|c|} 
+        \hline 
+        Date&Version&Description&Author\\
+        \hline  
+        2019-06-18&1.0&Finish the first version.&Weizhe Wang\\
+		\hline 
+		& & & \\
+		\hline
+		& & & \\
+		\hline
+		& & & \\
+		\hline
+    \end{tabular}    
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Intruduction}
+\subsection{Purpose}
+This delivery list is to list what we need to delivery about the Journey Assitant software and give proper explanition. The list will show composition of all our document and software in our project. This document is written for users to check and accept the job of developers.
+
+\subsection{Scope}
+The document is written for our Journey Assistant software, and all content of accords with the software's features, subsystems, models, codes, etc.
+
+\subsection{Definition}
+The terms referred to in this document are defined in the project glossary document (Glossary.pdf).
+
+\subsection{Bibliography}
+\begin{itemize}
+	\item[1.] <Object Oriented Software Engineering (Version 3)> (Tsinghua University Press)
+	\item[2.] <Object Oriented Software Engineering Practice Guidelines> 
+\end{itemize}
+
+\subsection{Sketch}
+This document includes document list and software list. Document list will list kinds of document and corresponding name. Software list will give every software module in the project and its filename as well as size. The two parts complement and contrast each other, will show our delivery together.
+
+\section{Document List}
+\subsection{Planning Stage}
+\begin{table}[htb]
+	\centering 
+
+	\begin{tabular}{c|c|c} 
+		\hline 
+		filename&file ytpe&fie size\\
+		\hline  
+Feasibility Analysis Report&pdf&130KB\\
+\hline
+Project Development Plan&pdf&133KB\\
+\hline
+Risk list&xlsx&10KB\\
+\hline
+\end{tabular}
+
+\caption{Planning Stage}
+\end{table}
+
+\subsection{Requirements Acquisition and Analysis Stage}
+\begin{table}[htb]
+	\centering
+
+	\begin{tabular}{c|c|c} 
+		\hline 
+		filename&file ytpe&fie size\\
+		\hline  
+Glossary&pdf&24KB\\
+\hline
+Software Requirement Specification&pdf&516KB\\
+\hline
+\end{tabular} 
+\caption{Requirements Acquisition and Analysis Stage}
+\end{table}
+
+\subsection{Design Stage}
+\begin{table}[htb]
+	\centering
+
+	\begin{tabular}{c|c|c} 
+		\hline 
+		filename&file ytpe&fie size\\
+		\hline  
+Software Architecture Document&pdf&2063KB\\
+\hline
+Software Design Model&pdf&1655KB\\
+\hline
+\end{tabular}
+\caption{Requirements Acquisition and Analysis Stage}
+\end{table}
+
+\subsection{Test, Conclusion And Delivery Stage}
+\end{document}

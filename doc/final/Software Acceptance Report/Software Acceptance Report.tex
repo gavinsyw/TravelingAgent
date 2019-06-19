@@ -1,0 +1,554 @@
+\documentclass[10pt]{article}
+
+\usepackage[a4paper, left=2cm, right=2cm]{geometry} % A4 paper size and thin margins
+
+\usepackage{xcolor} % Required for specifying custom colours
+\definecolor{grey}{rgb}{0.9,0.9,0.9} % Colour of the box surrounding the title
+
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[sfdefault]{ClearSans} % Use the Clear Sans font (sans serif)
+%\usepackage{XCharter} % Use the XCharter font (serif)
+\usepackage{float}
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} 	
+
+\begin{document}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+	
+	%------------------------------------------------
+	%	Grey title box
+	%------------------------------------------------
+	
+	\colorbox{grey}{
+		\parbox[t]{1.1\textwidth}{ % Outer full width box
+			\parbox[t]{1.02\textwidth}{ % Inner box for inner right text margin
+				\raggedleft % Right align the text
+				\fontsize{34pt}{40pt}\selectfont % Title font size, the first argument is the font size and the second is the line spacing, adjust depending on title length
+				\vspace{0.7cm} % Space between the start of the title and the top of the grey box
+				
+				< Journey Assistant >\\
+                Software Acceptance Report\\
+                Version 1.0\\
+				
+				\vspace{0.7cm} % Space between the end of the title and the bottom of the grey box
+			}
+		}
+	}
+	
+	\vfill % Space between the title box and author information
+	
+	%------------------------------------------------
+	%	Author name and information
+	%------------------------------------------------
+	
+	\parbox[t]{1\textwidth}{ % Box to inset this section slightly
+		\raggedleft % Right align the text
+		\large % Increase the font size
+		{\Large Group Member}\\[4pt] % Extra space after name
+        Yiwen Song\\
+        Zhihui Xie\\
+        Weizhe Wang\\
+        Huangfei Jiang\\
+        Haoping Chen\\
+		% Institution Name\\[4pt] % Extra space before URL
+		% \texttt{LaTeXTemplates.com}\\
+		
+		\hfill\rule{0.2\linewidth}{1pt}% Horizontal line, first argument width, second thickness
+    }
+    
+	
+\end{titlepage}
+
+\newpage
+
+\begin{center}
+    {\LARGE Modification History}
+    
+    \begin{tabular}{|c|c|c|c|} 
+        \hline 
+        Date&Version&Description&Author\\
+        \hline  
+        2019-06-18&1.0&Finish the first version.&Zhihui Xie\\
+		\hline 
+		& & & \\
+		\hline
+		& & & \\
+		\hline
+		& & & \\
+		\hline
+    \end{tabular}    
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Intruduction}
+\subsection{Purpose}
+This software acceptance report aims to record the acceptance and inspection process of our journey assistant project. The basic information, including the environment under which the acceptance test is carried on, and the result, will be fully covered in this document.
+
+The document will be further used as a reference for our developers and clients.
+
+\subsection{Scope}
+The document is written for our Journey Assistant software, and all content of accords with the software's features, subsystems, models, codes, etc.
+
+\subsection{Definition}
+The terms referred to in this document are defined in the project glossary document (Glossary.pdf).
+
+\subsection{Bibliography}
+\begin{itemize}
+	\item[1.] <Object Oriented Software Engineering (Version 3)> (Tsinghua University Press)
+	\item[2.] <Object Oriented Software Engineering Practice Guidelines> 
+\end{itemize}
+
+\subsection{Sketch}
+In this document, we will discuss the software acceptance in five parts: project information, software overview, acceptance test environment, acceptance and testing result, and conclusion. 
+
+\paragraph{\underline{Project Information}} 
+introduces the basic information of the project.
+
+\paragraph{\underline{Software Overview}} 
+describes how our software is organized and functioning.
+
+\paragraph{\underline{Acceptance Test Environment}} 
+records the software and hardware platform under which the acceptance is carried on. 
+
+\paragraph{\underline{Accentance and Testing Result}}
+shows the final result of accentance.
+
+\paragraph{\underline{Conclusion}}
+gives overall evaluation of the acceptance process.
+
+\section{Project Information}
+\paragraph{\underline{Project Name}} 
+Journey Assitant
+
+\paragraph{\underline{Project Developer}} 
+No-study Study Group
+
+\paragraph{\underline{Project Development Time}} 
+From 2019.03.22 to 2019.06.16.
+
+\paragraph{\underline{Project Acceptance Time}} 
+2019.06.17
+
+\section{Software Overview}
+\subsection{Software Structure}
+\subsubsection{Program System}
+
+\begin{itemize}
+	\item[1.] Android Client Program Hierarchical Relation
+	 
+		\begin{table}[htb]
+			\centering
+		
+			\begin{tabular}{c|c} 
+				\hline 
+				Package Name&Program Name\\
+				\hline
+				&CheckItinerariesActivity.java\\
+				\cline{2-2}
+				&CustomizationActivity.java\\
+				\cline{2-2}
+				&CheckItinerariesActivity.java\\
+				\cline{2-2}
+				&LoginActivity.java\\
+				\cline{2-2}
+				com.example.travelingagent.activity&MainActivity.java\\
+				\cline{2-2}
+				&RecommendationActivity.java\\
+				\cline{2-2}
+				&RecommendationDisplayActivity.java\\
+				\cline{2-2}
+				&SavedItineraryDisplayActivity.java\\
+				\cline{2-2}
+				&RegisterActivity.java\\
+				\hline
+				&Hotel.java\\
+				\cline{2-2}
+				&Sight.java\\
+				\cline{2-2}
+				com.example.travelingagent.entity&Spot.java\\
+				\cline{2-2}
+				&User.java\\
+				\cline{2-2}
+				&Itinerary.java\\
+				\hline
+				&CustomizationClientApi.java\\
+				\cline{2-2}
+				&ItineraryClientApi.java\\
+				\cline{2-2}
+				&LoginClientApi.java\\
+				\cline{2-2}
+				com.example.travelingagent.protocol.api&RecommendationClientApi.java\\
+				\cline{2-2}
+				&RegisterClientApi.java\\
+				\cline{2-2}
+				&WeatherClientApi.java\\
+				\hline
+				&LoginEntity.java\\
+				\cline{2-2}
+				com.example.travelingagent.protocol.entity&RegisterEntity.java\\
+				\cline{2-2}
+				&WeatherEntity.java\\
+				\hline
+			\end{tabular}   
+			
+			\caption{Client Program Hierarchical Relation}\label{Client Program Hierarchical Relation}
+		\end{table}
+
+		\newpage
+		\item[2.] Server Program
+	 
+		\begin{table}[htb]
+			\centering
+		
+			\begin{tabular}{c|c} 
+				\hline 
+				Package Name&Program Name\\
+				\hline
+				&GetItinerary.java\\
+				\cline{2-2}
+				&Gethotel.java\\
+				\cline{2-2}
+				&Getsight.java\\
+				\cline{2-2}
+				&Graph.java\\
+				\cline{2-2}
+				&Hotel.java\\
+				\cline{2-2}
+				&Itinerary.java\\
+				\cline{2-2}
+				&Login.java\\
+				\cline{2-2}
+				&Recommandation.java\\
+				\cline{2-2}
+				jsf-helloworld.src.java.com.test&Register.java\\
+				\cline{2-2}
+				&ReportMsg.java\\
+				\cline{2-2}
+				&SaveItinerary.java\\
+				\cline{2-2}
+				&SendItinerary.java\\
+				\cline{2-2}
+				&Sight.java\\
+				\cline{2-2}
+				&Simulation.java\\
+				\cline{2-2}
+				&Spot.java\\
+				\cline{2-2}
+				&Testjava.java\\
+				\cline{2-2}
+				&Type.java\\
+				\cline{2-2}
+				&User.java\\
+				\hline
+		
+			\end{tabular}   
+					
+			\caption{Server Program}\label{Server Program}
+		\end{table}
+
+\end{itemize}
+
+\subsubsection{Database}
+The database used in the system is a relational database SQLite, which is named as "SEDB". The tables included are as follows:
+\begin{table}[htb]
+	\centering
+
+	\begin{tabular}{c|c|c|c|c|c}
+		\hline
+		Number&Field&Description&Type&Allow Null&Primary Key\\
+		\hline
+		1&ID&ID of users&int&N&Y\\
+		\hline
+		2&username&name of users&text&N&N\\
+		\hline
+		3&userpwd&password of users&text&N&N\\
+		\hline
+		4&mail&e-mail of users&text&N&N\\
+		\hline
+   \end{tabular}
+	
+	\caption{User}
+\end{table}
+
+\newpage
+
+\begin{table}[htb]
+	\centering
+
+	\begin{tabular}{c|c|c|c|c|c}
+		\hline
+		Number&Field&Description&Type&Allow Null&Primary Key\\
+		\hline
+		1&sight\_id&ID of each sight&int&N&Y\\
+		\hline
+		2&name&name of each sight&text&N&N\\
+		\hline
+		3&popularity&popularity of each sight&double&N&N\\
+		
+		\hline
+		4&price&price of each sight&double&N&N\\
+		\hline
+		5&total&total score of each sight&double&N&N\\
+		\hline
+		6&environment&environment of each sight&double&N&N\\
+		\hline
+		7&service&service score of each sight&double&N&N\\
+		\hline
+		8&latitude&latitude of each sight&double&N&N\\
+		\hline
+		9&longitude&longitude of each sight&double&N&N\\
+		\hline
+		10&city\_id&the id of city where sight lies&int&N&N\\
+		\hline
+		11&description&description of sight&text&N&N\\
+		\hline
+   	\end{tabular}
+	\caption{Sight}
+\end{table}
+
+\begin{table}[htb]
+	\centering
+
+	\begin{tabular}{c|c|c|c|c|c}
+		\hline
+		Number&Field&Description&Type&Allow Null&Primary Key\\
+		\hline
+		1&hotelt\_id&ID of each hotel&int&N&Y\\
+		\hline
+		2&name&name of each hotel&text&N&N\\
+		\hline
+		3&popularity&popularity of eachhotel&double&N&N\\
+		\hline
+		4&price&price of each hotel&double&N&N\\
+		\hline
+		5&total&total score of each hotel&double&N&N\\
+		\hline
+		6&latitude&latitude of each hotel&double&N&N\\
+		\hline
+		7&longitude&longitude of each hotel&double&N&N\\
+		\hline
+		8&city\_id&the id of city where hotel lies&int&N&N\\
+		\hline
+		9&description&description of hotel&text&N&N\\
+		\hline
+   \end{tabular}
+	\caption{Hotel}
+\end{table}
+
+\begin{table}[htb]
+	\centering
+
+	\begin{tabular}{c|c|c|c|c|c}
+		\hline
+		Number&Field&Description&Type&Allow Null&Primary Key\\
+		\hline
+		1&ItineraryID&ID of each itinerary&int&N&Y\\
+		\hline
+		2&city\_id&the id of city that user chooses&int&N&N\\
+		\hline
+		3&user\_id&ID of users&int&N&N\\
+		\hline
+		4&itinerary&the itinerary that user chooses&text&N&N\\
+		\hline
+   \end{tabular}
+	\caption{User History}
+\end{table}
+
+\newpage
+
+\begin{table}[htb]
+	\centering
+
+	\begin{tabular}{c|c|c|c|c|c}
+		\hline
+		Number&Field&Description&Type&Allow Null&Primary Key\\
+		\hline
+		1&msg\_id&ID of each message&int&N&Y\\
+		\hline
+		2&user\_id&ID of user that sends message&int&N&N\\
+		\hline
+		3&msg&content of message&text&N&N\\
+		\hline
+   \end{tabular}
+	\caption{Feedback}
+\end{table}
+
+\subsection{Main Function and Performance}
+Main function and performance of our application are shown below. 
+
+\begin{table}[htb]
+	\centering
+
+	\begin{tabular}{c|c}
+		\hline
+		Main Function&Description\\
+		\hline
+		Register&Add user information.\\
+		\hline
+		Login&Verify user name and password, and then log in.\\
+		\hline
+		Select Destination&Select which city you want to travel.\\
+		\hline
+		Set Preference&Set preference for system to recommend an itinerary.\\
+		\hline
+		View Map&View BaiduMap to get information of the itinerary.\\
+		\hline
+		Recommendation&Get itinerary recommendation proveded by the system.\\
+		\hline
+		Customiztion&Customize itineraries in a visual way.\\
+		\hline
+		Check saved itineraries&Check saved itineraries.\\
+		\hline
+		Feedback&Send feedback to developers.\\
+		\hline
+   \end{tabular}
+	\caption{Main Function List}
+\end{table}
+
+\begin{table}[htb]
+	\centering
+
+	\begin{tabular}{c|c}
+		\hline
+		Performance Requirement&Description\\
+		\hline
+		Response Time Requirement&The average response time is under 0.4s.\\
+		\hline
+		Throughput Requirement&Under 2500 requirements per second.\\
+		\hline
+		Capacity Requirement&The maximum number of users and itineraries is around 140000 in theory.\\
+		\hline
+		Resource Requirement&\tabincell{c}{The number of items in database is under 500000,\\
+		the memory usage is no more than 300MB,\\
+		and the bandwidth server needs is around 5Mbps}\\
+		\hline
+   \end{tabular}
+	\caption{Main Performance List}
+\end{table}
+
+\subsection{Acceptance Test Environment}
+\subsubsection{Hardware}
+\paragraph{\underline{Server}}
+A laptop with Intel i5-7300HQ, 8G Memory, 128G SDD, and 500G HDD.
+
+\paragraph{\underline{Server Network}}
+WAN with over 50Mbps bandwith.
+
+\paragraph{\underline{Client}}
+An Android smartphone with 64G ROM, 4G RAM, and network access functionality.
+
+\paragraph{\underline{Client Network}}
+Internet access.
+
+\subsubsection{Software}
+\paragraph{\underline{Operating System}}
+Microsoft Windows 10, Android 9.0.
+
+\paragraph{\underline{Integrated Development Environment}}
+Android Studio, Eclipse, NetBeans.
+
+\paragraph{\underline{Application Software}}
+JAVA 8
+
+\subsubsection{Document}
+\begin{itemize}
+	\item Feasibility Analysis.pdf
+	\item Glossary.pdf
+	\item Project Development Plan.pdf
+	\item Software Acceptance Report.pdf
+	\item Software Architecture Document.pdf
+	\item Software Design Model.pdf
+	\item Software Requirement Specification.pdf
+	\item User Manual.pdf
+	\item Delivery List.pdf
+	\item Software Project Summary Report.pdf
+	\item Software Testing Plan.pdf
+	\item Software Testing Summary Report.pdf
+	\item Risk List.xlsx
+\end{itemize}
+
+\subsubsection{Member}
+\paragraph{\underline{Technical Manager}} Zhihui Xie
+
+\paragraph{\underline{Developer}} All members of the group
+
+\paragraph{\underline{Tester}} Zhihui Xie, Weizhe Chen
+
+\paragraph{Technical Personnel} Yiwen Song, Zhihui Xie
+
+\subsection{Accentance and Testing Result}
+\subsubsection{Function Acceptance}
+\begin{table}[htb]
+	\centering
+
+	\begin{tabular}{c|c|c}
+		\hline
+		Function Requirement&Testing Result&Comment\\
+		\hline
+		Register&Passed&\\
+		\hline
+		Login&Passed&\\
+		\hline
+		Select Destination&Passed&\\
+		\hline
+		Set Preference&Passed&\\
+		\hline
+		View Map&Passed&\\
+		\hline
+		Recommendation&Passed&\\
+		\hline
+		Customiztion&Passed&\\
+		\hline
+		Check saved itineraries&Passed&\\
+		\hline
+		Feedback&Passed&\\
+		\hline
+   \end{tabular}
+	\caption{Function Acceptance List}
+\end{table}
+
+\newpage
+
+\subsubsection{Performance Acceptance}
+\begin{table}[htb]
+	\centering
+
+	\begin{tabular}{c|c|c}
+		\hline
+		Performance Requirement&Testing Result&Comment\\
+		\hline
+		Response Time Requirement&Passed&The average response time is under 0.4s.\\
+		\hline
+		Throughput Requirement&Passed&Under 2500 requirements per second.\\
+		\hline
+		Capacity Requirement&Passed&\tabincell{c}{The maximum number of users \\and itineraries is around 140000.}\\
+		\hline
+		Resource Requirement&Passed&\tabincell{c}{The number of items in database is under 500000,\\
+		the memory usage is no more than 300MB,\\
+		and the bandwidth server needs is around 5Mbps}\\
+		\hline
+   \end{tabular}
+	\caption{Performance Acceptance List}
+\end{table}
+
+\subsubsection{Document Acceptance}
+All documents meet the corresponding requirements.
+
+\subsection{Conclusion}
+The basic functions of the software system are well-realized and performance requirements are also achieved. The software system passes the acceptance test.
+\end{document}

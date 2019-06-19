@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * 用于显示indoorpoi的overly
  */
-public class IndoorPoiOverlay extends OverlayManager {
+public class IndoorPoiOverlay extends com.example.travelingagent.util.baiduMap.OverlayManager {
 
     private static final int MAX_POI_SIZE = 10;
 

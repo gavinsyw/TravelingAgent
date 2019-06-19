@@ -1,7 +1,5 @@
 package com.example.travelingagent.protocol.api;
 
-import android.util.Log;
-
 import java.util.Map;
 
 import retrofit2.Call;

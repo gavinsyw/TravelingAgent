@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * 用于显示骑行路线的Overlay
  */
-public class BikingRouteOverlay extends OverlayManager {
+public class BikingRouteOverlay extends com.example.travelingagent.util.baiduMap.OverlayManager {
 
     private BikingRouteLine mRouteLine = null;
 

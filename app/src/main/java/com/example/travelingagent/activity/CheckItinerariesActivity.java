@@ -32,7 +32,7 @@ public class CheckItinerariesActivity extends AppCompatActivity {
     private List<DataBean> dataBeanList;
     private DataBean dataBean;
     private RecyclerAdapter mAdapter;
-    private List<Itinerary> itineraries;
+    private List<com.example.travelingagent.activity.Itinerary> itineraries;
     private String user_id;
     private ListView mListView;
     private String BASE_URL = "http://192.168.43.126:8080/";
@@ -53,11 +53,11 @@ public class CheckItinerariesActivity extends AppCompatActivity {
                 .build();
 
         ItineraryClientApi itineraryClientApi = retrofit.create(ItineraryClientApi.class);
-        Call<List<Itinerary>> call = itineraryClientApi.itinerariesLoad(user_id);
+        Call<List<com.example.travelingagent.activity.Itinerary>> call = itineraryClientApi.itinerariesLoad(user_id);
 
-        call.enqueue(new Callback<List<Itinerary>>() {
+        call.enqueue(new Callback<List<com.example.travelingagent.activity.Itinerary>>() {
             @Override
-            public void onResponse(Call<List<Itinerary>> call, Response<List<Itinerary>> response) {
+            public void onResponse(Call<List<com.example.travelingagent.activity.Itinerary>> call, Response<List<com.example.travelingagent.activity.Itinerary>> response) {
                 itineraries = response.body();
 
                 final FoldingCellListAdapter adapter = new FoldingCellListAdapter(CheckItinerariesActivity.this, itineraries);
@@ -68,7 +68,7 @@ public class CheckItinerariesActivity extends AppCompatActivity {
                 mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
-                        Intent intent1 = new Intent(CheckItinerariesActivity.this, SavedItineraryDisplayActivity.class);
+                        Intent intent1 = new Intent(CheckItinerariesActivity.this, com.example.travelingagent.activity.SavedItineraryDisplayActivity.class);
                         intent1.putExtra("user_id", user_id);
                         intent1.putExtra("itinerary_index", String.valueOf(pos));
                         startActivity(intent1);
@@ -78,7 +78,7 @@ public class CheckItinerariesActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Itinerary>> call, Throwable t) {
+            public void onFailure(Call<List<com.example.travelingagent.activity.Itinerary>> call, Throwable t) {
                 Toast.makeText(CheckItinerariesActivity.this, "failed", Toast.LENGTH_SHORT).show();
                 t.printStackTrace();
             }

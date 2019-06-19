@@ -13,7 +13,6 @@ import androidx.core.content.ContextCompat;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -53,8 +52,6 @@ import com.example.travelingagent.protocol.api.ItineraryClientApi;
 import com.example.travelingagent.protocol.api.CustomizationClientApi;
 import com.example.travelingagent.util.baiduMap.DrivingRouteOverlay;
 import com.github.clans.fab.FloatingActionButton;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 

@@ -29,25 +29,25 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".activity.RecommendationDisplayActivity" />
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name="com.example.travelingagent.activity.RecommendationDisplayActivity" />
+        <activity android:name="com.example.travelingagent.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name="com.example.travelingagent.activity.RegisterActivity" />
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="PGVpR1FpomjL3coAKdOl7OvLznrgSY5g" />
 
-        <activity android:name=".activity.CustomizationActivity" />
-        <activity android:name=".activity.CheckItinerariesActivity" />
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.RecommendationActivity" />
-        <activity android:name=".activity.SavedItineraryDisplayActivity" />
+        <activity android:name="com.example.travelingagent.activity.CustomizationActivity" />
+        <activity android:name="com.example.travelingagent.activity.CheckItinerariesActivity" />
+        <activity android:name="com.example.travelingagent.activity.MainActivity" />
+        <activity android:name="com.example.travelingagent.activity.RecommendationActivity" />
+        <activity android:name="com.example.travelingagent.activity.SavedItineraryDisplayActivity" />
 
         <service
             android:name="com.baidu.location.f"
