@@ -6,6 +6,6 @@
 \contentsline {subsection}{\numberline {1.5}Sketch}{3}{subsection.1.5}
 \contentsline {section}{\numberline {2}Document List}{3}{section.2}
 \contentsline {subsection}{\numberline {2.1}Planning Stage}{3}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Requirements Acquisition and Analysis Stage}{3}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Design Stage}{3}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Test, Conclusion And Delivery Stage}{3}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.2}Requirement Acquisition and Analysis Stage}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Design Stage}{4}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Test, Conclusion And Delivery Stage}{4}{subsection.2.4}

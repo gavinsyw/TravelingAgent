@@ -1,0 +1,290 @@
+\documentclass[10pt]{article}
+
+\usepackage[a4paper, left=2cm, right=2cm]{geometry} % A4 paper size and thin margins
+
+\usepackage{xcolor} % Required for specifying custom colours
+\definecolor{grey}{rgb}{0.9,0.9,0.9} % Colour of the box surrounding the title
+
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{blindtext}
+\usepackage{multirow}
+\setlength{\parindent}{2em}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[sfdefault]{ClearSans} % Use the Clear Sans font (sans serif)
+%\usepackage{XCharter} % Use the XCharter font (serif)
+\usepackage{float}
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} 	
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+	
+	%------------------------------------------------
+	%	Grey title box
+	%------------------------------------------------
+	
+	\colorbox{grey}{
+		\parbox[t]{1.1\textwidth}{ % Outer full width box
+			\parbox[t]{1.02\textwidth}{ % Inner box for inner right text margin
+				\raggedleft % Right align the text
+				\fontsize{34pt}{40pt}\selectfont % Title font size, the first argument is the font size and the second is the line spacing, adjust depending on title length
+				\vspace{0.7cm} % Space between the start of the title and the top of the grey box
+				
+				< Journey Assistant >\\
+                Software Testing Summary Report\\
+                Version 1.0\\
+				
+				\vspace{0.7cm} % Space between the end of the title and the bottom of the grey box
+			}
+		}
+	}
+	
+	\vfill % Space between the title box and author information
+	
+	%------------------------------------------------
+	%	Author name and information
+	%------------------------------------------------
+	
+	\parbox[t]{1\textwidth}{ % Box to inset this section slightly
+		\raggedleft % Right align the text
+		\large % Increase the font size
+		{\Large Group Member}\\[4pt] % Extra space after name
+        Yiwen Song\\
+        Zhihui Xie\\
+        Weizhe Wang\\
+        Huangfei Jiang\\
+        Haoping Chen\\
+		% Institution Name\\[4pt] % Extra space before URL
+		% \texttt{LaTeXTemplates.com}\\
+		
+		\hfill\rule{0.2\linewidth}{1pt}% Horizontal line, first argument width, second thickness
+    }
+    
+	
+\end{titlepage}
+
+\newpage
+
+\begin{center}
+    {\LARGE Modification History}
+    
+    \begin{tabular}{|c|c|c|c|} 
+        \hline 
+        Date&Version&Description&Author\\
+        \hline  
+        2019-06-18&1.0&Finish the first version.&Yiwen Song\\
+		\hline 
+		& & & \\
+		\hline
+		& & & \\
+		\hline
+		& & & \\
+		\hline
+    \end{tabular}    
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Intruduction}
+\subsection{Purpose}
+The software testing summary aims to provide a record and summary of the testing process of our Journey Assistant software. The document will show the conclusion of the tests made on Journey Assistant, as well as the analysis. The document helps the developers to conclude the testing process and make the development better.
+
+\subsection{Scope}
+Software the document is applied on: Journey Assistant.
+
+Characteristics, subsystems, models and codes related to the software all fit the contents of this the document.
+
+\subsection{Definition}
+The terms referred to in this document are defined in the project glossary document (Glossary.pdf).
+
+\subsection{Bibliography}
+\begin{itemize}
+	\item[1.] <Object Oriented Software Engineering (Version 3)> (Tsinghua University Press)
+	\item[2.] <Object Oriented Software Engineering Practice Guidelines> 
+\end{itemize}
+
+\subsection{Sketch}
+The document consists of 4 parts, i.e., the testing summary, the testing result, the conclusion and the general comment. Testing summary describes the testing requirements and testing methods. Testing result records the testing progress and the actual work of the testing personnel. The conclusion analyzes the condition of testing and shows the solution of the problem. The general comment gives a general comment according to the testing process. Each part of the document links with one another, and complements each other to show an overview of out testing procedure.
+
+\section{Testing Summary}
+\subsection{Testing Requirement \& Testing Use Case}
+Please check \emph{Software Testing Plan} document for detailed information.
+
+\subsection{Testing Environment}
+Please check \emph{Software Testing Plan} document for detailed information.
+
+\subsection{Testing Tool}
+We mainly use manual ways to generate the testing data. Some automatic tests can be done by Python.
+
+\section{Testing Result}
+\subsection{Testing Progress}
+Testing progress is shown in Table \ref{Testing Progress}.
+
+\begin{table}[htb]
+
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	Milestone   & Start     & End       & Delay \\ \hline
+	Planning    & 2019.6.14 & 2019.6.15 & /     \\ \hline
+	Designing   & 2019.6.15 & 2019.6.16 & /     \\ \hline
+	Preparation & 2019.6.16 & 2019.6.16 & /     \\ \hline
+	Execution   & 2019.6.16 & 2019.6.18 & /     \\ \hline
+	Evaluation  & 2019.6.18 & 2019.6.20 & /     \\ \hline
+	\end{tabular}
+
+	\caption{Testing Progress}
+	\label{Testing Progress}
+	\end{table}
+
+
+\subsection{Testing Personnel}
+Testing personnel is shown in Table \ref{Testing Personnel}.
+
+\begin{table}[htb]
+	\centering
+	\begin{tabular}{|c|c|c|}
+	\hline
+	Role           & Personnel  & Job                                                                                                                                                    \\ \hline
+	Test Manager   & Song Yiwen & \begin{tabular}[c]{@{}c@{}}Manage the whole process of testing. Adjust the\\   testing process according to real situations.\end{tabular}              \\ \hline
+	Test Planner   & Xie Zhihui & \begin{tabular}[c]{@{}c@{}}Plan the details of testing process according to\\   technical details and user requirements.\end{tabular}                  \\ \hline
+	Test Performer & All others & \begin{tabular}[c]{@{}c@{}}Perform testing as planned. Report the test result\\   and evaluate the possible faults that leads to failure.\end{tabular} \\ \hline
+	\end{tabular}
+
+	\caption{Testing Personnel}
+	\label{Testing Personnel}
+	\end{table}
+
+\section{Conclusion Analysis}
+\subsection{Result of Testing Use Case}
+Result of testing use case is shown in Table \ref{Result of Testing Use Case}
+\begin{table}[htb]
+	\centering
+
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+\begin{tabular}[c]{@{}c@{}}Requirement\\   Index\end{tabular} & \begin{tabular}[c]{@{}c@{}}Use Case\\   Index\end{tabular} & Result & Remark \\ \hline
+	\multirow{4}{*}{TR-01}                                        & TR-01-01-01                                                & Pass   & None'  \\ \cline{2-4} 
+																  & TR-01-01-02                                                & Pass   & None'  \\ \cline{2-4} 
+																  & TR-01-01-03                                                & Pass   & None'  \\ \cline{2-4} 
+																  & TR-01-02-01                                                & Pass   & None'  \\ \hline
+	\multirow{2}{*}{TR-02}                                        & TR-02-01-01                                                & Pass   & None'  \\ \cline{2-4} 
+																  & TR-02-01-02                                                & Pass   & None'  \\ \hline
+	TR-03                                                         & TR-03-01-01                                                & Pass   & None'  \\ \hline
+	\multirow{2}{*}{TR-04}                                        & TR-04-01-01                                                & Pass   & None'  \\ \cline{2-4} 
+																  & TR-04-01-02                                                & Fail   & None'  \\ \hline
+	\multirow{5}{*}{TR-05}                                        & TR-05-01-01                                                & Pass   & None'  \\ \cline{2-4} 
+																  & TR-05-01-02                                                & Pass   & None'  \\ \cline{2-4} 
+																  & TR-05-02-01                                                & Pass   & None'  \\ \cline{2-4} 
+																  & TR-05-02-02                                                & Pass   & None'  \\ \cline{2-4} 
+																  & TR-05-02-03                                                & Pass   & None'  \\ \hline
+	\end{tabular}
+	\label{Result of Testing Use Case}
+	\caption{Result of Testing Use Case}
+	\end{table}
+
+\subsection{Fix of Testing Failure}
+Fix of tesing failure is shown in Table \ref{Fix of Testing Failure}.
+
+\begin{table}[htb]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	Test Requirement Index & Test Use case Index & Error                                                                                                      & Error Status \\ \hline
+	TR-04                  & TR-04-01-02         & \begin{tabular}[c]{@{}c@{}}Some sights can’t be selected when a hotel is\\   selected before.\end{tabular} & Fixed        \\ \hline
+	\end{tabular}
+	\caption{Fix of Testing Failure}
+	\label{Fix of Testing Failure}
+	\end{table}
+
+\subsection{Testing Result Analysis}
+\subsubsection{Covering Analysis}
+\paragraph{Testing Covering Analysis}
+Testing covering analysis is shown in Table \ref{Testing Covering Analysis}.
+
+\begin{table}[htb]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	Requirement Index & Use case Number & Execution Number & Not Executed & Reason for none-execution \\ \hline
+	TR-01             & 4               & 5                & 0            & None                      \\ \hline
+	TR-02             & 2               & 2                & 0            & None                      \\ \hline
+	TR-03             & 1               & 49,152           & 0            & None                      \\ \hline
+	TR-04             & 2               & 2                & 0            & None                      \\ \hline
+	TR-05             & 5               & 5                & 0            & None                      \\ \hline
+	\end{tabular}
+	\caption{Testing Covering Analysis}
+	\label{Testing Covering Analysis}
+	\end{table}
+
+\paragraph{Requirement Covering Analysis}
+Requirement covering analysis is shown in Table \ref{Requirement Covering Analysis}.
+
+\begin{table}[htb]
+	\centering
+	\begin{tabular}{|c|c|}
+	\hline
+	Requirement Index & Pass? {[}Y{]}{[}P{]}{[}N{]}{[}N/A{]} \\ \hline
+	TR-01             & Y                                    \\ \hline
+	TR-02             & Y                                    \\ \hline
+	TR-03             & Y                                    \\ \hline
+	TR-04             & N                                    \\ \hline
+	TR-05             & Y                                    \\ \hline
+	\end{tabular}
+
+	\caption{Requirement Covering Analysis}
+	\label{Requirement Covering Analysis}
+	\end{table}
+
+\subsubsection{Hole Analysis}
+Hole anaylsis is shown in Table \ref{Hole Analysis}.
+
+\begin{table}[htb]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	Requirement\textbackslash{}Level & \tabincell{c}{A: Seriously \\influencethe \\system operation }& \tabincell{c}{B: Normal \\functional errors.} & \tabincell{c}{C: Don’t affect \\operation but\\ must be fixed }& \tabincell{c}{D: reasonable\\ proposals }& Total \\ \hline
+	TR-01                            & 0                                           & 0                            & 0                                           & 2                       & 2     \\ \hline
+	TR-02                            & 0                                           & 0                            & 0                                           & 1                       & 1     \\ \hline
+	TR-03                            & 0                                           & 0                            & 0                                           & 0                       & 0     \\ \hline
+	TR-04                            & 1                                           & 0                            & 0                                           & 2                       & 3     \\ \hline
+	TR-05                            & 0                                           & 0                            & 0                                           & 1                       & 1     \\ \hline
+	\end{tabular}
+	\caption{Hole Analysis}
+	\label{Hole Analysis}
+	\end{table}
+
+\section{General Comment}
+\subsection{Software Ability}
+The software can basically satisfy the functional needs designed, and each use cases have basically been realized. The software can design journey itineraries for users given their requirements, as well as let the users customize the journey itineraries. For the current application, our software has achieved the condition for delivery.
+
+\subsection{Limitation}
+\begin{itemize}
+	\item The software has not been run on a large number of devices. Therefore, the capability of our software still needs to be confirmed.
+	\item	Some of our system’s user interface is still not beautiful enough.
+	\item	As we have not raised a pressure test, the stability of our system can still not be confirmed. When facing a large number of concurrent queries, the system can still be unstable.
+	
+\end{itemize}
+
+
+\subsection{Proposal}
+\begin{itemize}
+	\item Release Beta test on our system and check the stability of our system running on different environments.
+	\item	Further reconstruct the application and improve our user interface.
+	\item Buy more professional servers to improve the capacity of concurrent queries. Also, we may hold pressure test to check how many queries can be processed at the same time.
+	
+\end{itemize}
+\end{document}

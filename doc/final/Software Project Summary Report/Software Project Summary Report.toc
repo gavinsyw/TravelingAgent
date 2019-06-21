@@ -1,0 +1,30 @@
+\contentsline {section}{\numberline {1}Intruduction}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Purpose}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Scope}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Definition}{3}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Bibliography}{3}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Sketch}{3}{subsection.1.5}
+\contentsline {section}{\numberline {2}Actual Development Result}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Product}{3}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Android Client Program List}{3}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Server Program List}{3}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.3}Program System Version}{3}{subsubsection.2.1.3}
+\contentsline {subsection}{\numberline {2.2}Main Functionality and Performance}{4}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Main Functionality List}{4}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Main Performance List}{4}{subsubsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3}Basic Procedure}{4}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Progress}{5}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Cost}{5}{subsection.2.5}
+\contentsline {section}{\numberline {3}Development Work Evaluation}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Evaluation of Production Efficiency}{6}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Actual Efficiency}{6}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Origin Plan}{6}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Evaluation of Production Quality}{6}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Evaluation of Technique}{6}{subsection.3.3}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Github for Version Control}}\mathsurround \z@ $\relax }{6}{section*.2}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Client-Server Design Mode}}\mathsurround \z@ $\relax }{6}{section*.3}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {MVC Design Mode}}\mathsurround \z@ $\relax }{6}{section*.4}
+\contentsline {paragraph}{\relax $\@@underline {\hbox {Three Layers of System Architecture}}\mathsurround \z@ $\relax }{6}{section*.5}
+\contentsline {subparagraph}{User Interface Layer}{6}{section*.6}
+\contentsline {subparagraph}{Application Logic Layer}{6}{section*.7}
+\contentsline {subparagraph}{Storage Layer}{6}{section*.8}

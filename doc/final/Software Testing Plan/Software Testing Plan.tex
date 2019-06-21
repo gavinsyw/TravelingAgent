@@ -1,0 +1,446 @@
+\documentclass[10pt]{article}
+
+\usepackage[a4paper, left=2cm, right=2cm]{geometry} % A4 paper size and thin margins
+
+\usepackage{xcolor} % Required for specifying custom colours
+\definecolor{grey}{rgb}{0.9,0.9,0.9} % Colour of the box surrounding the title
+
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{blindtext}
+\usepackage{multirow}
+\setlength{\parindent}{2em}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[sfdefault]{ClearSans} % Use the Clear Sans font (sans serif)
+%\usepackage{XCharter} % Use the XCharter font (serif)
+\usepackage{float}
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} 	
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+	
+	%------------------------------------------------
+	%	Grey title box
+	%------------------------------------------------
+	
+	\colorbox{grey}{
+		\parbox[t]{1.1\textwidth}{ % Outer full width box
+			\parbox[t]{1.02\textwidth}{ % Inner box for inner right text margin
+				\raggedleft % Right align the text
+				\fontsize{34pt}{40pt}\selectfont % Title font size, the first argument is the font size and the second is the line spacing, adjust depending on title length
+				\vspace{0.7cm} % Space between the start of the title and the top of the grey box
+				
+				< Journey Assistant >\\
+                Software Testing Plan\\
+                Version 1.0\\
+				
+				\vspace{0.7cm} % Space between the end of the title and the bottom of the grey box
+			}
+		}
+	}
+	
+	\vfill % Space between the title box and author information
+	
+	%------------------------------------------------
+	%	Author name and information
+	%------------------------------------------------
+	
+	\parbox[t]{1\textwidth}{ % Box to inset this section slightly
+		\raggedleft % Right align the text
+		\large % Increase the font size
+		{\Large Group Member}\\[4pt] % Extra space after name
+        Yiwen Song\\
+        Zhihui Xie\\
+        Weizhe Wang\\
+        Huangfei Jiang\\
+        Haoping Chen\\
+		% Institution Name\\[4pt] % Extra space before URL
+		% \texttt{LaTeXTemplates.com}\\
+		
+		\hfill\rule{0.2\linewidth}{1pt}% Horizontal line, first argument width, second thickness
+    }
+    
+	
+\end{titlepage}
+
+\newpage
+
+\begin{center}
+    {\LARGE Modification History}
+    
+    \begin{tabular}{|c|c|c|c|} 
+        \hline 
+        Date&Version&Description&Author\\
+        \hline  
+        2019-06-18&1.0&Finish the first version.&Yiwen Song\\
+		\hline 
+		& & & \\
+		\hline
+		& & & \\
+		\hline
+		& & & \\
+		\hline
+    \end{tabular}    
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Intruduction}
+\subsection{Purpose}
+The software testing plan aims to plan and formalize the testing procedure for our Journey Assistant software. This document will show the testing statics and environment, list the specific testing use cases, and make testing timetables, etc. It is limited to guide the development group and the testing group to do testing jobs.
+
+\subsection{Scope}
+Software the document is applied on: Journey Assistant.
+
+Characteristics, subsystems, models and codes related to the software all fit the contents of this the document.
+
+\subsection{Definition}
+The terms referred to in this document are defined in the project glossary document (Glossary.pdf).
+
+\subsection{Bibliography}
+\begin{itemize}
+	\item[1.] <Object Oriented Software Engineering (Version 3)> (Tsinghua University Press)
+	\item[2.] <Object Oriented Software Engineering Practice Guidelines> 
+\end{itemize}
+
+\subsection{Sketch}
+The document is made up of 6 parts, i.e., testing strategies, testing ranges \& methods, testing use cases, testing environment, testing timetable, and risk management. Testing strategy arranges the event flow of our testing procedure. Testing range \& method plans the specific testing requirements and methods. Testing use cases give the specific content of testing. Testing environment fixes the requirements of software and hardware during the testing procedure. Testing timetable arranges the involving personnel and time. Risk management points out the possible risks. Each part of the document links with one another, and complements each other to show an overview of out testing procedure.
+
+\section{Testing Strategy}
+
+\subsection{Outlook}
+The table \ref{Testing Strategy Outlook} below shows the outlook of our testing strategy.
+
+\begin{table}[htb]
+	\centering
+
+	\begin{tabular}{|c|c|c|} 
+		\hline 
+		Testing Necessity&Involving Personnel&Predicted Result\\
+		\hline
+		Functional Test \& Compatibility Test&Xie Zhihui&\tabincell{c}{Make sure that under different\\ Android versions, all functions appointed \\by the users can be executed well.}\\
+		\hline
+		Performance Test&Wang Weizhe&\tabincell{c}{Test the response time of our \\program under different works.}\\
+		\hline
+		Safety Test&Chen Haoping&Test if the access to the data are normal.\\
+		\hline
+		Interface Test&Jiang Huangfei&\tabincell{c}{Test if the interface fits the \\standard or the usage of \\different access method.}\\
+		\hline
+		Installation Test&Song Yiwen&\tabincell{c}{Test if the software can \\be installed and uninstalled properly.}\\
+		\hline
+		Total Test&Song Yiwen&\tabincell{c}{Test if the software can \\be used in a general scope.}\\
+		\hline
+	\end{tabular}   
+	
+	\caption{Testing Strategy Outlook}\label{Testing Strategy Outlook}
+\end{table}
+
+\subsubsection{Entering Criterion}
+The entering condition of testing, i.e., the entering criterion, is that: the system is submitted, the software is released, the testing use cases have been designed, the testing environment has been set up, and the testing personnel are ready.
+
+\subsection{Pause / Exit Criterion}
+The pause criterion of testing is that bugs are discovered or the software collapsed during testing.
+
+The exit criterion of testing is that all system functions are tested. The number of problems that have severity level PI is 0. The testing use case are all done, and the testing document is submitted.
+
+\section{Testing Range and Method}
+\subsection{Subsystem Objects of Testing}
+The subsystems that need to be tested are: Login subsystem, Recommendation subsystem, Customization subsystem.
+
+The subsystems that don’t need to be tested are: Feedback subsystem.
+
+\subsection{Testing Requirement}
+\subsubsection{Fundamental Requirement}
+The testing requirements of the use cases are listed in the following table. 
+
+\begin{table}[htb]
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	\begin{tabular}[c]{@{}c@{}}Use Case\end{tabular}       & Function                                                                                          & Index & Requirements                                                                                                                                                                                                                                                         & Method \\ \hline
+	Register                                                   & \begin{tabular}[c]{@{}c@{}}Add   a new user\end{tabular}                                        & TR-01 & \begin{tabular}[c]{@{}c@{}}1. User information should\\   include username, password, e-mail.\\   2.   Non-repeatable username and\\   e-mail.\\   3.   E-mail should be  legally-formatted. \\Password should be 4-10 characters.\end{tabular} & BB/MT. \\ \hline
+	Login                                                      & \begin{tabular}[c]{@{}c@{}}Enter the system if e-mail \\\ and password is correct.\end{tabular}   & TR-02 & \begin{tabular}[c]{@{}c@{}}1.   Check if the e-mail and\\   password exists in the database.\\   2.   All inputs should be\\   non-empty.\end{tabular}                                                                                                   & BB/MT. \\ \hline
+	Recommend                                                  & \begin{tabular}[c]{@{}c@{}}Recommend an itinerary \\ according to the user’s likes.\end{tabular} & TR-03 & \begin{tabular}[c]{@{}c@{}}1.   The user’s like should be evaluated by \\an integer list ranging from 1 to 4.\\   2.   Recommended itinerary should\\   be correctly shown on map.\end{tabular}                                                        & BB/AT. \\ \hline
+	Customize                                                  & \begin{tabular}[c]{@{}c@{}}User customize itinerary\end{tabular}                              & TR-04 & \begin{tabular}[c]{@{}c@{}}User can select the spots they would like\\ to go sequentially.\end{tabular}                                                                                                                                                            & BB/MT  \\ \hline
+	\begin{tabular}[c]{@{}c@{}}View\\   Itinerary\end{tabular} & \begin{tabular}[c]{@{}c@{}}Show itinerary on map\end{tabular}                                 & TR-05 & \begin{tabular}[c]{@{}c@{}}1.   Click on the spot on map and\\   a spot information page will pop out.\\   2.   The itinerary should be\\   displayed properly.\end{tabular}                                                                             & BB/MT  \\ \hline
+	\end{tabular}
+
+	\caption{Fundamental Requirement(Abbreviations for testing method: BB=Black Box, WB=White Box, MT=Manual Test, AT=Auto Test.)}
+	\end{table}
+
+	\newpage
+
+	\subsubsection{Other Requirement}
+
+	\begin{table}[htb]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		Requirements & \begin{tabular}[c]{@{}c@{}}Need\\   to be tested?\end{tabular} & \begin{tabular}[c]{@{}c@{}}Test\\   demands\end{tabular}             & \begin{tabular}[c]{@{}c@{}}Test\\   methods\end{tabular} \\ \hline
+		Usability    & Y                                                              & \begin{tabular}[c]{@{}c@{}}System\\   has full function\end{tabular} & BB                                                       \\ \hline
+		Reliability  & Y                                                              & \begin{tabular}[c]{@{}c@{}}Safety\\   test.\end{tabular}             & MT                                                       \\ \hline
+		Performance  & Y                                                              & \begin{tabular}[c]{@{}c@{}}Performance\\   test.\end{tabular}        & AT                                                       \\ \hline
+		Stability    & Y                                                              & \begin{tabular}[c]{@{}c@{}}Compatibility\\   test.\end{tabular}      & BB/MT                                                    \\ \hline
+		\end{tabular}
+
+		\caption{Other Requirement}
+		\end{table}
+
+\section{Testing Use Case}
+Testing use cases are shown in Table [\ref{Testing Use Case Table (1)} - \ref{Testing Use Case Table (3)}].
+
+\begin{table}[htb]
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	\begin{tabular}[c]{@{}c@{}}Required\\   Item\end{tabular} & Index                      & \begin{tabular}[c]{@{}c@{}}Use\\   Case Index\end{tabular} & \multicolumn{2}{c|}{Use Case}                                                                             \\ \hline
+	\multirow{28}{*}{UR-01-Register}                         & \multirow{28}{*}{TR-01-01} & \multirow{7}{*}{TR-01-01-01}                               & Name     & Detect if the e-mail address is legal                                                          \\ \cline{4-5} 
+															 &                            &                                                            & Object   & Registration Page                                                                              \\ \cline{4-5} 
+															 &                            &                                                            & Priority & Middle                                                                                         \\ \cline{4-5} 
+															 &                            &                                                            & Input    & abcd/(EMPTY)/abc@d                                                                             \\ \cline{4-5} 
+															 &                            &                                                            & Output   & Not a legal address                                                                            \\ \cline{4-5} 
+															 &                            &                                                            & Step     & If the address is illegal, pop a warning                                                       \\ \cline{4-5} 
+															 &                            &                                                            & Method   & MT/WB                                                                                          \\ \cline{3-5} 
+															 &                            & \multirow{7}{*}{TR-01-01-02}                               & Name     & \begin{tabular}[c]{@{}c@{}}Detect if the username is longer\\   than 6 characters\end{tabular} \\ \cline{4-5} 
+															 &                            &                                                            & Object   & Registration Page                                                                              \\ \cline{4-5} 
+															 &                            &                                                            & Priority & Middle                                                                                         \\ \cline{4-5} 
+															 &                            &                                                            & Input    & abcd                                                                                           \\ \cline{4-5} 
+															 &                            &                                                            & Output   & Username should be more than 6 characters                                                      \\ \cline{4-5} 
+															 &                            &                                                            & Step     & If the input is illegal, pop a warning                                                         \\ \cline{4-5} 
+															 &                            &                                                            & Method   & MT                                                                                             \\ \cline{3-5} 
+															 &                            & \multirow{7}{*}{TR-01-01-03}                               & Name     & Check if the username or email exists                                                          \\ \cline{4-5} 
+															 &                            &                                                            & Object   & Registration Page                                                                              \\ \cline{4-5} 
+															 &                            &                                                            & Priority & High                                                                                           \\ \cline{4-5} 
+															 &                            &                                                            & Input    & abcd@163.com                                                                                   \\ \cline{4-5} 
+															 &                            &                                                            & Output   & E-mail already exists                                                                          \\ \cline{4-5} 
+															 &                            &                                                            & Step     & If the username or e-mail exists, pop a warning                                                \\ \cline{4-5} 
+															 &                            &                                                            & Method   & MT/WB                                                                                          \\ \cline{3-5} 
+															 &                            & \multirow{7}{*}{TR-01-02-01}                               & Name     & \tabincell{c}{Detect if the password length \\is more than 6 characters}                                        \\ \cline{4-5} 
+															 &                            &                                                            & Object   & Registration Page                                                                              \\ \cline{4-5} 
+															 &                            &                                                            & Priority & Middle                                                                                         \\ \cline{4-5} 
+															 &                            &                                                            & Input    & abcd                                                                                           \\ \cline{4-5} 
+															 &                            &                                                            & Output   & Password should be more than 6 characters                                                      \\ \cline{4-5} 
+															 &                            &                                                            & Step     & If the input is illegal, pop a warning                                                         \\ \cline{4-5} 
+															 &                            &                                                            & Method   & MT                                                                                             \\ \hline
+	\multirow{14}{*}{UR-02-Login}                            & \multirow{14}{*}{TR-02-01} & \multirow{7}{*}{TR-02-01-01}                               & Name     & Detect if the e-mail address is legal                                                          \\ \cline{4-5} 
+															 &                            &                                                            & Object   & Login Page                                                                                     \\ \cline{4-5} 
+															 &                            &                                                            & Priority & Middle                                                                                         \\ \cline{4-5} 
+															 &                            &                                                            & Input    & abcd/(EMPTY)/abc@d                                                                             \\ \cline{4-5} 
+															 &                            &                                                            & Output   & Not a legal address                                                                            \\ \cline{4-5} 
+															 &                            &                                                            & Step     & If the address is illegal, pop a warning                                                       \\ \cline{4-5} 
+															 &                            &                                                            & Method   & MT/WB                                                                                          \\ \cline{3-5} 
+															 &                            & \multirow{7}{*}{TR-02-01-02}                               & Name     & Check if the e-mail fits the password                                                          \\ \cline{4-5} 
+															 &                            &                                                            & Object   & Login Page                                                                                     \\ \cline{4-5} 
+															 &                            &                                                            & Priority & High                                                                                           \\ \cline{4-5} 
+															 &                            &                                                            & Input    & abcd@163.com+1234567                                                                           \\ \cline{4-5} 
+															 &                            &                                                            & Output   & e-mail or password not correct                                                                 \\ \cline{4-5} 
+															 &                            &                                                            & Step     & \tabincell{c}{If the e-mail does not \\fit the password in our database, \\pop a warning}                       \\ \cline{4-5} 
+															 &                            &                                                            & Method   & MT/BB                                                                                          \\ \hline
+	\end{tabular}
+
+	\caption{Testing Use Case Table (1)}
+	\label{Testing Use Case Table (1)}
+	\end{table}
+
+	% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[htb]
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	\begin{tabular}[c]{@{}c@{}}Required\\   Item\end{tabular} & Index                      & \begin{tabular}[c]{@{}c@{}}Use\\   Case Index\end{tabular} & \multicolumn{2}{c|}{Use Case}                                                                  \\ \hline
+	\multirow{7}{*}{UR-03-Recommend}                         & \multirow{7}{*}{TR-03-01}  & \multirow{7}{*}{TR-03-01-01}                               & Name     & \tabincell{c}{Check if the itinerary can be\\ returned with any like input. }                        \\ \cline{4-5} 
+															 &                            &                                                            & Object   & Recommendation Page                                                                 \\ \cline{4-5} 
+															 &                            &                                                            & Priority & High                                                                                \\ \cline{4-5} 
+															 &                            &                                                            & Input    & \tabincell{c}{All possible combinations of input \\(12*4\textasciicircum{}6=49,152 kinds of input)  }\\ \cline{4-5} 
+															 &                            &                                                            & Output   & \tabincell{c}{The Itinerary page with\\ properly displayed itinerary  }                              \\ \cline{4-5} 
+															 &                            &                                                            & Step     & 
+															 \tabincell{c}{Use auto-generated test inputs \\ andcheck if the return\\ of database is non-empty    } \\ \cline{4-5} 
+															 &                            &                                                            & Method   & AT/BB                                                                               \\ \hline
+	\multirow{14}{*}{UR-04-Customization}                    & \multirow{14}{*}{TR-04-01} & \multirow{7}{*}{TR-04-01-01}                               & Name     & Check if any hotel can be selected                                                  \\ \cline{4-5} 
+															 &                            &                                                            & Object   & Customization kPage                                                                 \\ \cline{4-5} 
+															 &                            &                                                            & Priority & Middle                                                                              \\ \cline{4-5} 
+															 &                            &                                                            & Input    & Selection of a hotel                                                                \\ \cline{4-5} 
+															 &                            &                                                            & Output   & Selected                                                                            \\ \cline{4-5} 
+															 &                            &                                                            & Step     & \tabincell{c}{If a hotel is selected, \\ other hotels will be removed from the map  }                 \\ \cline{4-5} 
+															 &                            &                                                            & Method   & MT/BB                                                                               \\ \cline{3-5} 
+															 &                            & \multirow{7}{*}{TR-04-01-02}                               & Name     & Check if any sight can be selected                                                  \\ \cline{4-5} 
+															 &                            &                                                            & Object   & Customization kPage                                                                 \\ \cline{4-5} 
+															 &                            &                                                            & Priority & Middle                                                                              \\ \cline{4-5} 
+															 &                            &                                                            & Input    & Selection of a sight                                                                \\ \cline{4-5} 
+															 &                            &                                                            & Output   & Selected, route displayed                                                           \\ \cline{4-5} 
+															 &                            &                                                            & Step     & \tabincell{c}{If a sight is selected, \\a route going there will be displayed \\as well as this sight }\\ \cline{4-5} 
+															 &                            &                                                            & Method   & MT/BB                                                                               \\ \hline
+	\end{tabular}
+	\caption{Testing Use Case Table (2)}
+	\label{Testing Use Case Table (2)}
+
+	\end{table}
+
+	% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[htb]
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	\begin{tabular}[c]{@{}c@{}}Required\\   Item\end{tabular} & Index                      & \begin{tabular}[c]{@{}c@{}}Use\\   Case Index\end{tabular} & \multicolumn{2}{c|}{Use Case}                                                                                                                                                                                                                                                      \\ \hline
+	\multirow{35}{*}{UR-05-ViewItinerary}                    & \multirow{14}{*}{TR-05-01} & \multirow{7}{*}{TR-05-01-01}                               & Name     & \tabincell{c}{Check if the itinerary \\can be properly displayed  }                                                                                                                                                                                                                      \\ \cline{4-5} 
+															 &                            &                                                            & Object   & DisplayItinerary Page                                                                                                                                                                                                                                                   \\ \cline{4-5} 
+															 &                            &                                                            & Priority & High                                                                                                                                                                                                                                                                    \\ \cline{4-5} 
+															 &                            &                                                            & Input    & An itinerary from database                                                                                                                                                                                                                                              \\ \cline{4-5} 
+															 &                            &                                                            & Output   & The itinerary on the map                                                                                                                                                                                                                                                \\ \cline{4-5} 
+															 &                            &                                                            & Step     & \tabincell{c}{Send the itinerary from database \\and on the phone an itinerary \\on the map will be shown   }                                                                                                                                                                              \\ \cline{4-5} 
+															 &                            &                                                            & Method   & MT/WB                                                                                                                                                                                                                                                                   \\ \cline{3-5} 
+															 &                            & \multirow{7}{*}{TR-05-01-02}                               & Name     & \tabincell{c}{Check if the spot detail\\ page can be properly displayed   }                                                                                                                                                                                                              \\ \cline{4-5} 
+															 &                            &                                                            & Object   & DisplayItinerary Page                                                                                                                                                                                                                                                   \\ \cline{4-5} 
+															 &                            &                                                            & Priority & Middle                                                                                                                                                                                                                                                                  \\ \cline{4-5} 
+															 &                            &                                                            & Input    & A spot                                                                                                                                                                                                                                                                  \\ \cline{4-5} 
+															 &                            &                                                            & Output   & The spot detail page                                                                                                                                                                                                                                                    \\ \cline{4-5} 
+															 &                            &                                                            & Step     & \tabincell{c}{When click on a spot,\\ the spot detail page will be displayed. }                                                                                                                                                                                                          \\ \cline{4-5} 
+															 &                            &                                                            & Method   & MT/BB                                                                                                                                                                                                                                                                   \\ \cline{2-5} 
+															 & \multirow{21}{*}{TR-05-02} & \multirow{7}{*}{TR-05-02-01}                               & Name     & 
+															 \tabincell{c}{Check if the function works\\ in recommendation part }                                                                                                                                                                                                                     \\ \cline{4-5} 
+															 &                            &                                                            & Object   & DisplayItinerary Page                                                                                                                                                                                                                                                   \\ \cline{4-5} 
+															 &                            &                                                            & Priority & High                                                                                                                                                                                                                                                                    \\ \cline{4-5} 
+															 &                            &                                                            & Input    & Recommendation                                                                                                                                                                                                                                                          \\ \cline{4-5} 
+															 &                            &                                                            & Output   & Itinerary                                                                                                                                                                                                                                                               \\ \cline{4-5} 
+															 &                            &                                                            & Step     & \tabincell{c}{User select the likes \\and an itinerary will be displayed.    }                                                                                                                                                                                                           \\ \cline{4-5} 
+															 &                            &                                                            & Method   & MT/BB                                                                                                                                                                                                                                                                   \\ \cline{3-5} 
+															 &                            & \multirow{7}{*}{TR-05-02-02}                               & Name     & \tabincell{c}{Check if the function \\works in customization part }                                                                                                                                                                                                                      \\ \cline{4-5} 
+															 &                            &                                                            & Object   & DisplayItinerary Page                                                                                                                                                                                                                                                   \\ \cline{4-5} 
+															 &                            &                                                            & Priority & High                                                                                                                                                                                                                                                                    \\ \cline{4-5} 
+															 &                            &                                                            & Input    & Customization                                                                                                                                                                                                                                                           \\ \cline{4-5} 
+															 &                            &                                                            & Output   & Itinerary                                                                                                                                                                                                                                                               \\ \cline{4-5} 
+															 &                            &                                                            & Step     & \tabincell{c}{User inputs his/her\\ customization and the selection\\ will be properly displayed    }                                                                                                                                                                                      \\ \cline{4-5} 
+															 &                            &                                                            & Method   & MT/BB                                                                                                                                                                                                                                                                   \\ \cline{3-5} 
+															 &                            & \multirow{7}{*}{TR-05-02-03}                               & Name     & Check if the function works in recovery part                                                                                                                                                                                                                            \\ \cline{4-5} 
+															 &                            &                                                            & Object   & DisplayItinerary Page                                                                                                                                                                                                                                                   \\ \cline{4-5} 
+															 &                            &                                                            & Priority & High                                                                                                                                                                                                                                                                    \\ \cline{4-5} 
+															 &                            &                                                            & Input    & RecoveryID                                                                                                                                                                                                                                                              \\ \cline{4-5} 
+															 &                            &                                                            & Output   & Itinerary                                                                                                                                                                                                                                                               \\ \cline{4-5} 
+															 &                            &                                                            & Step     & \begin{tabular}[c]{@{}c@{}}The itinerary is saved in the\\   database with a specific recovery ID. \\The frontend sends the recovery ID to\\   backend and then database sends \\itinerary to frontend. Finally the itineray\\   should be displayed properly.\end{tabular} \\ \cline{4-5} 
+															 &                            &                                                            & Method   & AT/WB                                                                                                                                                                                                                                                                   \\ \hline
+	\end{tabular}
+	\caption{Testing Use Case Table (3)}
+	\label{Testing Use Case Table (3)}
+	\end{table}
+
+	\newpage
+
+	\section{Testing Environment}
+	\subsection{Hardware Environment}
+	\paragraph{\underline{Server}}
+	A laptop with Intel Core I5-6550H, 8GB Memory and 1TB Hard Disk.
+
+	\paragraph{\underline{Client}}An Android smart phone with Qualcomm 835 Processor, 4GB RAM and 64GB; An Android smart phone with Kirin 960 Processor, 4GB RAM and 64GB ROM.
+
+	\subsection{Software Environment}
+	\paragraph{\underline{Server}}
+	\subparagraph{OS} Microsoft Windows 10.
+	\subparagraph{Server Software} Apache Tomcat.
+	\subparagraph{Development Software} NetBeans.
+	\subparagraph{Development Language} Java Web 8.0.
+
+	\paragraph{\underline{Client}}
+	\subparagraph{OS} Android 9.0.
+
+	\subsection{Communication Environment}
+	\paragraph{\underline{Server}} 100 Mbps of WAN connection, WIFI/WLAN or Cellular Network.
+	\paragraph{\underline{Client}} WLAN or Cellular Network.
+
+	\subsection{Safety Environment}
+	The server should have specific authority control in case of illegal access.
+
+	\subsection{Specific Environment Requirement}
+	None.
+
+	\section{Testing Plan}
+	\subsection{Workload Estimation}
+	Workload estimation is shown in Table \ref{Workload Estimation}.
+	
+	\begin{table}[htb]
+		\centering
+		\begin{tabular}{|c|c|c|}
+		\hline
+		Stage            & Workload (Person*Day) & Percentage \\ \hline
+		Test Plan        & 2                     & 14\%       \\ \hline
+		Test Design      & 5                     & 33\%       \\ \hline
+		Test Preparation & 1                     & 6\%        \\ \hline
+		Test Performance & 5                     & 33\%       \\ \hline
+		Test Evaluation  & 2                     & 14\%       \\ \hline
+		\end{tabular}
+
+		\caption{Workload Estimation}
+		\label{Workload Estimation}
+		\end{table}
+
+
+	\subsection{Personnel Requirement}
+	Personnel Requirement is shown in Table \ref{Personnel Requirement}.
+	
+	\begin{table}[htb]
+		\centering
+		\begin{tabular}{|c|c|c|}
+		\hline
+		Role           & Personnel  & Job                                                                                                                                                    \\ \hline
+		Test Manager   & Song Yiwen & \begin{tabular}[c]{@{}c@{}}Manage the whole process of testing. Adjust the\\   testing process according to real situations.\end{tabular}              \\ \hline
+		Test Planner   & Xie Zhihui & \begin{tabular}[c]{@{}c@{}}Plan the details of testing process according to\\   technical details and user requirements.\end{tabular}                  \\ \hline
+		Test Performer & All others & \begin{tabular}[c]{@{}c@{}}Perform testing as planned. Report the test result\\   and evaluate the possible faults that leads to failure.\end{tabular} \\ \hline
+		\end{tabular}
+		\caption{Personnel Requirement}
+		\label{Personnel Requirement}
+		\end{table}
+
+	\subsection{Progress Plan}
+	Progress Plan is shown in Table \ref{Progress Plan}.
+
+	\begin{table}[htb]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		Milestone   & Start     & End       & Remark                                                                                               \\ \hline
+		Planning    & 2019.6.14 & 2019.6.15 & Complete the test planning.                                                                          \\ \hline
+		Designing   & 2019.6.15 & 2019.6.16 & Complete designing test procedure.                                                                   \\ \hline
+		Preparation & 2019.6.16 & 2019.6.16 & Prepare for testing.                                                                                 \\ \hline
+		Execution   & 2019.6.16 & 2019.6.18 & Complete all the planned testing procedures.                                                         \\ \hline
+		Evaluation  & 2019.6.18 & 2019.6.20 & \begin{tabular}[c]{@{}c@{}}Evaluate the test results and complete the test\\   summary.\end{tabular} \\ \hline
+		\end{tabular}
+		\caption{Progress Plan}
+		\label{Progress Plan}
+		\end{table}  
+
+	\subsection{Other Resource Requirement}
+	None.
+	  
+	\subsection{Delivered Document}
+	\begin{itemize}
+		\item Software Testing Plan
+		\item Software Testing summary
+	\end{itemize}
+
+	\subsection{Risk Management}
+	Risk management is shown in Table \ref{Risk Management}.
+
+	\begin{table}[htb]
+		\centering
+		\begin{tabular}{|c|c|c|}
+		\hline
+		Risk                                                                                                        & Percentage & Negative Effect \\ \hline
+		\begin{tabular}[c]{@{}c@{}}Serious failure happens that the software can’t run\\   normally\end{tabular}    & 5          & 10              \\ \hline
+		Use cases are not designed completely                                                                       & 35         & 8               \\ \hline
+		\begin{tabular}[c]{@{}c@{}}Too many use cases that the test time costs more\\   than predicted\end{tabular} & 10         & 6               \\ \hline
+		Not enough personnel                                                                                        & 20         & 6               \\ \hline
+		\end{tabular}
+		\caption{Risk Management}
+		\label{Risk Management}
+		\end{table}
+\end{document}
