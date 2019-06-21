@@ -1,0 +1,8 @@
+jsf-helloworld
+©¦  build.xml
+©À©¤src	//java code
+©À©¤build
+©À©¤nbproject
+©À©¤build
+©À©¤libs	//libraries that we use
+©¸©¤web	//configuration for our web server
