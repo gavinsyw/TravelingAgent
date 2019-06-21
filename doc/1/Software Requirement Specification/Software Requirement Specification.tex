@@ -137,14 +137,14 @@ We have following functions.
 
 \paragraph{\underline{Make Plan on City}} After user’s selecting a certain city, system will produce a travel plan according to user’s different requirements.
 
-\paragraph{\underline{Simulate a Trip}} Users can select scenic spots one by one, then system will simulate a trip and give user a fact-based experience feedback.
+\paragraph{\underline{Customize a Trip}} Users can select scenic spots one by one, then system will simulate a trip and give user a fact-based experience feedback.
 
 \paragraph{\underline{Give a Feedback}} Users can report the opinions about our system or their usage experience to us by our reporting interface.
 
 \paragraph{\underline{Other Non-functional Requirement}}
 \begin{itemize}
 	\item[1.] The data of users should be protected against vicious hacking.
-	\item[2.]	Simulation should be close to fact as much as possible.
+	\item[2.]	Customization information should be close to fact as much as possible.
 	\item[3.]	Normally, the response time of our system should not be longer than 30s.
 	\item[4.]	The UI should be beautiful and activate user’s desire to have a trip.
 	\item[5.]	Statistics must be made.
@@ -153,7 +153,7 @@ We have following functions.
 
 \section{Targer System}
 \subsection{Sketch}
-Our project includes functional requirements and non-functional requirements. Functional requirements can be summarized as making a plan and simulation of tourism, while non-functional requirements consist of response time, security, apperance and so on.
+Our project includes functional requirements and non-functional requirements. Functional requirements can be summarized as making a plan and customization of tourism, while non-functional requirements consist of response time, security, apperance and so on.
 
 \subsection{Functional Requirement}
 JAS provides users a handy tool to organize and manage their journey according to their kinds of requirements. 
@@ -162,12 +162,12 @@ First of all, it can help normal users to know more about the destination, such 
 
 During selecting condition, in order to produce a accurate and practical plan, system will provide users with different choices instead of letting them enter demands arbitrarily.
 
-In addition, JAS also offer a powerful tool to simulate a real trip and give users a feedback about experience.
+In addition, JAS also offer a powerful tool to customization a real trip and give users a feedback about experience.
 
 Sometime users may not have time to have a trip, however, they still want to get some experience. With our application, time and money will not be constraints to our users anymore.
 They can go through their trip virtually, while our system can give them a real experience.
 
-When users try to enjoy our simulation service, they also need to select a city at first. After city is decided, users can begin to choose the scenic spots. Each choice will be sent to the backend. After a nice and related cartoon, system will give a real feedback about this travel experience. Of course, feedback won’t be the same all the time, since we add some related random incidents to it. For example, if you choose a college as your destination, you may have a special experience with cute cats living in it! About the feedback, we will provide three types: some sentences (more sentient), some words (more accurate) and GAN’s perspective (Generative Adversarial Network). 
+When users try to enjoy our customization service, they also need to select a city at first. After city is decided, users can begin to choose the scenic spots. Each choice will be sent to the backend. After a nice and related cartoon, system will give a real feedback about this travel experience. Of course, feedback won’t be the same all the time, since we add some related random incidents to it. For example, if you choose a college as your destination, you may have a special experience with cute cats living in it! About the feedback, we will provide three types: some sentences (more sentient), some words (more accurate) and GAN’s perspective (Generative Adversarial Network). 
 
 As a wonderful application, the feedback of users can’t be ignored. With a report interface, we can learn about our drawbacks and advantages in time.
 
@@ -176,7 +176,7 @@ Report will be conveyed to us through backend. When users begin to write a repor
 \subsection{Non-functional Requirement}
 \begin{itemize}
 	\item[1.]Special security should be taken because the data of users cannot be leaked.
-	\item[2.] As a featured function, simulation must be as real as possible, since this is why users choose our application.
+	\item[2.] As a featured function, customization information must be as real as possible, since this is why users choose our application.
 	\item[3.]  Response time should be as short as possible and had better not be longer than 30s. A loading flash should be displayed when users are waiting.
 	\item[4.] Some data of users should be accessed so that we can make a better and personal recommendation.
 	\item[5.]Users interface should be attractive, some related information can be displayed at first.
@@ -275,7 +275,7 @@ Select Destination&Sub-function Level&\tabincell{c}{For the software to find \\c
 Itinerary
 Recommendation&User Target Level&\tabincell{c}{In this section, user are recommended to several\\ packaged  itineraries and he can select one of them.}\\
 			\hline
-Simulation&User Target Level&\\	
+Customization&User Target Level&\\	
 			\hline
 Generation&User Target Level&\\
 			\hline
@@ -305,12 +305,12 @@ Feedback&User Target Level&\\
 		If the input is not valid by the validity check, the system will give out a warning and the user should try it again.
 
 		\paragraph{\underline{Select Destination}}
-		\subparagraph{Definition} This is the requirement description for the Select Destination use case. Select Destination use case is for everyone who wants to make their journey plan or have simulated journeys. The user can only select destination cities from a list we give, which we have their information in our database. Input a city that is not recorded is not permitted.
+		\subparagraph{Definition} This is the requirement description for the Select Destination use case. Select Destination use case is for everyone who wants to make their journey plan or customize their journeys. The user can only select destination cities from a list we give, which we have their information in our database. Input a city that is not recorded is not permitted.
 
 		\subparagraph{Preconditions and Post Conditions}
 		\begin{itemize}
 			\item The user has successfully logged in to the system.
-			\item After the user has selected a destination city, he/she can make journey plans in the city or have simulated journeys.
+			\item After the user has selected a destination city, he/she can make journey plans in the city or customize their journeys.
 		\end{itemize}
 
 		\subparagraph{Basic Scenarios}
@@ -343,9 +343,9 @@ Feedback&User Target Level&\\
 		\subparagraph{Exception or Branches}
 		If the user does not want any of the journey plan, he can click the "no wanted" button, and the system will recommend another journey plan for him.
 
-		\paragraph{\underline{Simulation}}
+		\paragraph{\underline{Customization}}
 		\subparagraph{Definition}
-		This is the use case of simulation part, which is also the core part in our travel assistant. Users can choose scenic spot one by one on our simulation map, according to the spots information we posted on it.
+		This is the use case of customization part, which is also the core part in our travel assistant. Users can choose scenic spot one by one on our customization map, according to the spots information we posted on it.
 
 		\subparagraph{Preconditions and Post Conditions}
 		\begin{itemize}
@@ -354,14 +354,14 @@ Feedback&User Target Level&\\
 				\item[(b)] A map with every attraction of this city should be available to the user.
 				\item[(c)] Each attraction has detailed information on the basic introduction, recommended spending time, the specialty and others’ comments, etc. 
 			\end{itemize}
-			\item When the user finished the simulation and clicked a “finished” button, this use case is over and will turn to the generation part.
+			\item When the user finished the customization and clicked a “finished” button, this use case is over and will turn to the generation part.
 		\end{itemize}
 
 		\subparagraph{Basic Scenarios} 
 		\begin{itemize}
-			\item[1.]	User enter the simulation interface.
-			\item[2.]	User glance over all of the attractions on the simulation map
-			\item[3.]	Therefore,  can user choose the first attraction of the city on our simulation map.
+			\item[1.]	User enter the customization interface.
+			\item[2.]	User glance over all of the attractions on the customization map
+			\item[3.]	Therefore,  can user choose the first attraction of the city on our customization map.
 			\item[4.] The basic information of attractions nearby will be output automatically in the form of card.
 			\item[5.]User could choose to select the nearby attraction or other attractions as he wanted to be the next station.
 			\item[6.] Then user will repeat step d and e until he want to put an end on this journey.
@@ -397,7 +397,7 @@ Feedback&User Target Level&\\
 
 		 \paragraph{\underline{Generation}}
 		 \subparagraph{Definition}
-		 This use case allows admin to confirm the final travel plan and share it with others. After the admin has chosen plans we suggested or simulate by himself, he can generate a result in the form of lists or posters. Therefore, he could use it conveniently during the tour or share it with their companions or other friends before the tour.
+		 This use case allows admin to confirm the final travel plan and share it with others. After the admin has chosen plans we suggested or customized by himself, he can generate a result in the form of lists or posters. Therefore, he could use it conveniently during the tour or share it with their companions or other friends before the tour.
 
 		 \subparagraph{Preconditions and Post Conditions}
 		 \begin{itemize}
